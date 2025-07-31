@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-<!--
+  <!--
   Luna                   Elprofe
                           despúes de ver que le meti html y css 
   ( •n•)              (•'_´• )
@@ -36,6 +36,7 @@
   <link rel="stylesheet" href="styles.css" />
   <!-- Link JS-->
   <script defer src="main.js"></script>
+  <script defer src="components.js"></script>
   <link rel="stylesheet" href="styles/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -112,20 +113,88 @@
     </section>
 
     <section id="inicio-testimonios">
-      <h2>Nuestros detectives comentan</h2>
+      <div class="testimonios-container">
+        <div class="testimonios-encabezado">
+          <div class="testimonios-title">
+            <h3 style="margin: 5% auto;">Nuestros detectives comentan</h3>
+          </div>
+        </div>
+        <div class="testimonios-cards">
+          <div class="testimonio-card">
+            <p>“La sala no tiene salida porque ‘la vida tampoco la tiene’.. Nos quedamos media hora discutiendo si
+              deberíamos escapar o aceptar el vacío.” <br>
+              — Lucho S., sala <strong>Dios ha muerto... y no dejó instrucciones</strong></p>
+            <div class="testimonio-avatar-usuario">
 
+              <img src="assets/defaultAvatar.png" alt="avatar de usuario">
+            </div>
+          </div>
+          <div class="testimonio-card">
+            <p>“Una guerra épica entre macetas, regaderas y gnomos armados con cucharitas. Épico no, lo siguiente.”
+              <br>
+              — Karen F., sala <strong>Operación: ¡Contradefensa de la invasión Gnómica en el Jardín!</strong>
+            </p>
+
+            <div class="testimonio-avatar-usuario">
+              <img src="assets/defaultAvatar.png" alt="avatar de usuario">
+            </div>
+
+          </div>
+          <div class="testimonio-card">
+            <p>“Entré a la sala pensando que iba a volar una escoba y terminé armando una cooperativa de brujas
+              monotributistas. Kiki tenía que entregar un latte matcha de starbrooks a una
+              milipili palermitana que se nos botó al pasar por una manifestación.Spoiler: el gato no
+              ayuda, pero critica todo.” <br>
+              — Lara S., sala <strong>Kiki Delivery Crisis </strong></p>
+            <div class="testimonio-avatar-usuario">
+              <img src="assets/defaultAvatar.png" alt="avatar de usuario">
+            </div>
+          </div>
+        </div>
+        <div class="testimonios-searchbar">
+          <input id="testimonios-searchbar-puzzle" type="text" placeholder="I">
+          <div class="testimonios-icono-buscador">
+            <img src="assets/buscadorIcon.png" alt="icono barra del buscador, lupa">
+          </div>
+        </div>
+
+      </div>
     </section>
 
     <section id="inicio-sala-personalizada">
       <!-- *// tarjeta 1 de la sala personalizada /* -->
-      <h2>Salas personalizadas </h2>
-      <h3>sala personalizada</h3>
-      <p>Cómo funciona?</p>
+      <div class="sala-personalizada-container">
+        <div class="sala-personalizada-firstcolumn">
+          <div class="comofunciona">
+            <div class="comofunciona-button"><button>Cómo funciona?</button></div>
+          </div>
+          <div class="sala-personalizada-encabezado">
+            <div class="sala-personalizada-title">
+              <h3>sala personalizadas</h3>
+            </div>
+          </div>
+        </div>
+        <div class="sala-personalizada-container-base">
+          <div class="sala-personalizada-baseblanco">
+            <div class="sala-personalizada-bar"></div>
+            <div class="sala-personalizada-bar"></div>
+            <div class="sala-personalizada-bar"></div>
+            <div class="sala-personalizada-bar"></div>
+          </div>
+          <p>transforma tus EVENTOS en RECUERDOS INOLVIDABLES</p>
+          <div class="fondo-botton"><button> <img src="assets/ButtonIcon.png" alt="icono boton para saber más"></button></div>
+        </div>
+        <!-- *// por aca van los dos "stickers" /* 
+         <h2>Salas personalizadas </h2>
       <p>Descuentos Cumpleaños</p>
-      <p>25%</p>
-      <p>transforma tus EVENTOS en RECUERDOS INOLVIDABLES</p>
+      <p>25%</p>-->
+      </div>
 
-      <!-- *// tarjeta 2  de la sala personalizada /* -->
+
+
+
+
+      <!-- *// tarjeta 2  de la sala personalizada
       <h2>Cómo funciona? </h2>
       <p>Nos comentas la temática y ambientación de preferencia,
         nosotros nos encargamos de
@@ -135,6 +204,7 @@
       <h3>“</h3>
       <p>VOS pones la IDEA, nosotros la hacemos realidad</p>
       <h3>”</h3>
+      /* -->
     </section>
 
   </main>
@@ -148,10 +218,11 @@
             <li><a href="https://github.com/LunaBujalesky"><img src="/assets/github.png"
                   alt="Logo de Github con link"></a>
             </li>
-            <li>
-              <div class="index-logo"><a href="index.html"><img src="/assets/home.png"
-                    alt="Icono de una casa con enlace a inicio"></a></div>
-            </li>
+            <div class="index-logo">
+              <li>
+                <a href="index.html"><img src="/assets/home.png" alt="Icono de una casa con enlace a inicio"></a>
+              </li>
+            </div>
             <li><a href="https://www.linkedin.com/in/luna-bujalesky-b60561267/"><img src="assets/linkedin.png"
                   alt="Icono de Linkedin con enlace"></a></li>
             <li><a href="https://www.instagram.com/soleiatelier/"><img src="assets/instagram.png"

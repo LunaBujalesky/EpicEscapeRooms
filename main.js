@@ -141,3 +141,38 @@ window.addEventListener("load", () => {
 }
 );
 
+// Guardar datos  iniciar sesion* ...................................-->
+
+localStorage.setItem("nombre", nombre + "email", email + "contraseña", contraseña + "fechaNacimiento", fechaNacimiento);
+
+// Recuperar datos de localStorage
+const nombre = localStorage.getItem("nombre");
+const email = localStorage.getItem("email");
+const contraseña = localStorage.getItem("contraseña");
+
+//remover datos de localStorage
+localStorage.removeItem("nombre");
+
+// convertir objeto a string ...................................-->
+const usuario = {
+    nombre: localStorage.getItem("nombre"),
+    email: localStorage.getItem("email"),
+    contraseña: localStorage.getItem("contraseña"),
+    fechaNacimiento: localStorage.getItem("fechaNacimiento")
+};
+
+JSON.stringify(localStorage.getItem("fechaNacimiento"));
+
+console.log (usuarioJSON = JSON.stringify(usuario));
+localStorage.setItem("usuario", usuarioJSON);
+
+const usuarioJSON =  JSON.stringify(usuario),  {
+    nombre: localStorage.getItem ("nombre"),
+    email: localStorage.getItem("email"),
+    contraseña: localStorage.getItem("contraseña"),
+    fechaNacimiento: localStorage.getItem("fechaNacimiento"),
+};
+
+//recuperar datos de localStorage
+console.log (localStorage.getItem ("nombre"));
+

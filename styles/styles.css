@@ -5,6 +5,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
+  background-color: whitesmoke;
 }
 
 main {
@@ -169,28 +170,299 @@ h2 {
   margin: 10rem 0 0 20rem;
 }
 
+/* Textimonios--------------------------------------------------- */
+.testimonios-container {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.testimonios-encabezado {
+  background-color: black;
+  border-radius: 13px;
+  width: 922px;
+  height: 177px;
+  display: flex;
+  flex-direction: row;
+  align-self: flex-end;
+  margin-right: 16%;
+}
+
+.testimonios-title {
+  font-family: "JetBrains Mono";
+  font-size: 14px;
+  font-weight: 800;
+  color: whitesmoke;
+  text-align: center;
+  border-style: outset;
+  border-color: whitesmoke;
+  border-radius: 9px;
+  letter-spacing: 1rem;
+  width: 873px;
+  height: 121px;
+  margin: 3% auto;
+}
+
+.testimonios-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  height: fit-content;
+  margin: -60px auto 27px 16%;
+}
+
+.testimonio-card {
+  width: 394px;
+  height: 264px;
+  background-color: black;
+  border-radius: 102px 111px 98px 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1),
+    /* brillo suave claro */ 0 0 20px rgba(255, 255, 255, 0.15); /* efecto glow alrededor */
+}
+
+.testimonio-card:hover {
+  /* efecto glow alrededor */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  background-color: whitesmoke;
+}
+
+.testimonio-card p {
+  font-family: "JetBrains Mono";
+  display: none;
+}
+
+.testimonio-avatar-usuario {
+  visibility: visible;
+  width: 77px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d9d9d9;
+  border-radius: 102px 0 0 111px;
+}
+
+.testimonio-card:hover * {
+  visibility: hidden;
+  display: none !important;
+  margin: 0 !important;
+}
+.testimonio-card:hover p {
+  visibility: visible !important;
+  display: block !important;
+  height: fit-content;
+  padding: 0 10% 0 10%;
+
+  font-weight: lighter;
+  font-size: 14px;
+  color: black;
+  text-align: center;
+}
+
+.testimonio-card:hover p strong {
+  visibility: visible !important;
+  display: block !important;
+  font-weight: bold;
+}
+.testimonios-searchbar {
+  width: 797px;
+  height: 99px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: black;
+  border-radius: 65px;
+  align-self: flex-start;
+  margin-left: 18%;
+}
+input {
+  appearance: none;
+  outline: none;
+  border: none;
+  background: none;
+  font-family: "JetBrains Mono";
+  color: whitesmoke;
+  font-size: 40px;
+  font-weight: lighter;
+}
+
+input:placeholder-shown {
+  animation: parpadeo 1s steps(2, start) infinite;
+}
+
+@keyframes parpadeo {
+  to {
+    opacity: 0;
+  }
+}
+
+/* sala personalizada sección y cards -------------------------------------------------------------*/
+.sala-personalizada-container {
+  width: 100%;
+  height: 1000px;
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sala-personalizada-firstcolumn {
+  width: 1104px;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.comofunciona {
+  width: 235px;
+  height: 79px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 45px;
+  border-style: solid;
+  border-width: 16px;
+  border-color: whitesmoke;
+  background-color: black;
+  margin-right: 12%;
+  margin-bottom: -38px;
+  z-index: 10;
+}
+
+.comofunciona-button:hover {
+  width: 235px;
+  height: 79px;
+  background-color: whitesmoke;
+  color: black;
+  font-family: "JetBrains Mono";
+  font-size: 16px;
+  font-weight: lighter;
+  cursor: pointer;
+}
+.comofunciona-button button {
+  background-color: transparent;
+  border: none;
+  color: whitesmoke;
+  font-family: "JetBrains Mono";
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.sala-personalizada-encabezado {
+  width: 603px;
+  height: 116px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  border-radius: 77px 26px 0 0;
+  margin-top: 10px;
+  margin-bottom: -4px;
+}
+
+.sala-personalizada-title {
+  font-family: "JetBrains Mono";
+  font-size: 15px;
+  font-weight: lighter;
+  color: whitesmoke;
+  background-color: transparent;
+  text-align: center;
+  border-style: inset;
+  border-width: 1.5px;
+  border-color: whitesmoke;
+  border-radius: 77px 0 0 6px;
+  letter-spacing: 1rem;
+  width: 573px;
+  height: 71px;
+}
+
+.sala-personalizada-container-base {
+  width: 1104px;
+  height: 550px;
+  border-radius: 77px 0px 6px 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  background-color: black;
+  position: relative;
+}
+.sala-personalizada-baseblanco {
+  background-color: whitesmoke;
+  width: 1104px;
+  height: 420px;
+  border-radius: 77px 0 6px 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-right: 30px;
+
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+  position: absolute;
+}
+
+.sala-personalizada-bar {
+  border-width: 0.4px;
+  border-style: solid;
+  border-color: rgb(41, 41, 41);
+  width: 976px;
+}
+.fondo-botton {
+  background-color: whitesmoke;
+  width: 300px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  margin-right:  60px;
+  position: relative;
+  transform: translateY(220px);
+}
+
+.fondo-botton button {
+  background-color: black;
+  border-radius: 20px 26px 77px 71px;
+  width: 189px;
+  height: 65px;
+  border-style: none;
+  margin-top: -60px;
+}
+
 /* footer */
 
 .footer-container-nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
   width: 80%;
   height: 100px;
   background-color: black;
   margin: auto;
   border-radius: 65px;
 }
-.header-nav-container ul {
+
+.footer-container-nav ul {
+  gap: 1rem;
   display: flex;
   flex-direction: row;
-  list-style: none;
-  gap: 1rem;
-  margin-top: 76px;
+  justify-content: space-evenly;
+  align-items: center;
 }
-.footer-container-nav a {
-  display: inline-block;
+.footer-container-nav li {
   list-style: none;
 }
 
@@ -206,11 +478,25 @@ h2 {
 }
 
 .index-logo {
-  width: 60px;
-  height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
   border-radius: 100%;
   border-style: solid;
   border-color: whitesmoke;
   border-width: 4px;
-  margin: auto;
+  background-color: black;
+  margin-top: -68px;
+}
+
+.index-logo img {
+  width: 55px;
+  height: fit-content;
+}
+
+.index-logo:hover {
+  transform: translateY(8px) scale(1.1);
 }
