@@ -134,12 +134,16 @@ window.addEventListener("load", () => {
             iniciarSesion();
 
         } else {
-            alert("Respuesta inválida. Por favor, responde con 'si' para crear una cuenta o 'no' para iniciar sesión.");
+            alert("Respuesta inválida. Por favor, responde con 'si' para crear una cuenta o 'no' para iniciar sesión. Reinicie la web para reintentar");
         }
     }
     setTimeout(darBienvenida, 1000);
 }
 );
+
+//lo siguiente está a modo de notas de la clase ::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
 
 // Guardar datos  iniciar sesion* ...................................-->
 
@@ -153,7 +157,7 @@ const contraseña = localStorage.getItem("contraseña");
 //remover datos de localStorage
 localStorage.removeItem("nombre");
 
-// convertir objeto a string ...................................-->
+// Crear objeto con datos del localStorage
 const usuario = {
     nombre: localStorage.getItem("nombre"),
     email: localStorage.getItem("email"),
@@ -161,18 +165,13 @@ const usuario = {
     fechaNacimiento: localStorage.getItem("fechaNacimiento")
 };
 
-JSON.stringify(localStorage.getItem("fechaNacimiento"));
-
-console.log (usuarioJSON = JSON.stringify(usuario));
+// Convertir el objeto a JSON y guardarlo
+const usuarioJSON = JSON.stringify(usuario);
+console.log(usuarioJSON);
 localStorage.setItem("usuario", usuarioJSON);
 
-const usuarioJSON =  JSON.stringify(usuario),  {
-    nombre: localStorage.getItem ("nombre"),
-    email: localStorage.getItem("email"),
-    contraseña: localStorage.getItem("contraseña"),
-    fechaNacimiento: localStorage.getItem("fechaNacimiento"),
-};
+// Recuperar datos individuales de localStorage
+console.log(localStorage.getItem("nombre"));
 
-//recuperar datos de localStorage
-console.log (localStorage.getItem ("nombre"));
-
+const datosGuardados = JSON.parse(localStorage.getItem("usuario"));
+console.log(datosGuardados.nombre); // Acceder al nombre
