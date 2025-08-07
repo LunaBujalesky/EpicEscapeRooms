@@ -19,6 +19,16 @@ main {
 /* fuentes */
 :root {
 }
+.main-container {
+  width: 1278px;
+  height: 628px;
+  background-color: black;
+  border-radius: 28px;
+  margin: 8px auto;
+  z-index: 1;
+  font-family: "JetBrains Mono";
+  color: whitesmoke;
+}
 
 /* HEADER*/
 
@@ -170,6 +180,36 @@ h2 {
   margin: 10rem 0 0 20rem;
 }
 
+/* seccion reservas---------------------------------------------------------------------------*/
+.inicio-servicios {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: fit-content;
+
+  margin-top: 160px;
+}
+
+.escalera-grande {
+  width: 1082px;
+  height: 628px;
+  background-color: black;
+  border-radius: 52px;
+  color: whitesmoke;
+  margin-top: -30px;
+}
+
+.pasos-reserva {
+  width: 1082px;
+  height: 1327px;
+  background-color: black;
+  border-radius: 28px;
+  color: whitesmoke;
+  margin-top: 29px;
+}
+
 /* Textimonios--------------------------------------------------- */
 .testimonios-container {
   width: 100%;
@@ -178,6 +218,7 @@ h2 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 119px;
 }
 
 .testimonios-encabezado {
@@ -344,6 +385,16 @@ input:placeholder-shown {
   z-index: 10;
 }
 
+.comofunciona-button {
+  animation: parpadeo 1s steps(2, start) infinite;
+}
+
+@keyframes parpadeo {
+  to {
+    opacity: 0;
+  }
+}
+
 .comofunciona-button:hover {
   width: 235px;
   height: 79px;
@@ -431,7 +482,7 @@ input:placeholder-shown {
   align-items: center;
   justify-content: center;
   border-radius: 100px;
-  margin-right:  60px;
+  margin-right: 60px;
   position: relative;
   transform: translateY(220px);
 }
@@ -498,5 +549,27 @@ input:placeholder-shown {
 }
 
 .index-logo:hover {
-  transform: translateY(8px) scale(1.1);
+  transform: translateY(-12px) scale(1.1);
 }
+
+/* seccion sala ------------------------------------------*/
+
+/* FIN seccion sala ------------------------------------------*/
+
+/* seccion SALA SECRETA ------------------------------------------*/
+.text-base-container {
+  color: whitesmoke;
+  font-family: "JetBrains Mono";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* FIN seccion SALA SECRETA------------------------------------------*/
+
+/* seccion CONTACTO ------------------------------------------*/
+
+/* FIN seccion CONTACTO------------------------------------------*/
+
+/* seccion LOGIN ------------------------------------------*/
+
+/* FIN seccion LOGIN  ------------------------------------------*/

@@ -2,17 +2,7 @@
 <html lang="es">
 
 <head>
-  <!--
-  Luna                   Elprofe
-                          despúes de ver que le meti html y css 
-  ( •n•)              (•'_´• )
-  (> <)                ୧( ୧ )
-   /︶\                 /︶\
-   
-   Return: 
-  (゜д-'(Ｏ= (・_・´●) 
-   
-   -->
+
   <meta charset="UTF-8" />
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -97,19 +87,27 @@
           <p style="font-size: 48px; font-weight: 800; line-height: 3px;">VIVE una </p>
           <p style="font-size: 96px; font-weight: 800; margin: 0%;">EXPERIENCIA</p>
           <p style="font-size: 48px; letter-spacing: 3rem; line-height: 3px; ">DIFERENTE</p>
-          <button class="boton-inicio"><img src="assets/buttonInicio.png"
+          <button onclick="document.getElementById('escalera-seccion').scrollIntoView({ behavior: 'smooth' })"
+            class="boton-inicio"><img src="assets/buttonInicio.png"
               alt="clikear este boton para recorrer el inicio"></button>
         </div>
       </div>
     </section>
 
-    <section id="inicio-servicios">
-      <h2>Nuestros
-        servicios</h2>
-      <h3>Reserva salas</h3>
-      <p>Rellena el formulario</p>
-      <p>seña tu reserva</p>
-      <p>Te esperamos!</p>
+    <section class="inicio-servicios">
+      <div id="escalera-seccion"><img src="assets/escalera.svg" alt=""></div>
+      <div class="escalera-grande">
+        <h2>Nuestros
+          servicios</h2>
+      </div>
+
+      <div class="pasos-reserva">
+        <h3>Reserva salas</h3>
+        <p>Rellena el formulario</p>
+        <p>seña tu reserva</p>
+        <p>Te esperamos!</p>
+      </div>
+
     </section>
 
     <section id="inicio-testimonios">
@@ -166,7 +164,7 @@
       <div class="sala-personalizada-container">
         <div class="sala-personalizada-firstcolumn">
           <div class="comofunciona">
-            <div class="comofunciona-button"><button>Cómo funciona?</button></div>
+            <div class="comofunciona-button"><button id="boton-funciona">Cómo funciona?</button></div>
           </div>
           <div class="sala-personalizada-encabezado">
             <div class="sala-personalizada-title">
@@ -182,7 +180,8 @@
             <div class="sala-personalizada-bar"></div>
           </div>
           <p>transforma tus EVENTOS en RECUERDOS INOLVIDABLES</p>
-          <div class="fondo-botton"><button> <img src="assets/ButtonIcon.png" alt="icono boton para saber más"></button></div>
+          <div class="fondo-botton"><button> <img src="assets/ButtonIcon.png" alt="icono boton para saber más"></button>
+          </div>
         </div>
         <!-- *// por aca van los dos "stickers" /* 
          <h2>Salas personalizadas </h2>
@@ -214,7 +213,8 @@
       <div class="footer-container-nav">
         <nav>
           <ul>
-            <li><a href="https://wa.me/5492901401699" target="_blank"><img src="assets/whatsapp.png" alt="Logo de whatsapp con enlace al chat"></a></li>
+            <li><a href="https://wa.me/5492901401699" target="_blank"><img src="assets/whatsapp.png"
+                  alt="Logo de whatsapp con enlace al chat"></a></li>
             <li><a href="https://github.com/LunaBujalesky"><img src="assets/github.png"
                   alt="Logo de Github con link"></a>
             </li>
