@@ -29,19 +29,18 @@ function registrarUsuario() {
 
 
 
-// Guardar datos  iniciar sesion* ...................................-->
 
-localStorage.setItem("nombre", nombre + "email", email + "contrasena", contrasena + "fechaNacimiento", fechaNacimiento);
 
 // Crear objeto con datos del localStorage
 let usuarios = [
     {
-    nombre: localStorage.getItem("nombre"),
-    email: localStorage.getItem("email"),
-    contrasena: localStorage.getItem("contrasena"),
-    fechaNacimiento: localStorage.getItem("fechaNacimiento")
-};
+        nombre: localStorage.getItem("nombre"),
+        email: localStorage.getItem("email"),
+        contrasena: localStorage.getItem("contrasena"),
+        fechaNacimiento: localStorage.getItem("fechaNacimiento")
+    }
 ];
+
 // Funcion crear Usuario por html y dom
 function registrarUsuario() {
     document.getElementById("formLogin").addEventListener("submit", function (event) {
@@ -50,8 +49,11 @@ function registrarUsuario() {
         let nombre = document.getElementById("nombre").value.trim();
         let email = document.getElementById("email").value.trim();
         let contrasena = document.getElementById("contrasena").value.trim();
+        let fechaNacimiento = document.getElementById("contrasena").value.trim();
 
+        // Guardar datos  iniciar sesion* ...................................-->
 
+        localStorage.setItem("nombre", nombre + "email", email + "contrasena", contrasena + "fechaNacimiento", fechaNacimiento);
 
         // chequear longitud de la contraseña/* -->
         if (contraseña.length < 4) {
@@ -63,6 +65,8 @@ function registrarUsuario() {
     })
 };
 
+// FUNCIONES PARA INGRESAR SESIÓN...................................-->
+
 // Funcion  1 Orden Superior Comprobar si ese mail ya fue registrado ...................................-->
 
 let usuarioActual; // LOCALSTORAGE
@@ -70,10 +74,9 @@ let usuarioActual; // LOCALSTORAGE
 function VerificarDatos() {
 
     usuarioActual = usuarios.find((usuario) => usuario.email == email);
-    if (usuarioActual.contrasena == contraseña)
-
-
-        redireccionLogin() //llamo funcion
+    if (usuarioActual.contrasena == contraseña) {
+        redireccionLogin()
+    } //llamo funcion
 
 }
 
@@ -90,8 +93,10 @@ function redireccionLogin() {
     }
 
     //por default, usuario POR ingresar 
-    else menuLogin.href = href = "pages/logIn.html";
-    menuSalaSecreta = href = "pages/salaSecreta.html";
+    else {
+        menuLogin.href = href = "pages/logIn.html";
+        menuSalaSecreta = href = "pages/salaSecreta.html";
+    }
 }
 
 // Funcion para Saludar al usuario segun el momento del dia con condicional switch /* -->
@@ -117,10 +122,10 @@ function saludarUsuario(nombre, momentoDelDía) {
 }
 // FIN  Funcion  Saludar/* ...................................-->
 
+// fin FUNCIONES PARA INGRESAR SESIÓN...................................-->
 
 
-
-//  Fución para mostrar las salas disponibles  
+//  FuNción para mostrar las salas disponibles  
 
 function mostrarSalasDisponibles() {
 
