@@ -1,6 +1,7 @@
 
 // Declaración de funciones-------------------------------------------------------......................................... /* -->
 
+
 // Funcion para crear usuario /*............................................ -->
 
 function registrarUsuario() {
@@ -137,7 +138,7 @@ window.addEventListener("load", () => {
             alert("Respuesta inválida. Por favor, responde con 'si' para crear una cuenta o 'no' para iniciar sesión. Reinicie la web para reintentar");
         }
     }
-    setTimeout(darBienvenida, 1000);
+    
 }
 );
 

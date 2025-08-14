@@ -87,8 +87,7 @@
           <p style="font-size: 48px; font-weight: 800; line-height: 3px;">VIVE una </p>
           <p style="font-size: 96px; font-weight: 800; margin: 0%;">EXPERIENCIA</p>
           <p style="font-size: 48px; letter-spacing: 3rem; line-height: 3px; ">DIFERENTE</p>
-          <button onclick="document.getElementById('escalera-seccion').scrollIntoView({ behavior: 'smooth' })"
-            class="boton-inicio"><img src="assets/buttonInicio.png"
+          <button id="boton-escalera" class="boton-inicio"><img src="assets/buttonInicio.png"
               alt="clikear este boton para recorrer el inicio"></button>
         </div>
       </div>
@@ -96,16 +95,46 @@
 
     <section class="inicio-servicios">
       <div id="escalera-seccion"><img src="assets/escalera.svg" alt=""></div>
-      <div class="escalera-grande">
-        <h2>Nuestros
-          servicios</h2>
+
+      <div class="escalera-organizador">
+        <div class="escalera-grande">
+          <div class="escalera-container">
+            <div class="palo-izquierdo"></div>
+            <div class="peldaño"></div>
+            <div class="peldaño"></div>
+            <div class="peldaño"></div>
+            <div class="palo-derecho"></div>
+          </div>
+          <div><img src="assets/Ellipse 31.svg" alt=""></div>
+          <div>
+            <h2 style=" font-size: 24px; font-weight: lighter; margin: auto; letter-spacing: 3rem;">Nuestros servicios
+            </h2>
+          </div>
+        </div>
       </div>
 
+
       <div class="pasos-reserva">
-        <h3>Reserva salas</h3>
-        <p>Rellena el formulario</p>
-        <p>seña tu reserva</p>
-        <p>Te esperamos!</p>
+
+        <div >
+          <div class="casilla-tablero"><p>1</p></div> 
+          <div><h3 class="reserva-texto">Reserva salas</h3></div>
+        </div>
+
+        <div>
+         <div class="casilla-tablero"><p>2</p></div> 
+         <div><p class="reserva-texto">Rellena el formulario</p></div>
+        </div>
+
+        <div>
+          <div><p class="reserva-texto">Seña tu reserva</p></div>
+          <div class="casilla-tablero"><p>3</p></div> 
+        </div>
+       
+        <div>
+          <div class="casilla-tablero"><p>4</p></div> 
+          <div><p class="reserva-texto">Te esperamos!</p></div>
+        </div>
       </div>
 
     </section>

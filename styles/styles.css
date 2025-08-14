@@ -188,7 +188,6 @@ h2 {
   justify-content: center;
   width: 100%;
   height: fit-content;
-
   margin-top: 160px;
 }
 
@@ -199,7 +198,13 @@ h2 {
   border-radius: 52px;
   color: whitesmoke;
   margin-top: -30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
+
 
 .pasos-reserva {
   width: 1082px;
@@ -208,6 +213,26 @@ h2 {
   border-radius: 28px;
   color: whitesmoke;
   margin-top: 29px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.pasos-reserva>:first-child  {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-start;
+  justify-content: space-evenly;
+}
+
+.casilla-tablero  {
+  width: 200px;
+  height: 200px;
+  background-color: whitesmoke;
+  color: black;
+  font-family: "JetBrains Mono";
+  font-size: 40px;
+  font-weight: bolder;
 }
 
 /* Textimonios--------------------------------------------------- */
@@ -219,6 +244,13 @@ h2 {
   align-items: center;
   justify-content: center;
   margin-top: 119px;
+}
+
+.reserva-texto {
+  font-family: "JetBrains Mono";
+  font-weight: lighter;
+  letter-spacing: 1rem;
+  font-size: 20px;
 }
 
 .testimonios-encabezado {
