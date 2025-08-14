@@ -2,7 +2,7 @@
 // Declaración de funciones-------------------------------------------------------......................................... /* -->
 
 
-// Funcion para crear usuario /*............................................ -->
+/*Funcion para crear usuario hecha para consola
 
 function registrarUsuario() {
     let nombre = prompt("Ingresá tu nombre:");
@@ -11,9 +11,7 @@ function registrarUsuario() {
     validarLongitudContraseña()
     let fechaNacimiento = prompt("Ingresá tu fecha de nacimiento (DD/MM/AAAA):");
 
-    console.log("Nombre:", nombre);
-    console.log("Mail:", mail);
-    console.log("Contraseña:", contraseña);
+
 
 
 
@@ -26,9 +24,75 @@ function registrarUsuario() {
         }
     }
 
-}
-// FIN  Funcion para crear usuario /* ...................................-->
+} */
+// FIN  Funcion para crear usuario  CONSOLA...................................-->*/
 
+
+
+// Guardar datos  iniciar sesion* ...................................-->
+
+localStorage.setItem("nombre", nombre + "email", email + "contrasena", contrasena + "fechaNacimiento", fechaNacimiento);
+
+// Crear objeto con datos del localStorage
+let usuarios = [
+    {
+    nombre: localStorage.getItem("nombre"),
+    email: localStorage.getItem("email"),
+    contrasena: localStorage.getItem("contrasena"),
+    fechaNacimiento: localStorage.getItem("fechaNacimiento")
+};
+];
+// Funcion crear Usuario por html y dom
+function registrarUsuario() {
+    document.getElementById("formLogin").addEventListener("submit", function (event) {
+        event.preventDefault(); // Evita que recargue la página
+
+        let nombre = document.getElementById("nombre").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let contrasena = document.getElementById("contrasena").value.trim();
+
+
+
+        // chequear longitud de la contraseña/* -->
+        if (contraseña.length < 4) {
+            alert("Contraseña inválida. Por favor, genere una nueva.");
+            return registrarUsuario();
+
+        }
+
+    })
+};
+
+// Funcion  1 Orden Superior Comprobar si ese mail ya fue registrado ...................................-->
+
+let usuarioActual; // LOCALSTORAGE
+
+function VerificarDatos() {
+
+    usuarioActual = usuarios.find((usuario) => usuario.email == email);
+    if (usuarioActual.contrasena == contraseña)
+
+
+        redireccionLogin() //llamo funcion
+
+}
+
+// Manejo del DOM: redirección de paginas menú en base a si inició sesión...................................-->
+let menuLogin = document.getElementById("redireccionporLogin")
+let menuSalaSecreta = document.getElementById("redireccionSalaSecreta")
+
+function redireccionLogin() {
+
+    //usuario ingresado
+    if (usuarioActual) {
+        menuLogin.href = href = "pages/perfil.html";
+        menuSalaSecreta = href = "pages/salaabierta.html";
+    }
+
+    //por default, usuario POR ingresar 
+    else menuLogin.href = href = "pages/logIn.html";
+    menuSalaSecreta = href = "pages/salaSecreta.html";
+}
 
 // Funcion para Saludar al usuario segun el momento del dia con condicional switch /* -->
 function saludarUsuario(nombre, momentoDelDía) {
@@ -94,77 +158,21 @@ function mostrarSalasDisponibles() {
 }
 // FIN  Funcion  Salas disponibles/* ...................................-->
 
-// Funcion para iniciar sesión /* -->
-function iniciarSesion() {
-    let nombre = prompt("Ingresá tu nombre:");
-    let email = prompt("Ingresá tu email:");
-    let contraseña = prompt("Ingresá tu contraseña:");
-
-
-    console.log(`Iniciando sesión para ${nombre}...`);
-    if (!nombre || !email || !contraseña) {
-        alert("Todos los campos son obligatorios.");
-        return iniciarSesion();
-    }
-    else {
-        saludarUsuario();
-        mostrarSalasDisponibles()
-    }
-}
-
-// FIN  Funcion  iniciar sesion* ...................................-->
 
 
 
 
 
-// Llamada/utilización de funciones------------------------------------------------------- /* -->
-
-window.addEventListener("load", () => {
 
 
-
-    function darBienvenida() {
-        alert("¡Bienvenido/a! :)");
-        const mensajeIngreso = prompt("Veo que no ingresaste a una cuenta. ¿Deseas crear una? Ingrese si. ¿Ya te encuentras registrado? Ingrese no").toLowerCase();
-
-        if (mensajeIngreso === "si") {
-            registrarUsuario();
-
-        } else if (mensajeIngreso === "no") {
-            iniciarSesion();
-
-        } else {
-            alert("Respuesta inválida. Por favor, responde con 'si' para crear una cuenta o 'no' para iniciar sesión. Reinicie la web para reintentar");
-        }
-    }
-    
-}
-);
-
-//lo siguiente está a modo de notas de la clase ::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
-
-// Guardar datos  iniciar sesion* ...................................-->
-
-localStorage.setItem("nombre", nombre + "email", email + "contraseña", contraseña + "fechaNacimiento", fechaNacimiento);
-
-// Recuperar datos de localStorage
+/* Recuperar datos de localStorage
 const nombre = localStorage.getItem("nombre");
 const email = localStorage.getItem("email");
-const contraseña = localStorage.getItem("contraseña");
+const contraseña = localStorage.getItem("contraseña"); */
 
-//remover datos de localStorage
-localStorage.removeItem("nombre");
+/* remover datos de localStorage
+localStorage.removeItem("nombre"); */
 
-// Crear objeto con datos del localStorage
-const usuario = {
-    nombre: localStorage.getItem("nombre"),
-    email: localStorage.getItem("email"),
-    contraseña: localStorage.getItem("contraseña"),
-    fechaNacimiento: localStorage.getItem("fechaNacimiento")
-};
 
 // Convertir el objeto a JSON y guardarlo
 const usuarioJSON = JSON.stringify(usuario);
