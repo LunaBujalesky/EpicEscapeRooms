@@ -58,12 +58,12 @@
                   <nav>
                     <ul class="header-nav-container">
                       <li><a href="../index.html">Inicio</a></li>
-                      <li><a href="../pages/reservaSalas.html">Salas</a></li>
-                      <li><a href="../pages/salaSecreta.html"><img src="../assets/candadoCerrado.png" alt="icono candado cerrado"></a>
+                      <li><a href="./reservaSalas.html">Salas</a></li>
+                      <li><a id=”redireccionSalaSecreta” href="./salaSecreta.html"><img src="../assets/candadoCerrado.png" alt="icono candado cerrado"></a>
                       </li>
                       <!--<li><a href="pages/salaSecreta.html"><img src="assets/candadoAbierto.png" alt="icono candado abierto"></a></li>-->
-                      <li><a href="../pages/contacto.html">Contacto</a></li>
-                      <li><a href="../pages/perfil.html"> <img src="../assets/defaultAvatarMenu.png" alt="avatar de perfil">Perfil</a>
+                      <li><a href="./contacto.html">Contacto</a></li>
+                      <li ><a id=”redireccionporLogin” href="logIn.html"> <img src="../assets/defaultAvatarMenu.png" alt="avatar de perfil">Perfil</a>
                       </li>
                     </ul>
                   </nav>
@@ -74,14 +74,16 @@
 
           <main>
             <section class="main-container">
-              <form action="registrarse">
-                <div><p>Agent Name:</p><input type="NombreUsuario" placeholder="Nombre de usuario" class="input-field"></div>     
-                <div><p>Secret code:</p><input type="contraseña" placeholder="Contraseña" class="input-field"></div>      
-                <button type="button" class="login-button">Ingresar</button>
-                <button type="button" class="login-button">Registrarse</button>
-                <button type="button" class="login-button">Olvidaste 
+              <div class="borrardespuesdeEntrega">
+              <div><form id="formLogin">
+                <div><p>Agent Name:</p><input type="text" id="nombre" required placeholder="Nombre de usuario" ></div>     
+                <div><p>Secret code:</p><input type="password" id="contrasena"  required placeholder="Contraseña" ></div>      
+                <button type="submit" class="login-button">Ingresar</button>
+                <div> <a href="registrarse.html">Registrarse</a></div> 
+                <button type="button" >Olvidaste 
                     tu contraseña?</button>
-            </form>
+                  </div> </form>
+          </div>
             </section>
           </main>
 

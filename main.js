@@ -43,7 +43,7 @@ let usuarios = [
 
 // Funcion crear Usuario por html y dom
 function registrarUsuario() {
-    document.getElementById("formLogin").addEventListener("submit", function (event) {
+    document.getElementById("formRegistro").addEventListener("submit", function (event) {
         event.preventDefault(); // Evita que recargue la página
 
         let nombre = document.getElementById("nombre").value.trim();
@@ -59,9 +59,10 @@ function registrarUsuario() {
         if (contraseña.length < 4) {
             alert("Contraseña inválida. Por favor, genere una nueva.");
             return registrarUsuario();
-
         }
-
+        document.getElementById("crearCuenta").addEventListener("click", () => {
+            window.location.href = "logIn.html";
+        });
     })
 };
 
@@ -77,6 +78,9 @@ function VerificarDatos() {
     if (usuarioActual.contrasena == contraseña) {
         redireccionLogin()
     } //llamo funcion
+    else {
+        alert("Email o contraseña incorrectos");
+    }
 
 }
 

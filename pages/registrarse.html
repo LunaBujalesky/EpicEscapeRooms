@@ -23,7 +23,7 @@
     <meta property="og:type" content="website" /> <!-- tipo de contenido-->
     <link rel="icon" type="image/x-icon" href="">
     <link rel="shortcut icon" href="assets/favIcon.png">
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../styles/styles.css" />
     <!-- Link JS-->
     <script defer src="main.js"></script>
     <script defer src="components.js"></script>
@@ -61,17 +61,15 @@
                 <div>
                     <nav>
                         <ul class="header-nav-container">
-                            <li><a href="index.html">Inicio</a></li>
-                            <li><a href="pages/reservaSalas.html">Salas</a></li>
-                            <li><a href="pages/salaSecreta.html"><img src="assets/candadoCerrado.png"
-                                        alt="icono candado cerrado"></a>
+                            <li><a href="../index.html">Inicio</a></li>
+                            <li><a href="./reservaSalas.html">Salas</a></li>
+                            <li><a id=”redireccionSalaSecreta” href="./salaSecreta.html"><img src="../assets/candadoCerrado.png" alt="icono candado cerrado"></a>
                             </li>
                             <!--<li><a href="pages/salaSecreta.html"><img src="assets/candadoAbierto.png" alt="icono candado abierto"></a></li>-->
-                            <li><a href="pages/contacto.html">Contacto</a></li>
-                            <li><a href="pages/perfil.html"> <img src="assets/defaultAvatarMenu.png"
-                                        alt="avatar de perfil">Perfil</a>
+                            <li><a href="./contacto.html">Contacto</a></li>
+                            <li ><a id=”redireccionporLogin” href="./logIn.html"> <img src="../assets/defaultAvatarMenu.png" alt="avatar de perfil">Perfil</a>
                             </li>
-                        </ul>
+                          </ul>
                     </nav>
                 </div>
             </div>
@@ -81,13 +79,14 @@
     <main>
 
         <section class="main-container">
-            <form action="registrarse">
-                <div><p>Agent Name:</p><input type="NombreUsuario" placeholder="Nombre de usuario" class="input-field"></div>     
-                <div><p>Secret code:</p><input type="contraseña" placeholder="Contraseña" class="input-field"></div>      
-                <div><p>Agent contact:</p><input type="e-mail" placeholder="tumail@gmail.com" class="input-field"></div>
-                <div><p>Activo desde:</p><input type="fechaNacimiento" placeholder="10/10/1997" class="input-field"></div>
-                <button type="button" class="login-button">Crear cuenta</button>
-            </form>
+            <div class="borrardespuesdeEntrega">
+            <form id="formRegistro">
+                <div><p>Agent Name:</p><input type="NombreUsuario" id="nombre" placeholder="Nombre de usuario" ></div>     
+                <div><p>Secret code:</p><input type="contraseña" id="contrasena" placeholder="Contraseña" ></div>      
+                <div><p>Agent contact:</p><input type="e-mail" id="email" placeholder="tumail@gmail.com" ></div>
+                <div><p>Activo desde:</p><input type="fechaNacimiento" id="fechaNacimiento" placeholder="10/10/1997" ></div>
+                <button type="submit" id="crearCuenta">Crear cuenta</button>
+            </form></div>
         </section>
 
     </main>
@@ -98,20 +97,20 @@
             <div class="footer-container-nav">
                 <nav>
                     <ul>
-                        <li><a href="https://wa.me/5492901401699" target="_blank"><img src="assets/whatsapp.png"
+                        <li><a href="https://wa.me/5492901401699" target="_blank"><img src="../assets/whatsapp.png"
                                     alt="Logo de whatsapp con enlace al chat"></a></li>
-                        <li><a href="https://github.com/LunaBujalesky"><img src="assets/github.png"
+                        <li><a href="https://github.com/LunaBujalesky"><img src="../assets/github.png"
                                     alt="Logo de Github con link"></a>
                         </li>
                         <div class="index-logo">
                             <li>
-                                <a href="index.html"><img src="/assets/home.png"
+                                <a href="index.html"><img src="../assets/home.png"
                                         alt="Icono de una casa con enlace a inicio"></a>
                             </li>
                         </div>
                         <li><a href="https://www.linkedin.com/in/luna-bujalesky-b60561267/"><img
-                                    src="assets/linkedin.png" alt="Icono de Linkedin con enlace"></a></li>
-                        <li><a href="https://www.instagram.com/soleiatelier/"><img src="assets/instagram.png"
+                                    src="../assets/linkedin.png" alt="Icono de Linkedin con enlace"></a></li>
+                        <li><a href="https://www.instagram.com/soleiatelier/"><img src="../assets/instagram.png"
                                     alt="Logo de Instagram con link"></a></li>
                     </ul>
                 </nav>
