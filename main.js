@@ -124,6 +124,90 @@ function saludarUsuario(nombre, momentoDelDía) {
 
 // fin FUNCIONES PARA INGRESAR SESIÓN...................................-->
 
+// Array salas como objetos------------------------------------------------------- 
+let salas = [
+    {
+        sala: "Amanecer de Blair",
+        cantidadParticipantesMinima: "6",
+        diaDisponible: [
+            { 14: true },
+            { 15: true },
+            { 16: true }
+        ],
+
+        horariosDisponibles: [
+            { 1500: true },
+            { 1600: true },
+            { 1700: true }
+        ],
+        aplicarDescuentoCumpleano: false,
+    },
+    {
+        sala: "Escapando de Latinoamerica",
+        cantidadParticipantesMinima: "2",
+        diaDisponible: [
+            { 14: true },
+            { 15: true },
+            { 16: true }
+        ],
+
+        horariosDisponibles: [
+            { 1500: true },
+            { 1600: true },
+            { 1700: true }
+        ],
+        aplicarDescuentoCumpleano: false,
+    },
+    {
+        sala: "Operación: ¡Contradefensa de la invasión Gnómica en el Jardín!",
+        cantidadParticipantesMinima: "3",
+        diaDisponible: [
+            { 14: true },
+            { 15: true },
+            { 16: true }
+        ],
+
+        horariosDisponibles: [
+            { 1500: true },
+            { 1600: true },
+            { 1700: true }
+        ],
+        aplicarDescuentoCumpleano: false,
+    },
+    {
+        sala: "Kiki Delivery Crisis",
+        cantidadParticipantesMinima: "2",
+        diaDisponible: [
+            { 14: true },
+            { 15: true },
+            { 16: true }
+        ],
+
+        horariosDisponibles: [
+            { 1500: true },
+            { 1600: true },
+            { 1700: true }
+        ],
+        aplicarDescuentoCumpleano: false,
+    },
+    {
+        sala: "Dios ha muerto... y no dejó instrucciones",
+        cantidadParticipantesMinima: "2",
+        diaDisponible: [
+            { 14: true },
+            { 15: true },
+            { 16: true }
+        ],
+
+        horariosDisponibles: [
+            { 1500: true },
+            { 1600: true },
+            { 1700: true }
+        ],
+        aplicarDescuentoCumpleano: false,
+    },
+   
+]
 
 //  FuNción para mostrar las salas disponibles  
 
@@ -135,7 +219,7 @@ function mostrarSalasDisponibles() {
 
     // Ciclo for of para mostrar las salas disponibles
 
-    // Array salas como objetos------------------------------------------------------- 
+
     const salas = [
         { nombre: "Amanecer de Blair", disponible: true },
         { nombre: "Escapando de Latinoamerica", disponible: false },
