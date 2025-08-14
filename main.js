@@ -213,7 +213,22 @@ let salas = [
    
 ]
 
-//  FuNción para mostrar las salas disponibles  
+// 2 funcion superior------------------------------------------------------- 
+function SalasDisponibles(salas) { 
+    return salas.filter(sala => {
+        // filtrar dia
+        const diaDisponible = sala.diaDisponible.every(dia => Object.values(dia)[0] === true);
+        // filtrar horario
+        const horariosDisponibles = sala.horariosDisponibles.every(horario => Object.values(horario)[0] === true);
+
+        // La sala es disponible si cumple ambas condiciones
+        return diaDisponible && horariosDisponibles;
+    });
+}
+
+const disponibles = SalasDisponibles(salas);
+
+/* FuNción para mostrar las salas disponibles  con consola
 
 function mostrarSalasDisponibles() {
 
@@ -249,7 +264,7 @@ function mostrarSalasDisponibles() {
     }
 
 }
-// FIN  Funcion  Salas disponibles/* ...................................-->
+FIN  Funcion  Salas disponibles /* 
 
 
 
