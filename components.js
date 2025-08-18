@@ -25,7 +25,7 @@ function EventoBarraBusqueda() {
 function EventoBotonEscalera() {
   const botonEscalera = document.getElementById("boton-escalera");
   const escaleraSeccion = document.getElementById("escalera-seccion");
-  if (!escaleraSeccion && !botonEscalera ) {
+  if (!escaleraSeccion || !botonEscalera ) {
     return;
   }
   botonEscalera.addEventListener("click", () => {

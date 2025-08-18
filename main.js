@@ -28,6 +28,11 @@ function registrarUsuario() {
 // FIN  Funcion para crear usuario  CONSOLA...................................-->*/
 
 
+document.addEventListener("DOMContentLoaded", () => {
+    registrarUsuario();
+    VerificarDatos()
+});
+
 
 
 
@@ -43,7 +48,9 @@ let usuarios = [
 
 // Funcion crear Usuario por html y dom
 function registrarUsuario() {
-    document.getElementById("formRegistro").addEventListener("submit", function (event) {
+    const formRegistro = document.getElementById("formRegistro")
+    if (!formRegistro) { return }
+    formRegistro.addEventListener("submit", function (event) {
         event.preventDefault(); // Evita que recargue la página
 
         let nombre = document.getElementById("nombre").value.trim();
@@ -70,19 +77,35 @@ function registrarUsuario() {
 
 // Funcion  1 Orden Superior Comprobar si ese mail ya fue registrado ...................................-->
 
-let usuarioActual; // LOCALSTORAGE
 
 function VerificarDatos() {
+    console.log("sE EJECUTA");
+    let usuarioActual;
+    let email = document.getElementById("email").value; // LOCALSTORAGE
+    let contrasena = document.getElementById("contrasena").value;
+    const formLogin = document.getElementById("formLogin")
+    if (!formLogin) { return }
 
-    usuarioActual = usuarios.find((usuario) => usuario.email == email);
-    if (usuarioActual.contrasena == contraseña) {
-        redireccionLogin()
-    } //llamo funcion
-    else {
-        alert("Email o contraseña incorrectos");
-    }
+    formLogin.addEventListener("submit", function (event) {
+        event.preventDefault(); // Evita que recargue la página
 
-}
+        usuarioActual = usuarios.find((usuario) => usuario.email == email);
+        console.log("hSE ENCONTRO AL USUARIO " + usuarioActual);
+        if (usuarioActual == undefined) {
+            console.log(usuarioActual + " usuario no encontrado");
+        }
+        
+        if (usuarioActual.contrasena == contrasena) {
+
+            redireccionLogin()
+        } //llamo funcion
+        else {
+            alert("Contraseña incorrectos");
+        }
+
+    })
+};
+
 
 // Manejo del DOM: redirección de paginas menú en base a si inició sesión...................................-->
 let menuLogin = document.getElementById("redireccionporLogin")
@@ -210,11 +233,11 @@ let salas = [
         ],
         aplicarDescuentoCumpleano: false,
     },
-   
+
 ]
 
 // 2 funcion superior------------------------------------------------------- 
-function SalasDisponibles(salas) { 
+function SalasDisponibles(salas) {
     return salas.filter(sala => {
         // filtrar dia
         const diaDisponible = sala.diaDisponible.every(dia => Object.values(dia)[0] === true);
