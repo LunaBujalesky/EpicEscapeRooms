@@ -281,6 +281,7 @@ const contraseña = localStorage.getItem("contraseña"); */
 /* remover datos de localStorage
 localStorage.removeItem("nombre"); */
 
+/*Notas uso JSON 
 
 // Convertir el objeto a JSON y guardarlo
 const usuarioJSON = JSON.stringify(usuario);
@@ -291,4 +292,4 @@ localStorage.setItem("usuario", usuarioJSON);
 console.log(localStorage.getItem("nombre"));
 
 const datosGuardados = JSON.parse(localStorage.getItem("usuario"));
-console.log(datosGuardados.nombre); // Acceder al nombre
+console.log(datosGuardados.nombre); // Acceder al nombre */
