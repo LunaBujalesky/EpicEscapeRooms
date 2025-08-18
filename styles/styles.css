@@ -609,6 +609,7 @@ input:placeholder-shown {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: auto;
+  
+  margin: 120px auto;
 }
 /* FIN seccion LOGIN  ------------------------------------------*/

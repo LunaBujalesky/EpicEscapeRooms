@@ -1,36 +1,12 @@
+let email;
+let contrasena;
+let usuarioActual;
 
-// Declaración de funciones-------------------------------------------------------......................................... /* -->
-
-
-/*Funcion para crear usuario hecha para consola
-
-function registrarUsuario() {
-    let nombre = prompt("Ingresá tu nombre:");
-    let mail = prompt("Ingresá tu mail:");
-    let contraseña = prompt("Ingresá una contraseña de al menos 4 caracteres:");
-    validarLongitudContraseña()
-    let fechaNacimiento = prompt("Ingresá tu fecha de nacimiento (DD/MM/AAAA):");
-
-
-
-
-
-    function validarLongitudContraseña() {
-        // chequear longitud de la contraseña/* -->
-        if (contraseña.length < 4) {
-            alert("Contraseña inválida. Por favor, genere una nueva.");
-            return registrarUsuario();
-
-        }
-    }
-
-} */
-// FIN  Funcion para crear usuario  CONSOLA...................................-->*/
 
 
 document.addEventListener("DOMContentLoaded", () => {
     registrarUsuario();
-    VerificarDatos()
+    VerificarDatos();
 });
 
 
@@ -39,11 +15,13 @@ document.addEventListener("DOMContentLoaded", () => {
 // Crear objeto con datos del localStorage
 let usuarios = [
     {
-        nombre: localStorage.getItem("nombre"),
-        email: localStorage.getItem("email"),
-        contrasena: localStorage.getItem("contrasena"),
-        fechaNacimiento: localStorage.getItem("fechaNacimiento")
-    }
+        //nombre: localStorage.getItem("nombre"),
+        //email: localStorage.getItem("email"),
+        //contrasena: localStorage.getItem("contrasena"),
+        //fechaNacimiento: localStorage.getItem("fechaNacimiento")
+
+    },
+
 ];
 
 // Funcion crear Usuario por html y dom
@@ -73,35 +51,56 @@ function registrarUsuario() {
     })
 };
 
+
+
 // FUNCIONES PARA INGRESAR SESIÓN...................................-->
 
 // Funcion  1 Orden Superior Comprobar si ese mail ya fue registrado ...................................-->
 
 
 function VerificarDatos() {
-    console.log("sE EJECUTA");
-    let usuarioActual;
-    let email = document.getElementById("email").value; // LOCALSTORAGE
-    let contrasena = document.getElementById("contrasena").value;
-    const formLogin = document.getElementById("formLogin")
+
+    const formLogin = document.getElementById("formLogin");
+    console.log("si vemos esto, se esta ejecutando - parte 1");
     if (!formLogin) { return }
 
     formLogin.addEventListener("submit", function (event) {
+        console.log("si vemos esto, se esta ejecutando - parte 2");
+
         event.preventDefault(); // Evita que recargue la página
 
-        usuarioActual = usuarios.find((usuario) => usuario.email == email);
-        console.log("hSE ENCONTRO AL USUARIO " + usuarioActual);
-        if (usuarioActual == undefined) {
-            console.log(usuarioActual + " usuario no encontrado");
-        }
-        
-        if (usuarioActual.contrasena == contrasena) {
+        email = document.getElementById("email").value; // LOCALSTORAGE
+        contrasena = document.getElementById("contrasena").value;
+        //Esto ta mal y lo estoy haciendo solo para probar - BORRAR
 
-            redireccionLogin()
-        } //llamo funcion
-        else {
-            alert("Contraseña incorrectos");
+
+        let nuevoUsuario =
+        {
+
+            email,
+
+            contrasena,
         }
+
+        //envio la nueva info al array de usuarios existentes:
+        usuarios.push(nuevoUsuario);
+        console.log("usuario registrado:" + usuarios[1])
+
+        usuarioActual = usuarios.find((usuario) => usuario.email == email);
+
+        //console.log("SE ENCONTRO AL USUARIO " + usuarioActual);
+        // console.log("email: " + email);
+        // if (usuarioActual == undefined) {
+        //     console.log(usuarioActual + " usuario no encontrado");
+        // }
+
+        // if (usuarioActual.contrasena == contrasena) {
+
+        //     redireccionLogin()
+        // } //llamo funcion
+        // else {
+        //     alert("Contraseña incorrectos");
+        // }
 
     })
 };
@@ -255,7 +254,7 @@ const disponibles = SalasDisponibles(salas);
 
 function mostrarSalasDisponibles() {
 
-    // Array para reservas de salas------------------------------------------------------- 
+    // Array para reservas de salas-------------------------------------------------------
 
     const Sala = ["Amanecer de Blair", "Escapando de Latinoamerica", "Operación: ¡Contradefensa de la invasión Gnómica en el Jardín!", "Kiki Delivery Crisis", "Dios ha muerto... y no dejó instrucciones"];
 
@@ -274,7 +273,7 @@ function mostrarSalasDisponibles() {
     console.log("Salas disponibles:");
     alert(`selecciona una sala para reservar: ${Sala}`);
 
-    // Ciclo for of 
+    // Ciclo for of
     for (const sala of salas) {
         if (sala.disponible) {
             console.log(`- ${sala.nombre}`);
@@ -287,7 +286,7 @@ function mostrarSalasDisponibles() {
     }
 
 }
-FIN  Funcion  Salas disponibles /* 
+FIN  Funcion  Salas disponibles /*
 
 
 
@@ -304,7 +303,7 @@ const contraseña = localStorage.getItem("contraseña"); */
 /* remover datos de localStorage
 localStorage.removeItem("nombre"); */
 
-/*Notas uso JSON 
+/*Notas uso JSON
 
 // Convertir el objeto a JSON y guardarlo
 const usuarioJSON = JSON.stringify(usuario);
@@ -316,3 +315,35 @@ console.log(localStorage.getItem("nombre"));
 
 const datosGuardados = JSON.parse(localStorage.getItem("usuario"));
 console.log(datosGuardados.nombre); // Acceder al nombre */
+
+
+
+
+
+// Declaración de funciones-------------------------------------------------------......................................... /* -->
+
+
+/*Funcion para crear usuario hecha para consola
+
+function registrarUsuario() {
+    let nombre = prompt("Ingresá tu nombre:");
+    let mail = prompt("Ingresá tu mail:");
+    let contraseña = prompt("Ingresá una contraseña de al menos 4 caracteres:");
+    validarLongitudContraseña()
+    let fechaNacimiento = prompt("Ingresá tu fecha de nacimiento (DD/MM/AAAA):");
+
+
+
+
+
+    function validarLongitudContraseña() {
+        // chequear longitud de la contraseña/* -->
+        if (contraseña.length < 4) {
+            alert("Contraseña inválida. Por favor, genere una nueva.");
+            return registrarUsuario();
+
+        }
+    }
+
+} */
+// FIN  Funcion para crear usuario  CONSOLA...................................-->*/
