@@ -32,3 +32,4 @@ function EventoBotonEscalera() {
     escaleraSeccion.scrollIntoView({ behavior: "smooth" });
   });
 }
+

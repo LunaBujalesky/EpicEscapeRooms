@@ -62,13 +62,15 @@
                         <ul class="header-nav-container">
                             <li><a href="../index.html">Inicio</a></li>
                             <li><a href="./reservaSalas.html">Salas</a></li>
-                            <li><a id=”redireccionSalaSecreta” href="./salaSecreta.html"><img src="../assets/candadoCerrado.png" alt="icono candado cerrado"></a>
+                            <li><a id=”redireccionSalaSecreta” href="./salaSecreta.html"><img
+                                        src="../assets/candadoCerrado.png" alt="icono candado cerrado"></a>
                             </li>
                             <!--<li><a href="pages/salaSecreta.html"><img src="assets/candadoAbierto.png" alt="icono candado abierto"></a></li>-->
                             <li><a href="./contacto.html">Contacto</a></li>
-                            <li ><a id=”redireccionporLogin” href="./logIn.html"> <img src="../assets/defaultAvatarMenu.png" alt="avatar de perfil">Perfil</a>
+                            <li><a id=”redireccionporLogin” href="./logIn.html"> <img
+                                        src="../assets/defaultAvatarMenu.png" alt="avatar de perfil">Perfil</a>
                             </li>
-                          </ul>
+                        </ul>
                     </nav>
                 </div>
             </div>
@@ -77,15 +79,39 @@
 
     <main>
 
-        <section class="main-container">
-            <div class="borrardespuesdeEntrega">
-            <form id="formRegistro">
-                <div><p>Agent Name:</p><input type="NombreUsuario" id="nombre" placeholder="Nombre de usuario" ></div>     
-                <div><p>Secret code:</p><input type="contraseña" id="contrasena" placeholder="Contraseña" ></div>      
-                <div><p>Agent contact:</p><input type="e-mail" id="email" placeholder="tumail@gmail.com" ></div>
-                <div><p>Activo desde:</p><input type="fechaNacimiento" id="fechaNacimiento" placeholder="10/10/1997" ></div>
-                <button type="submit" id="crearCuenta">Crear cuenta</button>
-            </form></div>
+        <section class="main-container" style=" padding-top: 20px; margin-bottom: 100px;">
+            <div class="registrarse-form-container">
+                <form id="formRegistro">
+                    <div class="registrarse-input-main">
+                        <p style="font-size: 48px; font-weight: lighter; font-stretch: 14%; margin: auto; padding: 10px;">Agent Name:</p><input type="NombreUsuario" id="nombre" placeholder="Nombre de usuario">
+                        
+                    </div>
+
+                    <div class="registrarse-second-column">
+                        <div class="registrarse-input" style="transform: rotate(-1.5deg);">
+                            <p>Secret code:</p><input type="contraseña" id="contrasena" placeholder="Contraseña">
+                            
+                        </div>
+                        <div class="registrarse-input" style="transform: rotate(1.5deg);">
+                            <p>Confirm code:</p><input type="contraseña" id="contrasena"
+                                placeholder="Confirme contraseña">
+                                
+                        </div>
+                    </div>
+                    <div class="registrarse-third-column">
+                        <div class="registrarse-input"style="transform: rotate(1deg);">
+                            <p>Agent contact:</p><input type="e-mail" id="email" placeholder="tumail@gmail.com">
+                            
+                        </div>
+                        <div class="registrarse-input"style="transform: rotate(-1deg);">
+                            <p>Activo desde:</p><input type="fechaNacimiento" id="fechaNacimiento"
+                                placeholder="00/00/0000">
+                                
+                        </div>
+                    </div>
+                    <div><button type="submit" id="crearCuenta" class="registrarse-boton">Crear cuenta</button></div>
+                </form>
+            </div>
         </section>
 
     </main>

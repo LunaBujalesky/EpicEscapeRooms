@@ -77,23 +77,33 @@
   </header>
 
   <main>
-    <section class="main-container">
+    <section class="main-container" style=" padding-top: 20px; ">
+      <!--Primera "capa", las fotos-->
+      <div class="fotos-container-logIn">
+        <div class="card-logIn"><div class="card-logIn-dentro"></div></div>
+        <div class="card-logIn"><div class="card-logIn-dentro"></div></div>
+        <div class="card-logIn"><div class="card-logIn-dentro"></div></div>
+        <div class="card-logIn"><div class="card-logIn-dentro"></div></div>
+        <div class="card-logIn"><div class="card-logIn-dentro"></div></div>
+      </div>
+      <!--Formulario, este debe ser la segunda "capa"-->
       <div class="borrardespuesdeEntrega">
-        <div>
-          <form id="formLogin">
-            <div>
-              <p>Agent Contact:</p><input type="email" id="email" required placeholder="Email">
-            </div>
-            <div>
-              <p>Secret code:</p>
-              <input type="password" id="contrasena" required placeholder="Contraseña">
-            </div>
-            <button type="submit" class="login-button">Ingresar</button>
-            <div> <a href="registrarse.html">Registrarse</a></div>
-            <button type="button">Olvidaste
-              tu contraseña?</button>
-        </div>
+
+        <form id="formLogin" class="logIn-container">
+          <div>
+            <p>Agent Contact:</p><input type="email" id="email" required placeholder="Email">
+          </div>
+          <div>
+            <p>Secret code:</p>
+            <input type="password" id="contrasena" required placeholder="Contraseña">
+          </div>
+          <button type="submit" class="login-button">Ingresar</button>
+          <div> <a href="registrarse.html">Registrarse</a></div>
+          <button type="button">Olvidaste
+            tu contraseña?</button>
         </form>
+
+
       </div>
     </section>
   </main>

@@ -204,8 +204,6 @@ h2 {
   justify-content: center;
 }
 
-
-
 .pasos-reserva {
   width: 1082px;
   height: 1327px;
@@ -218,14 +216,14 @@ h2 {
   justify-content: space-evenly;
 }
 
-.pasos-reserva>:first-child  {
+.pasos-reserva > :first-child {
   display: flex;
   flex-direction: row;
   align-self: flex-start;
   justify-content: space-evenly;
 }
 
-.casilla-tablero  {
+.casilla-tablero {
   width: 200px;
   height: 200px;
   background-color: whitesmoke;
@@ -359,7 +357,7 @@ h2 {
   align-self: flex-start;
   margin-left: 18%;
 }
-input {
+.testimonios-searchbar > input {
   appearance: none;
   outline: none;
   border: none;
@@ -370,7 +368,7 @@ input {
   font-weight: lighter;
 }
 
-input:placeholder-shown {
+.testimonios-searchbar > input:placeholder-shown {
   animation: parpadeo 1s steps(2, start) infinite;
 }
 
@@ -602,14 +600,95 @@ input:placeholder-shown {
 
 /* FIN seccion CONTACTO------------------------------------------*/
 
-/* seccion LOGIN ------------------------------------------*/
+/* seccion REGISTRARSE ------------------------------------------*/
 
-.borrardespuesdeEntrega {
+.registrarse-form-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  
-  margin: 120px auto;
+  margin-top: 120px;
+  justify-content: space-evenly;
 }
+
+.registrarse-second-column {
+  flex-direction: row;
+  display: flex;
+  gap: 100px;
+  padding: 3%;
+  font-stretch: 14%;
+  font-stretch: extra-expanded;
+  font-weight: lighter;
+}
+
+.registrarse-third-column {
+  flex-direction: row;
+  display: flex;
+  gap: 100px;
+  padding: 3%;
+  font-stretch: extra-expanded;
+  font-weight: lighter;
+}
+
+.registrarse-input {
+  font-family: "JetBrains Mono";
+  color: black;
+  background-color: whitesmoke;
+  border-radius: 11px;
+  width: 242px;
+  height: 65px;
+  text-align: center;
+}
+.registrarse-input > p {
+  margin: 5px auto;
+}
+.registrarse-input-main {
+  font-family: "JetBrains Mono";
+  color: black;
+  background-color: whitesmoke;
+  border-radius: 11px;
+  width: 490px;
+  height: 133px;
+  text-align: center;
+  margin: auto auto 3% auto;
+}
+
+.registrarse-input > input,
+.registrarse-input-main > input {
+  font-size: 12px;
+  appearance: none;
+  outline: none;
+  border: none;
+  background: none;
+  font-family: "JetBrains Mono";
+  font-weight: lighter;
+  text-align: center;
+  padding: 0%;
+  border-bottom: 0.4px solid black; /* la barrita */
+}
+
+.registrarse-bar {
+  width: 180px;
+  color: black;
+  height: 3px;
+  z-index: 10;
+}
+.registrarse-boton {
+  font-family: "JetBrains Mono";
+  color: black;
+  background-color: whitesmoke;
+  width: 190px;
+  height: 65px;
+  border-radius: 11px;
+  border-style: none;
+  text-align: center;
+  margin: 3% 38% auto;
+  cursor: pointer;
+}
+/* FIN seccion REGISTRARSE ------------------------------------------*/
+
+
+/* seccion LOGIN  ------------------------------------------*/
+
+
 /* FIN seccion LOGIN  ------------------------------------------*/
+
