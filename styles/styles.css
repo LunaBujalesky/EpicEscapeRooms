@@ -583,7 +583,13 @@ h2 {
 }
 
 /* seccion sala ------------------------------------------*/
-
+.borrardespuesdeEntrega {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 120px;
+}
 /* FIN seccion sala ------------------------------------------*/
 
 /* seccion SALA SECRETA ------------------------------------------*/
@@ -593,6 +599,22 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  z-index: 0;
+}
+
+.nubes-container {
+  width: 1278px;
+  height: 630px;
+  position: absolute;
+  z-index: 100; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+ 
+}
+.particles-js-canvas-el {
+  border-radius: 28px;
 }
 /* FIN seccion SALA SECRETA------------------------------------------*/
 
@@ -681,14 +703,123 @@ h2 {
   border-radius: 11px;
   border-style: none;
   text-align: center;
-  margin: 3% 38% auto;
+  margin: 3% auto;
   cursor: pointer;
+}
+.registrarse-boton-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 /* FIN seccion REGISTRARSE ------------------------------------------*/
 
-
 /* seccion LOGIN  ------------------------------------------*/
+/* first layer, las polaroid*/
+.fotos-container-logIn {
+  position: absolute;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+  padding-top: 70px;
+  top: 45%;
+  left:50%;
+  transform: translate(-50%, -50%);
+}
 
+.card-logIn {
+  background: whitesmoke;
+  width: 200px;
+  height: 223px;
+}
 
+.card-logIn-dentro {
+  background: #f0f0f0;
+  width: 160px;
+  height: 155px;
+  margin: 20px auto;
+}
+
+.fotos-container-column {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  justify-content: center;
+  align-content: center;
+  margin: auto;
+}
+
+/* Posicionamiento de polaroids */
+.polaroid-1 {
+  transform: rotate(-15deg);
+}
+.polaroid-2 {
+  transform: rotate(8deg);
+}
+.polaroid-3 {
+  transform: rotate(-5deg);
+}
+.polaroid-4 {
+  transform: rotate(12deg);
+}
+.polaroid-5 {
+  transform: rotate(-8deg);
+}
+
+/* second layer, el formulario de ingreso*/
+
+.logIn-container {
+  display: flex;
+  justify-content: center;
+  
+}
+
+.logIn-formulario-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  align-content: center;
+}
+
+.login-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr 1fr; /* 3 columnas */
+  grid-template-rows: auto auto auto; /* 3 filas */
+  grid-template-areas:
+    "agent agent clasificado" /* fila 1 */
+    "secret ingresar clasificado" /* fila 2 */
+    "secret registrar olvide"; /* fila 3 */
+}
+
+/* Áreas */
+.agent {
+  grid-area: agent;
+}
+.clasificado {
+  grid-area: clasificado;
+}
+.secret {
+  grid-area: secret;
+}
+.ingresar {
+  grid-area: ingresar;
+}
+.registrar {
+  grid-area: registrar;
+}
+.olvide {
+  grid-area: olvide;
+}
+
+.clasificado {
+  width: 300px;
+  height: 64px;
+  border-radius: 11px;
+  text-align: center;
+  letter-spacing: 12px;
+  font-weight: lighter;
+}
 /* FIN seccion LOGIN  ------------------------------------------*/
-

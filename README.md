@@ -15,6 +15,7 @@ Diseño responsive.
 HTML CSS JS
 Google Fonts (vía CDN)
 GitHub Pages (hosting)
+Particles Api para animación interactiva (en local)
 
 ✨Curiosidades
 

@@ -5,9 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
   
 });
 
-
-
-
 function EventoBarraBusqueda() {
   const barraBusqueda = document.getElementById("testimonios-searchbar-puzzle");
   if (!barraBusqueda) {//Cuando no encuentra ningun elemento con ese ID
@@ -33,3 +30,13 @@ function EventoBotonEscalera() {
   });
 }
 
+//Sistema de partículas, libreria externa: https://github.com/VincentGarreau/particles.js
+//el de inicio
+particlesJS.load('particles-js',   'data.json/particles.json', function() {
+  console.log('callback - particles.js config loaded');
+});
+
+//el de sala secreta
+particlesJS.load('particles2',  '../data.json/particlesjs2sala.json',  function() {
+  console.log('callback - particles.js config loaded');
+});

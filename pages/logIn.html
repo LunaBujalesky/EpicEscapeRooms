@@ -80,27 +80,54 @@
     <section class="main-container" style=" padding-top: 20px; ">
       <!--Primera "capa", las fotos-->
       <div class="fotos-container-logIn">
-        <div class="card-logIn"><div class="card-logIn-dentro"></div></div>
-        <div class="card-logIn"><div class="card-logIn-dentro"></div></div>
-        <div class="card-logIn"><div class="card-logIn-dentro"></div></div>
-        <div class="card-logIn"><div class="card-logIn-dentro"></div></div>
-        <div class="card-logIn"><div class="card-logIn-dentro"></div></div>
+        <div class="fotos-container-column">
+          <div class="card-logIn polaroid-1">
+            <div class="card-logIn-dentro"></div>
+          </div>
+          <div class="card-logIn polaroid-2">
+            <div class="card-logIn-dentro"></div>
+          </div>
+        </div>
+        <div class="fotos-container-column">
+          <div class="card-logIn polaroid-3">
+            <div class="card-logIn-dentro"></div>
+          </div>
+          <div class="card-logIn polaroid-4">
+            <div class="card-logIn-dentro"></div>
+          </div>
+          <div class="card-logIn polaroid-5">
+            <div class="card-logIn-dentro"></div>
+          </div>
+        </div>
       </div>
       <!--Formulario, este debe ser la segunda "capa"-->
-      <div class="borrardespuesdeEntrega">
+      <div class="logIn-formulario-container">
 
         <form id="formLogin" class="logIn-container">
-          <div>
-            <p>Agent Contact:</p><input type="email" id="email" required placeholder="Email">
+          <div class="login-grid ">
+
+            <div class="registrarse-input agent">
+              <p>Agent Contact:</p><input type="email" id="email" required placeholder="Email">
+            </div>
+
+            <div class="clasificado" style="background-color: black;">
+              <p>CLASIFICADO</p>
+            </div>
+
+
+
+            <div class="registrarse-input secret">
+              <p>Secret code:</p>
+              <input type="password" id="contrasena" required placeholder="Contraseña">
+            </div>
+
+
+            <div class="ingresar"><button type="submit" class="registrarse-boton">Ingresar</button></div>
+            <div class="registrar"><a href="registrarse.html" class="registrarse-boton">Registrarse</a></div>
+
+            <div class="olvide"> <button class="registrarse-boton" type="button">Olvidaste
+                tu contraseña?</button></div>
           </div>
-          <div>
-            <p>Secret code:</p>
-            <input type="password" id="contrasena" required placeholder="Contraseña">
-          </div>
-          <button type="submit" class="login-button">Ingresar</button>
-          <div> <a href="registrarse.html">Registrarse</a></div>
-          <button type="button">Olvidaste
-            tu contraseña?</button>
         </form>
 
 
