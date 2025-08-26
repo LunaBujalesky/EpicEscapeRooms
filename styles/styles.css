@@ -16,9 +16,10 @@ main {
   overflow: visible;
   position: relative;
 }
+
 /* fuentes */
-:root {
-}
+:root {}
+
 .main-container {
   width: 1278px;
   height: 628px;
@@ -53,6 +54,7 @@ esto está puesto para ocupar un h1
   white-space: nowrap;
   border: 0;
 }
+
 /* --------------------------------------------------*/
 .header-container {
   align-items: center;
@@ -62,6 +64,7 @@ esto está puesto para ocupar un h1
   z-index: 10;
   position: relative;
 }
+
 .header-subcontainers {
   display: flex;
   flex-direction: row;
@@ -84,10 +87,12 @@ esto está puesto para ocupar un h1
   align-items: flex-start;
   gap: 0;
 }
+
 .subtitle {
   gap: 0;
   padding: 0%;
 }
+
 .header-nav-container {
   display: flex;
   flex-direction: row;
@@ -159,12 +164,15 @@ h2 {
   0% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-20px) rotate(10deg);
   }
+
   80% {
     transform: translateY(10px) rotate(25deg);
   }
+
   100% {
     transform: translateY(0);
   }
@@ -249,13 +257,16 @@ h2 {
   0% {
     transform: translateY(0) rotate(0deg);
   }
+
   50% {
     transform: translateY(60px) rotate(80deg);
   }
+
   100% {
     transform: translateY(0) rotate(0deg);
   }
 }
+
 .typewriter {
   font-family: "JetBrains Mono", monospace;
   white-space: nowrap;
@@ -263,7 +274,8 @@ h2 {
   display: inline-block;
   border-right: 0.1em currentColor;
 
-  --n: 33; /* cantidad de caracteres */
+  --n: 33;
+  /* cantidad de caracteres */
 
   animation: typing 4s steps(var(--n)) infinite alternate,
     caret 0.7s step-end infinite;
@@ -273,6 +285,7 @@ h2 {
   from {
     width: 0;
   }
+
   to {
     width: calc(var(--n) * 1ch);
   }
@@ -284,7 +297,7 @@ h2 {
   }
 }
 
-.pasos-reserva > :first-child {
+.pasos-reserva> :first-child {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -293,7 +306,7 @@ h2 {
   gap: 90px;
 }
 
-.pasos-reserva > :nth-child(2) {
+.pasos-reserva> :nth-child(2) {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -302,7 +315,7 @@ h2 {
   gap: 80px;
 }
 
-.pasos-reserva > :nth-child(3) {
+.pasos-reserva> :nth-child(3) {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -311,7 +324,7 @@ h2 {
   gap: 90px;
 }
 
-.pasos-reserva > :last-child {
+.pasos-reserva> :last-child {
   display: flex;
   flex-direction: row;
   align-self: flex-end;
@@ -396,7 +409,9 @@ h2 {
   align-items: center;
   justify-content: flex-end;
   box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1),
-    /* brillo suave claro */ 0 0 20px rgba(255, 255, 255, 0.15); /* efecto glow alrededor */
+    /* brillo suave claro */
+    0 0 20px rgba(255, 255, 255, 0.15);
+  /* efecto glow alrededor */
 }
 
 .testimonio-card:hover {
@@ -426,6 +441,7 @@ h2 {
   display: none !important;
   margin: 0 !important;
 }
+
 .testimonio-card:hover p {
   visibility: visible !important;
   display: block !important;
@@ -443,6 +459,7 @@ h2 {
   display: block !important;
   font-weight: bold;
 }
+
 .testimonios-searchbar {
   width: 797px;
   height: 99px;
@@ -455,7 +472,8 @@ h2 {
   align-self: flex-start;
   margin-left: 18%;
 }
-.testimonios-searchbar > input {
+
+.testimonios-searchbar>input {
   appearance: none;
   outline: none;
   border: none;
@@ -466,7 +484,7 @@ h2 {
   font-weight: lighter;
 }
 
-.testimonios-searchbar > input:placeholder-shown {
+.testimonios-searchbar>input:placeholder-shown {
   animation: parpadeo 1s steps(2, start) infinite;
 }
 
@@ -475,6 +493,7 @@ h2 {
     opacity: 0;
   }
 }
+
 /* sala personalizada sección y cards -------------------------------------------------------------*/
 .sala-personalizada-container {
   width: 100%;
@@ -522,6 +541,7 @@ h2 {
   font-weight: lighter;
   cursor: pointer;
 }
+
 .comofunciona-button button {
   background-color: transparent;
   border: none;
@@ -570,6 +590,7 @@ h2 {
   background-color: black;
   position: relative;
 }
+
 .sala-personalizada-baseblanco {
   background-color: whitesmoke;
   width: 1104px;
@@ -632,13 +653,15 @@ h2 {
   right: 30%;
   transform: rotate(-16deg);
 }
+
 .texto-eventos2:hover {
   /* Al hacer hover: SE APLASTA hacia abajo */
   transform: rotate(-16deg) translateY(10px) scale(0.98);
-  box-shadow: 
+  box-shadow:
     0 4px 8px rgba(0, 0, 0, 0.2),
     0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .fondo-botton {
   background-color: whitesmoke;
   width: 300px;
@@ -662,7 +685,7 @@ h2 {
 }
 
 .fondo-botton button:hover {
-  transform: translateY(30px) ;
+  transform: translateY(30px);
   transition 0.3s ease-in-out;
   cursor: pointer;
 }
@@ -670,8 +693,8 @@ h2 {
 .descuento-sticker {
   font-family: "JetBrains Mono";
   text-align: center;
-  color:whitesmoke;
-  background-color:black;
+  color: whitesmoke;
+  background-color: black;
   width: 180px;
   height: 180px;
 
@@ -696,7 +719,7 @@ h2 {
   width: 80%;
   height: 100px;
   background-color: black;
-  margin: auto;
+  margin: 40px auto;
   border-radius: 65px;
 }
 
@@ -707,6 +730,7 @@ h2 {
   justify-content: space-evenly;
   align-items: center;
 }
+
 .footer-container-nav li {
   list-style: none;
 }
@@ -754,6 +778,7 @@ h2 {
   justify-content: center;
   padding-top: 120px;
 }
+
 /* FIN seccion sala ------------------------------------------*/
 
 /* seccion SALA SECRETA ------------------------------------------*/
@@ -776,12 +801,97 @@ h2 {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 .particles-js-canvas-el {
   border-radius: 28px;
 }
+
 /* FIN seccion SALA SECRETA------------------------------------------*/
 
 /* seccion CONTACTO ------------------------------------------*/
+.contacto-container {
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
+  width: 525px;
+  height: 402px;
+  margin: auto;
+  position: absolute;
+  top: 26%;
+  left: 37%;
+}
+
+.papel-contacto-container {
+  width: 525px;
+  height: 402px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-evenly;
+
+  transform: translateY(-10px);
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.papel-contacto {
+  font-family: "JetBrains Mono";
+  color: whitesmoke;
+  background-color: black;
+  width: 85px;
+  height: 216px;
+}
+
+.papel-contacto:hover {
+  transform: translateY(8px);
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.2),
+    0 2px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.papel-contacto-animacion {
+  transform: translateY(216px);
+  /* posición final */
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.datos-contacto {
+  font-family: "JetBrains Mono";
+  color: whitesmoke;
+  text-align: center;
+  font-size: 10px;
+  margin: 40px auto;
+  transform: rotate(90deg);
+}
+
+.contacto-texto {
+  font-family: "JetBrains Mono";
+  text-align: left;
+  color: black;
+  width: 400px;
+  height: 92px;
+  margin: 26px 0 0 30px;
+  position: absolute;
+  z-index: 30;
+}
+
+.mapa-contacto {
+  position: absolute;
+  z-index: 50;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.ocultar-mapa {
+  opacity: 1;
+  position: absolute;
+  z-index: 50;
+  visibility: visible;
+}
+
+.footer-contacto {
+  margin-bottom: 300px;
+}
 
 /* FIN seccion CONTACTO------------------------------------------*/
 
@@ -823,9 +933,11 @@ h2 {
   height: 65px;
   text-align: center;
 }
-.registrarse-input > p {
+
+.registrarse-input>p {
   margin: 5px auto;
 }
+
 .registrarse-input-main {
   font-family: "JetBrains Mono";
   color: black;
@@ -837,8 +949,8 @@ h2 {
   margin: auto auto 3% auto;
 }
 
-.registrarse-input > input,
-.registrarse-input-main > input {
+.registrarse-input>input,
+.registrarse-input-main>input {
   font-size: 12px;
   appearance: none;
   outline: none;
@@ -848,7 +960,8 @@ h2 {
   font-weight: lighter;
   text-align: center;
   padding: 0%;
-  border-bottom: 0.4px solid black; /* la barrita */
+  border-bottom: 0.4px solid black;
+  /* la barrita */
 }
 
 .registrarse-bar {
@@ -857,6 +970,7 @@ h2 {
   height: 3px;
   z-index: 10;
 }
+
 .registrarse-boton {
   font-family: "JetBrains Mono";
   color: black;
@@ -869,11 +983,13 @@ h2 {
   margin: 3% auto;
   cursor: pointer;
 }
+
 .registrarse-boton-container {
   display: flex;
   justify-content: center;
   width: 100%;
 }
+
 /* FIN seccion REGISTRARSE ------------------------------------------*/
 
 /* seccion LOGIN  ------------------------------------------*/
@@ -917,15 +1033,19 @@ h2 {
 .polaroid-1 {
   transform: rotate(-15deg);
 }
+
 .polaroid-2 {
   transform: rotate(8deg);
 }
+
 .polaroid-3 {
   transform: rotate(-5deg);
 }
+
 .polaroid-4 {
   transform: rotate(12deg);
 }
+
 .polaroid-5 {
   transform: rotate(-8deg);
 }
@@ -948,30 +1068,40 @@ h2 {
 .login-grid {
   display: grid;
   gap: 16px;
-  grid-template-columns: 1fr 1fr 1fr; /* 3 columnas */
-  grid-template-rows: auto auto auto; /* 3 filas */
+  grid-template-columns: 1fr 1fr 1fr;
+  /* 3 columnas */
+  grid-template-rows: auto auto auto;
+  /* 3 filas */
   grid-template-areas:
-    "agent agent clasificado" /* fila 1 */
-    "secret ingresar clasificado" /* fila 2 */
-    "secret registrar olvide"; /* fila 3 */
+    "agent agent clasificado"
+    /* fila 1 */
+    "secret ingresar clasificado"
+    /* fila 2 */
+    "secret registrar olvide";
+  /* fila 3 */
 }
 
 /* Áreas */
 .agent {
   grid-area: agent;
 }
+
 .clasificado {
   grid-area: clasificado;
 }
+
 .secret {
   grid-area: secret;
 }
+
 .ingresar {
   grid-area: ingresar;
 }
+
 .registrar {
   grid-area: registrar;
 }
+
 .olvide {
   grid-area: olvide;
 }
@@ -984,4 +1114,5 @@ h2 {
   letter-spacing: 12px;
   font-weight: lighter;
 }
+
 /* FIN seccion LOGIN  ------------------------------------------*/

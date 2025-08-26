@@ -40,3 +40,26 @@ particlesJS.load('particles-js',   'data.json/particles.json', function() {
 particlesJS.load('particles2',  '../data.json/particlesjs2sala.json',  function() {
   console.log('callback - particles.js config loaded');
 });
+
+//animación de contacto que debe ejecutarse solo una vez por sesión ------------------------------
+window.addEventListener("load",() => {
+ 
+  const papelito = document.querySelector(".papel-contacto-container");
+  setTimeout(() => { papelito.classList.add("papel-contacto-animacion");} , 1000)
+});
+  // Chequear si ya se animó esta sesión
+  //if (!sessionStorage.getItem("animacionDeslizada")) {
+   // papelito.classList.add("papel-contacto-animacion");
+    //sessionStorage.setItem("animacionDeslizada", "true");
+  //} else {
+    //estado final
+    //papelito.style.transform = "translateY(216px)";
+  
+  //}
+
+  //toggle para mostrar la ubicación en el mapa
+  papeles.forEach(papel => {
+    papel.addEventListener("click", () => {
+      mapa.classList.toggle("ocultar-mapa");
+    });
+  });
