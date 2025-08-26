@@ -1,122 +1,130 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
- 
-        <meta charset="UTF-8" />
-        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Epic Escape Rooms - Inicio</title>
-        <!-- SEO-->
-        <meta name="author" content="Luna Bujalesky">
-        <meta name="description"
-          content="Epic Escape Rooms - Vive una experiencia diferente, conoce nuestras propuestas de salas de escape, reserva tu lugar y disfruta de una aventura única con amigos o familia.">
-        <meta name="keywords"
-          content="Escape Rooms, juegos de escape, entretenimiento, diversión, desafíos, acertijos, aventuras, experiencias únicas">
-        <!-- Open Graph para compartir en redes sociales -->
-        <meta property="og:title" content="" />
-        <!-- Título visible en redes-->
-        <meta property="og:description" content="" />
-        <!-- Texto descriptivo del sitio-->
-        <meta property="og:image" content="" /> <!-- URL de una imagen destacada-->
-        <meta property="og:url" content="" /> <!-- URL del sitio-->
-        <meta property="og:type" content="website" /> <!-- tipo de contenido-->
-        <link rel="icon" type="image/x-icon" href="">
-        <link rel="shortcut icon" href="../assets/favIcon.png">
-        
-        <!-- Link JS-->
-        <script defer src="../main.js"></script>
-        <script defer src="../components.js"></script>
-        <link rel="stylesheet" href="../styles/styles.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Tagesschrift&family=VT323&display=swap"
-          rel="stylesheet">
-      </head>
-      <body>
-        <header>
-            <h1 class="titulo-para-seo">Epic Escape Rooms: Aventura, Misterio y Diversión</h1>
-            <div class="header-container">
-              <div class="header-subcontainers">
-                <div class="title-container">
-                  <div class="subtitle-container">
-                    <div>
-                      <h2 style="font-size: 100px;">E</h2>
-                    </div>
-                    <div class="subtitle">
-                      <h2 style="font-size: 34px; line-height: 83px; margin-inline-start: -3px;">PIC</h2>
-                      <h2
-                        style="font-size: 70px;  line-height: 3px; padding: 0; font-stretch: expanded; margin-top: 12px; margin-inline-start: -8px;">
-                        SCAPE </h2>
-                    </div>
-                  </div>
-                  <div>
-                    <h2 style="font-size: 100px; padding: 0; line-height: 80px; color: whitesmoke; z-index: 20;">ROOMS</h2>
-                  </div>
-                </div>
-                <div>
-                  <nav>
-                    <ul class="header-nav-container">
-                      <li><a href="../index.html">Inicio</a></li>
-                      <li><a href="./reservaSalas.html">Salas</a></li>
-                      <li><a id=”redireccionSalaSecreta” href="./salaSecreta.html"><img src="../assets/candadoCerrado.png" alt="icono candado cerrado"></a>
-                      </li>
-                      <!--<li><a href="pages/salaSecreta.html"><img src="assets/candadoAbierto.png" alt="icono candado abierto"></a></li>-->
-                      <li><a href="./contacto.html">Contacto</a></li>
-                      <li ><a id=”redireccionporLogin” href="./logIn.html"> <img src="../assets/defaultAvatarMenu.png" alt="avatar de perfil">Perfil</a>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
-              </div>
-            </div>
-          </header>
 
-          <main>
-            <section class="main-container" style=" padding-top: 20px; ">
-              <form id="reservaSala" class="borrardespuesdeEntrega">
-                <h2>Reserva tu sala</h2>
-              
-                <label for="salas">Sala:</label>
-                <select id="salas"></select>
-              
-                <label for="dias">Día:</label>
-                <select id="dias"></select>
-              
-                <label for="horarios">Horario:</label>
-                <select id="horarios"></select>
-                <button type="submit">Reservar</button>
-              </form>
-            </section>
-          </main>
-          <footer>
-            <div class="footer-container">
-              <div class="footer-container-nav">
-                <nav>
-                  <ul>
-                    <li><a href="https://wa.me/5492901401699" target="_blank"><img src="../assets/whatsapp.png" alt="Logo de whatsapp con enlace al chat"></a></li>
-                    <li><a href="https://github.com/LunaBujalesky"><img src="../assets/github.png"
-                          alt="Logo de Github con link"></a>
-                    </li>
-                    <div class="index-logo">
-                      <li>
-                        <a href="index.html"><img src="../assets/home.png" alt="Icono de una casa con enlace a inicio"></a>
-                      </li>
-                    </div>
-                    <li><a href="https://www.linkedin.com/in/luna-bujalesky-b60561267/"><img src="../assets/linkedin.png"
-                          alt="Icono de Linkedin con enlace"></a></li>
-                    <li><a href="https://www.instagram.com/soleiatelier/"><img src="../assets/instagram.png"
-                          alt="Logo de Instagram con link"></a></li>
-                  </ul>
-                </nav>
-              </div>
-        
-              <p style="letter-spacing: 2rem; font-weight: bold; margin: 2rem 0 2rem 0; text-shadow:  8px 2px 0 #A7A7A7;">&copy;
-                2025 EpicEscapeRooms. Luna Bujalesky</p>
-              <p>Epic Escape Room - Sede La Plata Calle 3 Abril, e 60 La Plata, Buenos Aires, Argentina </p>
-              <p>epicescaperoomsLaPlata@gmail.com </p>
-              <p style="margin-bottom: 42px;">+54 2901409233</p>
+<head>
+
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Epic Escape Rooms - Inicio</title>
+  <!-- SEO-->
+  <meta name="author" content="Luna Bujalesky">
+  <meta name="description"
+    content="Epic Escape Rooms - Vive una experiencia diferente, conoce nuestras propuestas de salas de escape, reserva tu lugar y disfruta de una aventura única con amigos o familia.">
+  <meta name="keywords"
+    content="Escape Rooms, juegos de escape, entretenimiento, diversión, desafíos, acertijos, aventuras, experiencias únicas">
+  <!-- Open Graph para compartir en redes sociales -->
+  <meta property="og:title" content="" />
+  <!-- Título visible en redes-->
+  <meta property="og:description" content="" />
+  <!-- Texto descriptivo del sitio-->
+  <meta property="og:image" content="" /> <!-- URL de una imagen destacada-->
+  <meta property="og:url" content="" /> <!-- URL del sitio-->
+  <meta property="og:type" content="website" /> <!-- tipo de contenido-->
+  <link rel="icon" type="image/x-icon" href="">
+  <link rel="shortcut icon" href="../assets/favIcon.png">
+
+  <!-- Link JS-->
+  <script defer src="../main.js"></script>
+  <script defer src="../components.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/vanilla-calendar-pro/build/vanilla-calendar.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-calendar-pro/build/vanilla-calendar.min.js" defer></script>
+  <link rel="stylesheet" href="../styles/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Tagesschrift&family=VT323&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <h1 class="titulo-para-seo">Epic Escape Rooms: Aventura, Misterio y Diversión</h1>
+    <div class="header-container">
+      <div class="header-subcontainers">
+        <div class="title-container">
+          <div class="subtitle-container">
+            <div>
+              <h2 style="font-size: 100px;">E</h2>
             </div>
-          </footer>
-      </body>
+            <div class="subtitle">
+              <h2 style="font-size: 34px; line-height: 83px; margin-inline-start: -3px;">PIC</h2>
+              <h2
+                style="font-size: 70px;  line-height: 3px; padding: 0; font-stretch: expanded; margin-top: 12px; margin-inline-start: -8px;">
+                SCAPE </h2>
+            </div>
+          </div>
+          <div>
+            <h2 style="font-size: 100px; padding: 0; line-height: 80px; color: whitesmoke; z-index: 20;">ROOMS</h2>
+          </div>
+        </div>
+        <div>
+          <nav>
+            <ul class="header-nav-container">
+              <li><a href="../index.html">Inicio</a></li>
+              <li><a href="./reservaSalas.html">Salas</a></li>
+              <li><a id=”redireccionSalaSecreta” href="./salaSecreta.html"><img src="../assets/candadoCerrado.png"
+                    alt="icono candado cerrado"></a>
+              </li>
+              <!--<li><a href="pages/salaSecreta.html"><img src="assets/candadoAbierto.png" alt="icono candado abierto"></a></li>-->
+              <li><a href="./contacto.html">Contacto</a></li>
+              <li><a id=”redireccionporLogin” href="./logIn.html"> <img src="../assets/defaultAvatarMenu.png"
+                    alt="avatar de perfil">Perfil</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="main-container" style=" padding-top: 20px; ">
+      <form id="reservaSala" class="borrardespuesdeEntrega">
+        <h2>Reserva tu sala</h2>
+
+        <label for="salas">Sala:</label>
+        <select id="salas"></select>
+        <div id="calendar"></div>
+        <label for="dias">Día:</label>
+        <select id="dias"></select>
+
+        <label for="horarios">Horario:</label>
+        <select id="horarios"></select>
+        <button type="submit">Reservar</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-container">
+      <div class="footer-container-nav">
+        <nav>
+          <ul>
+            <li><a href="https://wa.me/5492901401699" target="_blank"><img src="../assets/whatsapp.png"
+                  alt="Logo de whatsapp con enlace al chat"></a></li>
+            <li><a href="https://github.com/LunaBujalesky"><img src="../assets/github.png"
+                  alt="Logo de Github con link"></a>
+            </li>
+            <div class="index-logo">
+              <li>
+                <a href="index.html"><img src="../assets/home.png" alt="Icono de una casa con enlace a inicio"></a>
+              </li>
+            </div>
+            <li><a href="https://www.linkedin.com/in/luna-bujalesky-b60561267/"><img src="../assets/linkedin.png"
+                  alt="Icono de Linkedin con enlace"></a></li>
+            <li><a href="https://www.instagram.com/soleiatelier/"><img src="../assets/instagram.png"
+                  alt="Logo de Instagram con link"></a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <p style="letter-spacing: 2rem; font-weight: bold; margin: 2rem 0 2rem 0; text-shadow:  8px 2px 0 #A7A7A7;">&copy;
+        2025 EpicEscapeRooms. Luna Bujalesky</p>
+      <p>Epic Escape Room - Sede La Plata Calle 3 Abril, e 60 La Plata, Buenos Aires, Argentina </p>
+      <p>epicescaperoomsLaPlata@gmail.com </p>
+      <p style="margin-bottom: 42px;">+54 2901409233</p>
+    </div>
+  </footer>
+</body>
+
 </html>

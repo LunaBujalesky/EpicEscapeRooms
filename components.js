@@ -63,3 +63,9 @@ window.addEventListener("load",() => {
       mapa.classList.toggle("ocultar-mapa");
     });
   });
+
+  //api vainilla calendar para reservas de salas ---------------------------------------------------
+  document.addEventListener('DOMContentLoaded', () => {
+    const calendar = new VanillaCalendar('#calendar');
+    calendar.init();
+  });

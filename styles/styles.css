@@ -961,9 +961,10 @@ h2 {
   text-align: center;
   padding: 0%;
   border-bottom: 0.4px solid black;
-  /* la barrita */
+
 }
 
+/* la barrita */
 .registrarse-bar {
   width: 180px;
   color: black;
@@ -982,6 +983,7 @@ h2 {
   text-align: center;
   margin: 3% auto;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .registrarse-boton-container {
@@ -1014,7 +1016,7 @@ h2 {
 }
 
 .card-logIn-dentro {
-  background: #f0f0f0;
+  /*background: #f0f0f0;*/
   width: 160px;
   height: 155px;
   margin: 20px auto;
@@ -1031,23 +1033,24 @@ h2 {
 
 /* Posicionamiento de polaroids */
 .polaroid-1 {
-  transform: rotate(-15deg);
+  transform: rotate(-8deg)translateX(-36px)translateY(12px);
 }
 
 .polaroid-2 {
-  transform: rotate(8deg);
+  transform: rotate(-6deg)translateX(32px);
 }
 
 .polaroid-3 {
-  transform: rotate(-5deg);
+  transform: rotate(12deg)translateX(-42px)translateY(8px);
 }
 
 .polaroid-4 {
-  transform: rotate(12deg);
+  transform: rotate(-2deg)translateY(24px);
 }
 
 .polaroid-5 {
-  transform: rotate(-8deg);
+  transform: rotate(-8deg)translateX(140px);
+
 }
 
 /* second layer, el formulario de ingreso*/
@@ -1084,6 +1087,29 @@ h2 {
 /* Áreas */
 .agent {
   grid-area: agent;
+  width: 490px;
+  height: 133px;
+  background-color: whitesmoke;
+  font-family: "JetBrains Mono";
+  color: black;
+  border-radius: 11px;
+  text-align: center;
+  font-size: 32px;
+  font-weight: lighter;
+  margin: 45px auto auto 350px;
+  padding: 0%;
+}
+
+.logIn-input {
+  font-size: 12px;
+  appearance: none;
+  outline: none;
+  border: none;
+  background: none;
+  font-family: "JetBrains Mono";
+  font-weight: lighter;
+  text-align: center;
+  border-bottom: 0.4px solid black;
 }
 
 .clasificado {
@@ -1092,18 +1118,43 @@ h2 {
 
 .secret {
   grid-area: secret;
+  transform: rotate(4deg)translateX(362px)translateY(32px);
 }
 
 .ingresar {
   grid-area: ingresar;
+  transform: rotate(-8deg)translateY(120px)translateX(300px);
 }
 
 .registrar {
   grid-area: registrar;
+  transform: rotate(-8deg)translateY(120px)translateX(316px);
+  font-family: "JetBrains Mono";
+  color: black;
+  background-color: whitesmoke;
+  border-radius: 11px;
+  width: 190px;
+  height: 65px;
+  text-align: center;
+ 
 }
 
 .olvide {
   grid-area: olvide;
+  transform: rotate(-8deg)translateY(130px)translateX(150px);
+  width: 150px;
+  height: 50px;
+}
+.olvide-boton {
+  font-family: "JetBrains Mono";
+  color: black;
+  background-color: whitesmoke;
+  border-radius: 11px;
+  border-style: none;
+  text-align: center;
+  margin: 3% auto;
+  cursor: pointer;
+  font-size: 12px;
 }
 
 .clasificado {
@@ -1113,6 +1164,9 @@ h2 {
   text-align: center;
   letter-spacing: 12px;
   font-weight: lighter;
+  transform: rotate(-8deg)translateY(120px);
+  border-color: #333333;
+  border-width: 1px;
 }
 
 /* FIN seccion LOGIN  ------------------------------------------*/
