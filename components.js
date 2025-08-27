@@ -58,7 +58,7 @@ window.addEventListener("load", () => {
   if (!papelito) {
     return;
   }
-  setTimeout(() => { papelito.classList.add("papel-contacto-animacion"); }, 1000)
+  setTimeout(() => { papelito.classList.add("papel-contacto-animacion"); }, 1500)
 });
 
 
@@ -75,8 +75,8 @@ window.addEventListener("load", () => {
 function spawnearMapa() {
   //toggle para mostrar la ubicación en el mapa
   const papeles = document.querySelectorAll(".papel-contacto-container");
-  const mapa = document.querySelector("mapa-contacto");
-  if (!papeles) {
+  const mapa = document.querySelector(".mapa-contacto");
+  if (!papeles||!mapa) {
     return;
   }
   papeles.forEach(papel => {
@@ -105,6 +105,5 @@ EventoBarraBusqueda();
 EventoBotonEscalera();
 cargarParticulasIndex();
 cargarParticulasSalaSecreta();
-
 spawnearMapa();
 
