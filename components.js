@@ -55,10 +55,19 @@ function cargarParticulasSalaSecreta() {
 
 window.addEventListener("load", () => {
   const papelito = document.querySelector(".papel-contacto-container");
-  if (!papelito) {
+  const textoContacto = document.getElementById("aparecerTexto");
+  const textoPapelitos = document.querySelectorAll(".aparecerDatos");
+  if (!papelito||!textoContacto) {
     return;
   }
   setTimeout(() => { papelito.classList.add("papel-contacto-animacion"); }, 1500)
+  setTimeout(() => { textoContacto.classList.add("contacto-texto"); }, 2500)
+  setTimeout(() => {
+    textoPapelitos.forEach(texto => {
+      texto.classList.remove("aparecerDatos");
+      texto.classList.add("datos-contacto");
+    });
+  }, 2500);
 });
 
 
@@ -89,7 +98,7 @@ function spawnearMapa() {
 //api vainilla calendar para reservas de salas ---------------------------------------------------
 
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => { //el dom lo pedia en la doc oficial de la api
   const elementoCalendar = document.getElementById('calendar');
   if (!elementoCalendar) {
     return;

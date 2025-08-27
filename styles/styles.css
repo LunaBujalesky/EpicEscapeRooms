@@ -828,7 +828,6 @@ h2 {
   flex-direction: row;
   align-items: flex-end;
   justify-content: space-evenly;
-
   transform: translateY(-10px);
   transition: transform 0.8s ease, opacity 0.8s ease;
 }
@@ -854,7 +853,11 @@ h2 {
   /* posición final */
   transition: transform 0.8s ease, opacity 0.8s ease;
 }
-
+.aparecerDatos {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  visibility: hidden;
+}
 .datos-contacto {
   font-family: "JetBrains Mono";
   color: whitesmoke;
@@ -862,6 +865,8 @@ h2 {
   font-size: 10px;
   margin: 40px auto;
   transform: rotate(90deg);
+  visibility: visible;
+  opacity: 1;
 }
 
 .contacto-texto {
@@ -872,12 +877,13 @@ h2 {
   height: 92px;
   margin: 26px 0 0 30px;
   position: absolute;
-  z-index: 30;
+
 }
+
 
 .mapa-contacto {
   position: absolute;
-  z-index: 50;
+  z-index: 150;
   opacity: 0;
   visibility: hidden;
 }
