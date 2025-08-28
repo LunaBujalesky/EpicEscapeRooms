@@ -80,19 +80,45 @@
 
   <main>
     <section class="main-container" style=" padding-top: 20px; ">
-      <form id="reservaSala" class="borrardespuesdeEntrega">
-        <h2>Reserva tu sala</h2>
+      <div class="reservaContainer">
+        <!-- este es el lado izq -->
+        <div class="ruedaContainer">
+          <div class="rueda"></div>
+        </div>
 
-        <label for="salas">Sala:</label>
-        <select id="salas"></select>
-        <div id="calendar"></div>
-        <label for="dias">Día:</label>
-        <select id="dias"></select>
+        <!-- este es el lado der -->
+        <div class="derechaReservaContainer">
+          <div class="flexcentrado">
+            <h3 style="letter-spacing: 6px; font-size: 48px; font-weight: 100; margin: auto;">Reserva tu sala</h3>
+            <!-- Reserva con api Calendario de reservas -->
+            <div id="calendar" class="calendar"></div>
 
-        <label for="horarios">Horario:</label>
-        <select id="horarios"></select>
-        <button type="submit">Reservar</button>
-      </form>
+          </div>
+
+          <!-- formulario viejo reserva de salas
+         <form id="reservaSala" class="borrardespuesdeEntrega">
+         <label for="salas">Sala:</label>
+         <select id="salas"></select>
+         <label for="dias">Día:</label>
+         <select id="dias"></select>
+         <label for="horarios">Horario:</label>
+         <select id="horarios"></select>
+         <button type="submit">Reservar</button>
+         </form>-->
+          <div class="boton-container">
+            <button class="reservaSalaBotones" type="submit">
+              <p>Reservar</p>
+            </button>
+            <span class="rayitaBoton"></span>
+          </div>
+          <div class="boton-container">
+            <button class="reservaSalaBotones" type="submit">
+              <p>Regresar</p>
+            </button>
+            <span class="rayitaBoton"></span>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
   <footer>

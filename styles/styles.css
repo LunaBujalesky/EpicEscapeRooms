@@ -771,12 +771,72 @@ h2 {
 }
 
 /* seccion sala ------------------------------------------*/
-.borrardespuesdeEntrega {
+.flexcentrado {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding-top: 120px;
+  justify-content: flex-end;
+
+}
+.calendar {
+  margin: 30px;
+}
+.reservaContainer {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  position: relative;
+  height: 628px;
+}
+
+.ruedaContainer {
+  width: 660px;
+  height: fit-content;
+}
+
+.rueda {
+  width: 660px;
+  height: 600px;
+  border: 1px solid whitesmoke;
+  border-radius: 50%;
+  position: absolute;
+  right: 70%;
+  top: 4%;
+}
+
+
+.reservaSalaBotones {
+  font-family: "JetBrains Mono";
+  color: whitesmoke;
+  background: none;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 32px;
+  font-weight: lighter;
+  letter-spacing: 3px;
+  cursor: po;
+}
+
+.boton-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.rayitaBoton {
+  opacity: 0;
+  width: 0;
+  height: 2px;
+  background-color: whitesmoke;
+  margin: 0 auto;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.boton-container:hover .rayitaBoton {
+  opacity: 1;
+  width: 130px;
 }
 
 /* FIN seccion sala ------------------------------------------*/
@@ -853,11 +913,13 @@ h2 {
   /* posición final */
   transition: transform 0.8s ease, opacity 0.8s ease;
 }
+
 .aparecerDatos {
   opacity: 0;
   transition: opacity 1s ease-in-out;
   visibility: hidden;
 }
+
 .datos-contacto {
   font-family: "JetBrains Mono";
   color: whitesmoke;
@@ -893,7 +955,7 @@ h2 {
   position: absolute;
   z-index: 50;
   visibility: visible;
-  top:  -68%;
+  top: -68%;
 }
 
 .footer-contacto {
@@ -1023,7 +1085,7 @@ h2 {
 }
 
 .card-logIn-dentro {
-  /*background: #f0f0f0;*/
+  background: #ececec;
   width: 160px;
   height: 155px;
   margin: 20px auto;
@@ -1143,7 +1205,7 @@ h2 {
   width: 190px;
   height: 65px;
   text-align: center;
- 
+
 }
 
 .olvide {
@@ -1152,6 +1214,7 @@ h2 {
   width: 150px;
   height: 50px;
 }
+
 .olvide-boton {
   font-family: "JetBrains Mono";
   color: black;
@@ -1177,3 +1240,60 @@ h2 {
 }
 
 /* FIN seccion LOGIN  ------------------------------------------*/
+
+/* sección perfil logeado */
+
+.perfil-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+.first-column-perfil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.second-column-perfil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.third-column-perfil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.first-column-perfil-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.perfil-board-texto {
+  font-family: 'Bored Crayon', sans-serif;
+  font-size: 20px;  
+  color: whitesmoke;
+}
+
+.second-column-perfil-bottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* FIN sección perfil logeado */

@@ -57,7 +57,7 @@ window.addEventListener("load", () => {
   const papelito = document.querySelector(".papel-contacto-container");
   const textoContacto = document.getElementById("aparecerTexto");
   const textoPapelitos = document.querySelectorAll(".aparecerDatos");
-  if (!papelito||!textoContacto) {
+  if (!papelito || !textoContacto) {
     return;
   }
   setTimeout(() => { papelito.classList.add("papel-contacto-animacion"); }, 1500)
@@ -85,7 +85,7 @@ function spawnearMapa() {
   //toggle para mostrar la ubicación en el mapa
   const papeles = document.querySelectorAll(".papel-contacto-container");
   const mapa = document.querySelector(".mapa-contacto");
-  if (!papeles||!mapa) {
+  if (!papeles || !mapa) {
     return;
   }
   papeles.forEach(papel => {
@@ -100,11 +100,28 @@ function spawnearMapa() {
 
 document.addEventListener('DOMContentLoaded', () => { //el dom lo pedia en la doc oficial de la api
   const elementoCalendar = document.getElementById('calendar');
+
   if (!elementoCalendar) {
     return;
   }
-  const calendar = new VanillaCalendar('#calendar'); //new:objetonuevo, #id del objeto
+  const options = {
+    type: 'default',
+    dateMin: '2025-08-27',   // no permite seleccionar antes de 2025
+    dateMax: '2038-12-31',   // máximo permitido
+    displayDateMin: '2025-08-27', // solo muestre a partir de 2025
+    displayDateMax: '2038-12-31',
+    displayDisabledDates: true, // para fijar fechas deshabilitadas
+    selectionTimeMode: 12,
+    timeMinHour: 13,
+    timeMaxHour: 22,
+    
+    
+    disableDates: [], //fechas deshabilitadas
+    selectedWeekends: [],
+  };
+  const calendar = new VanillaCalendar('#calendar', options); //new:objetonuevo, #id del objeto
   calendar.init();
+
 });
 
 
