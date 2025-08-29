@@ -3,11 +3,10 @@ let contrasena;
 let usuarioActual;
 
 
-
-document.addEventListener("DOMContentLoaded", () => {
+// Llamado a funciones-------------------------------------------------------......................................... /* -->
     registrarUsuario();
     VerificarDatos();
-});
+
 
 
 

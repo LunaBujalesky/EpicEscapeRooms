@@ -31,6 +31,63 @@ main {
   color: whitesmoke;
 }
 
+/* footer */
+
+.footer-container-nav {
+  width: 80%;
+  height: 100px;
+  background-color: black;
+  margin: 40px auto;
+  border-radius: 65px;
+}
+
+.footer-container-nav ul {
+  gap: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.footer-container-nav li {
+  list-style: none;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: fit-content;
+  font-family: "JetBrains Mono";
+  font-size: small;
+}
+
+.index-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  border-style: solid;
+  border-color: whitesmoke;
+  border-width: 4px;
+  background-color: black;
+  margin-top: -68px;
+}
+
+.index-logo img {
+  width: 55px;
+  height: fit-content;
+}
+
+.index-logo:hover {
+  transform: translateY(-12px) scale(1.1);
+}
+
 /* HEADER*/
 
 /* -----------------------------------------------------
@@ -503,6 +560,8 @@ h2 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  z-index: 4;
+  position: relative;
 }
 
 .sala-personalizada-firstcolumn {
@@ -528,7 +587,7 @@ h2 {
   background-color: black;
   margin-right: 12%;
   margin-bottom: -38px;
-  z-index: 10;
+  z-index: 230;
 }
 
 .comofunciona-button:hover {
@@ -570,10 +629,6 @@ h2 {
   color: whitesmoke;
   background-color: transparent;
   text-align: center;
-  border-style: inset;
-  border-width: 1.5px;
-  border-color: whitesmoke;
-  border-radius: 77px 0 0 6px;
   letter-spacing: 1rem;
   width: 573px;
   height: 71px;
@@ -651,6 +706,7 @@ h2 {
   z-index: 60;
   top: 30%;
   right: 30%;
+  cursor: pointer;
   transform: rotate(-16deg);
 }
 
@@ -672,7 +728,9 @@ h2 {
   border-radius: 100px;
   margin-right: 60px;
   position: relative;
-  transform: translateY(300px);
+
+  top: 55%;
+  z-index: 220;
 }
 
 .fondo-botton button {
@@ -682,6 +740,8 @@ h2 {
   height: 65px;
   border-style: none;
   margin-top: -60px;
+  z-index: 400;
+  transform: translateY(0);
 }
 
 .fondo-botton button:hover {
@@ -697,7 +757,6 @@ h2 {
   background-color: black;
   width: 180px;
   height: 180px;
-
   position: absolute;
   z-index: 40;
   top: 10%;
@@ -712,62 +771,102 @@ h2 {
   transform: rotate(12deg);
 }
 
+/* cambio de card al clikear el boton, estilo de card */
 
-/* footer */
-
-.footer-container-nav {
-  width: 80%;
-  height: 100px;
-  background-color: black;
-  margin: 40px auto;
-  border-radius: 65px;
+.sala-personalizada-parte-dos {
+  display: flex;
+  flex-direction: column;
+  font-family: "JetBrains Mono";
+  margin: 20px auto;
+  gap: 10px;
 }
 
-.footer-container-nav ul {
-  gap: 1rem;
+.sala-personalizada-dos-arriba {
+  width: 420px;
+  height: 78px;
+  background-color: whitesmoke;
+  border-radius: 38px;
+  text-align: center;
+  align-self: flex-start;
+
+}
+
+.sala-personalizada-dos-abajo {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  align-items: center;
+  gap: 30px;
 }
 
-.footer-container-nav li {
-  list-style: none;
+.descripcion-comofunciona {
+  width: 652px;
+  height: 410px;
+  border-radius: 38px;
+  text-align: center;
+  background-color: whitesmoke;
 }
 
-.footer-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: fit-content;
+.slogan-comofunciona {
+  width: 310px;
+  height: 314px;
+  background-color: whitesmoke;
+  border-radius: 43px;
+  text-align: center;
+}
+
+.cambioCardInvisible {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  top: 0%;
+  position: absolute;
+}
+
+.cambioCardVisible {
+  visibility: visible;
+  opacity: 1;
+  position: absolute;
+  z-index: 100;
+  top: 0%;
+
+}
+
+.inicio-sala-personalizada {
+  position: relative;
+}
+
+.calltoaction {
+  position: absolute;
+  text-align: center;
+  top: 8%;
+  right: 3%;
+  z-index: 1;
+}
+.calltoactionInvisible {
+visibility: hidden;
+transform: translateY(0);
+border-radius: 50% 50% 0 0;
+}
+.calltoactionVisible {
+visibility: visible;
+/* posición final */
+ }
+
+.calltoactionMove {
+  transform: translateY(100px);
+  transition: transform 0.8s ease, opacity 0.8s ease;
+  border-radius: 0 0 0 0;
+}
+.calltoactionStyle {
+  position: relative;
+  display: inline-block;
+  padding: 10px 40px;
   font-family: "JetBrains Mono";
-  font-size: small;
-}
-
-.index-logo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 80px;
-  height: 80px;
-  border-radius: 100%;
-  border-style: solid;
-  border-color: whitesmoke;
-  border-width: 4px;
-  background-color: black;
-  margin-top: -68px;
-}
-
-.index-logo img {
-  width: 55px;
-  height: fit-content;
-}
-
-.index-logo:hover {
-  transform: translateY(-12px) scale(1.1);
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  z-index: 1;
+  background-image: url('../assets/pedacitopapelIndex.svg');
 }
 
 /* seccion sala ------------------------------------------*/
@@ -778,9 +877,11 @@ h2 {
   justify-content: flex-end;
 
 }
+
 .calendar {
   margin: 30px;
 }
+
 .reservaContainer {
   display: flex;
   flex-direction: row;
@@ -1285,7 +1386,7 @@ h2 {
 
 .perfil-board-texto {
   font-family: 'Bored Crayon', sans-serif;
-  font-size: 20px;  
+  font-size: 20px;
   color: whitesmoke;
 }
 
@@ -1294,6 +1395,29 @@ h2 {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+}
+
+.profile-photo {
+  position: relative;
+  z-index: 36;
+}
+
+.info-usuario {
+  position: absolute;
+  z-index: 70;
+}
+
+.card-logIn {
+  background: whitesmoke;
+  width: 200px;
+  height: 223px;
+}
+
+.card-logIn-dentro {
+  background: #ececec;
+  width: 160px;
+  height: 155px;
+  margin: 20px auto;
 }
 
 /* FIN sección perfil logeado */

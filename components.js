@@ -1,5 +1,6 @@
-//botón de scroll para enfatizar la presentación -------------------------------------------------------------------------
+reservarSalaCalendario();
 
+//botón de scroll para enfatizar la presentación -------------------------------------------------------------------------
 function EventoBarraBusqueda() {
   const barraBusqueda = document.getElementById("testimonios-searchbar-puzzle");
   if (!barraBusqueda) {//Cuando no encuentra ningun elemento con ese ID
@@ -51,16 +52,16 @@ function cargarParticulasSalaSecreta() {
   });
 }
 
-//animación de contacto que debe ejecutarse solo una vez por sesión ------------------------------
+//animación de contacto que debe ejecutarse al cargar la pagina ------------------------------
 
-window.addEventListener("load", () => {
+function animacionContacto() {
   const papelito = document.querySelector(".papel-contacto-container");
   const textoContacto = document.getElementById("aparecerTexto");
   const textoPapelitos = document.querySelectorAll(".aparecerDatos");
   if (!papelito || !textoContacto) {
     return;
   }
-  setTimeout(() => { papelito.classList.add("papel-contacto-animacion"); }, 1500)
+  setTimeout(() => { papelito.classList.add("papel-contacto-animacion"); }, 800)
   setTimeout(() => { textoContacto.classList.add("contacto-texto"); }, 2500)
   setTimeout(() => {
     textoPapelitos.forEach(texto => {
@@ -68,7 +69,7 @@ window.addEventListener("load", () => {
       texto.classList.add("datos-contacto");
     });
   }, 2500);
-});
+};
 
 
 // Chequear si ya se animó esta sesión
@@ -95,34 +96,70 @@ function spawnearMapa() {
   });
 }
 
+function cambiarCardInicio() {
+  //toggle para ver mas info de las salas personalizadas, en inicio
+  const botonComoFunciona = document.querySelectorAll(".boton-funciona");
+  const cardSalaIndex = document.querySelector(".sala-personalizada-container.cambioCardInvisible");
+  if (!botonComoFunciona || !cardSalaIndex) {
+    return;
+  }
+
+  botonComoFunciona.forEach(boton => {
+    boton.addEventListener("click", () => {
+      cardSalaIndex.classList.remove("cambioCardInvisible");
+      cardSalaIndex.classList.toggle("cambioCardVisible");
+    });
+  });
+}
+
+function deslizarCalltoAction() {
+  //funcion para que se dezlice el calltoaction al hacer click en el boton de flecha card personalizada
+  const botoncalltoaction = document.querySelector(".fondo-botton");
+  const papelCalltoaction = document.querySelector(".calltoactionInvisible");
+  const deslizaBoton = document.querySelector(".deslizaboton");
+  if (!botoncalltoaction || !papelCalltoaction || !deslizaBoton) {
+    return;
+  }
+  botoncalltoaction.addEventListener("click", () => {
+    //reemplazo clase con un click
+    papelCalltoaction.classList.toggle("calltoactionInvisible");
+    papelCalltoaction.classList.toggle("calltoactionVisible");
+    papelCalltoaction.classList.toggle("calltoactionMove");
+
+    if (papelCalltoaction.classList.contains("calltoactionVisible, calltoactionMove")) {
+      deslizaBoton.classList.add("calltoactionMove");
+    } else {
+      deslizaBoton.classList.remove("calltoactionMove");
+    }
+  });
+
+}
+
 //api vainilla calendar para reservas de salas ---------------------------------------------------
 
 
-document.addEventListener('DOMContentLoaded', () => { //el dom lo pedia en la doc oficial de la api
+function reservarSalaCalendario() {
+  const { Calendar } = window.VanillaCalendarPro;
   const elementoCalendar = document.getElementById('calendar');
 
-  if (!elementoCalendar) {
-    return;
-  }
   const options = {
     type: 'default',
-    dateMin: '2025-08-27',   // no permite seleccionar antes de 2025
-    dateMax: '2038-12-31',   // máximo permitido
-    displayDateMin: '2025-08-27', // solo muestre a partir de 2025
-    displayDateMax: '2038-12-31',
-    displayDisabledDates: true, // para fijar fechas deshabilitadas
+    dateMin: new Date(2025, 7, 27),
+    dateMax: new Date(2038, 11, 31),
+    displayDateMin: new Date(2025, 7, 27),
+    displayDateMax: new Date(2038, 11, 31),
+    displayDisabledDates: false,
     selectionTimeMode: 12,
+    selectionDateMode: 'range', // corregido
     timeMinHour: 13,
     timeMaxHour: 22,
-    
-    
-    disableDates: [], //fechas deshabilitadas
-    selectedWeekends: [],
+    disableDates: [],
+    loale: 'es-Ar',
   };
-  const calendar = new VanillaCalendar('#calendar', options); //new:objetonuevo, #id del objeto
+  const calendar = new Calendar('#calendar', options);
   calendar.init();
+}
 
-});
 
 
 
@@ -132,4 +169,6 @@ EventoBotonEscalera();
 cargarParticulasIndex();
 cargarParticulasSalaSecreta();
 spawnearMapa();
-
+cambiarCardInicio();
+deslizarCalltoAction();
+animacionContacto();
