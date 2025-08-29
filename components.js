@@ -1,4 +1,3 @@
-reservarSalaCalendario();
 
 //botón de scroll para enfatizar la presentación -------------------------------------------------------------------------
 function EventoBarraBusqueda() {
@@ -138,29 +137,24 @@ function deslizarCalltoAction() {
 //api vainilla calendar para reservas de salas ---------------------------------------------------
 
 
-function reservarSalaCalendario() {
+
+   // dateMin: new Date(2025, 7, 27),
+   // dateMax: new Date(2038, 11, 31),
+   // displayDateMin: new Date(2025, 7, 27),
+  //  displayDateMax: new Date(2038, 11, 31),
+    //displayDisabledDates: false,
+    //timeMinHour: 13,
+    //timeMaxHour: 22,
+   // disableDates: [],
+   // locale: 'es-AR',
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Destructure the Calendar constructor
   const { Calendar } = window.VanillaCalendarPro;
-  const elementoCalendar = document.getElementById('calendar');
-
-  const options = {
-    type: 'default',
-    dateMin: new Date(2025, 7, 27),
-    dateMax: new Date(2038, 11, 31),
-    displayDateMin: new Date(2025, 7, 27),
-    displayDateMax: new Date(2038, 11, 31),
-    displayDisabledDates: false,
-    selectionTimeMode: 12,
-    selectionDateMode: 'range', // corregido
-    timeMinHour: 13,
-    timeMaxHour: 22,
-    disableDates: [],
-    loale: 'es-Ar',
-  };
-  const calendar = new Calendar('#calendar', options);
+  // Create a calendar instance and initialize it.
+  const calendar = new Calendar('#calendar');
   calendar.init();
-}
-
-
+});
 
 
 //ejecución de funciones -------------------------------------------------------------------------
@@ -172,3 +166,4 @@ spawnearMapa();
 cambiarCardInicio();
 deslizarCalltoAction();
 animacionContacto();
+reservarSalaCalendario();
