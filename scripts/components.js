@@ -33,7 +33,7 @@ function cargarParticulasIndex() {
   if (!particulasIndex) {
     return;
   }
-  particlesJS.load('particles-js', 'data.json/particles.json', function () {
+  particlesJS.load('particles-js', 'data/particles.json', function () {
     console.log('callback - particles.js config loaded');
 
   });
@@ -45,7 +45,7 @@ function cargarParticulasSalaSecreta() {
   if (!particulasSalaSecreta) {
     return;
   }
-  particlesJS.load('particles2', '../data.json/particlesjs2sala.json', function () {
+  particlesJS.load('particles2', '../data/particlesjs2sala.json', function () {
     console.log('callback - particles.js config loaded');
 
   });
@@ -138,24 +138,36 @@ function deslizarCalltoAction() {
 
 
 
-   // dateMin: new Date(2025, 7, 27),
-   // dateMax: new Date(2038, 11, 31),
-   // displayDateMin: new Date(2025, 7, 27),
-  //  displayDateMax: new Date(2038, 11, 31),
-    //displayDisabledDates: false,
-    //timeMinHour: 13,
-    //timeMaxHour: 22,
-   // disableDates: [],
-   // locale: 'es-AR',
+// dateMin: new Date(2025, 7, 27),
+// dateMax: new Date(2038, 11, 31),
+// displayDateMin: new Date(2025, 7, 27),
+//  displayDateMax: new Date(2038, 11, 31),
+//displayDisabledDates: false,
+//timeMinHour: 13,
+//timeMaxHour: 22,
+// disableDates: [],
+// locale: 'es-AR',
 
-document.addEventListener('DOMContentLoaded', () => {
+
+
+function reservarSalaCalendario() {
+  const calendarioReserva = document.getElementById("calendar");
+  if (!calendarioReserva) {
+    return;
+  }
+
+  // Verificar que la librería esté cargada
+    if (!window.VanillaCalendarPro) {
+        console.error('VanillaCalendarPro no está cargado');
+        return;
+    }
+
   // Destructure the Calendar constructor
   const { Calendar } = window.VanillaCalendarPro;
   // Create a calendar instance and initialize it.
   const calendar = new Calendar('#calendar');
   calendar.init();
-});
-
+}
 
 //ejecución de funciones -------------------------------------------------------------------------
 EventoBarraBusqueda();

@@ -4,49 +4,48 @@ let usuarioActual;
 
 
 // Llamado a funciones-------------------------------------------------------......................................... /* -->
-    registrarUsuario();
-    VerificarDatos();
+registrarUsuario();
+VerificarDatos();
 
 
 
 
-
-// Crear objeto con datos del localStorage
-let usuarios = [
-    {
-        //nombre: localStorage.getItem("nombre"),
-        //email: localStorage.getItem("email"),
-        //contrasena: localStorage.getItem("contrasena"),
-        //fechaNacimiento: localStorage.getItem("fechaNacimiento")
-
-    },
-
-];
 
 // Funcion crear Usuario por html y dom
 function registrarUsuario() {
     const formRegistro = document.getElementById("formRegistro")
-    if (!formRegistro) { return }
+    if (!formRegistro) {
+        return
+    }
     formRegistro.addEventListener("submit", function (event) {
         event.preventDefault(); // Evita que recargue la página
+
+        let usuarios = JSON.parse(localStorage.getItem("usuarios"));
 
         let nombre = document.getElementById("nombre").value.trim();
         let email = document.getElementById("email").value.trim();
         let contrasena = document.getElementById("contrasena").value.trim();
-        let fechaNacimiento = document.getElementById("contrasena").value.trim();
+        let fechaNacimiento = document.getElementById("fechaNacimiento").value.trim();
 
-        // Guardar datos  iniciar sesion* ...................................-->
+        let usuario = {
+            nombre: nombre,
+            email: email,
+            contrasena: contrasena,
+            fechaNacimiento: fechaNacimiento,
+        };
 
-        localStorage.setItem("nombre", nombre + "email", email + "contrasena", contrasena + "fechaNacimiento", fechaNacimiento);
+        usuarios.push(usuario);
+
+        // Guardar nuevo objeto en el array ...................................-->
+        //localStorage.setItem(usuario);
+        localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
         // chequear longitud de la contraseña/* -->
-        if (contraseña.length < 4) {
+        if (contrasena.length < 4) {
             alert("Contraseña inválida. Por favor, genere una nueva.");
             return registrarUsuario();
         }
-        document.getElementById("crearCuenta").addEventListener("click", () => {
-            window.location.href = "logIn.html";
-        });
+        window.open("logIn.html", "_self");
     })
 };
 
@@ -68,23 +67,10 @@ function VerificarDatos() {
 
         event.preventDefault(); // Evita que recargue la página
 
-        email = document.getElementById("email").value; // LOCALSTORAGE
+        email = document.getElementById("email").value; 
         contrasena = document.getElementById("contrasena").value;
-        //Esto ta mal y lo estoy haciendo solo para probar - BORRAR
 
-
-        let nuevoUsuario =
-        {
-
-            email,
-
-            contrasena,
-        }
-
-        //envio la nueva info al array de usuarios existentes:
-        usuarios.push(nuevoUsuario);
-        console.log("usuario registrado:" + usuarios[1])
-
+        //chequear que el mail esté registrado en el array
         usuarioActual = usuarios.find((usuario) => usuario.email == email);
 
         //console.log("SE ENCONTRO AL USUARIO " + usuarioActual);
@@ -100,7 +86,7 @@ function VerificarDatos() {
         // else {
         //     alert("Contraseña incorrectos");
         // }
-
+        window.open("perfil.html", "_self");
     })
 };
 
@@ -315,34 +301,3 @@ console.log(localStorage.getItem("nombre"));
 const datosGuardados = JSON.parse(localStorage.getItem("usuario"));
 console.log(datosGuardados.nombre); // Acceder al nombre */
 
-
-
-
-
-// Declaración de funciones-------------------------------------------------------......................................... /* -->
-
-
-/*Funcion para crear usuario hecha para consola
-
-function registrarUsuario() {
-    let nombre = prompt("Ingresá tu nombre:");
-    let mail = prompt("Ingresá tu mail:");
-    let contraseña = prompt("Ingresá una contraseña de al menos 4 caracteres:");
-    validarLongitudContraseña()
-    let fechaNacimiento = prompt("Ingresá tu fecha de nacimiento (DD/MM/AAAA):");
-
-
-
-
-
-    function validarLongitudContraseña() {
-        // chequear longitud de la contraseña/* -->
-        if (contraseña.length < 4) {
-            alert("Contraseña inválida. Por favor, genere una nueva.");
-            return registrarUsuario();
-
-        }
-    }
-
-} */
-// FIN  Funcion para crear usuario  CONSOLA...................................-->*/

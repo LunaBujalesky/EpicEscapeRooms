@@ -25,8 +25,8 @@
     <link rel="shortcut icon" href="../assets/favIcon.png">
     <link rel="stylesheet" href="../styles/styles.css" />
     <!-- Link JS-->
-    <script defer src="../main.js"></script>
-    <script defer src="../components.js"></script>
+    <script defer src="../scripts//main.js"></script>
+    <script defer src="../scripts/components.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -83,33 +83,36 @@
             <div class="registrarse-form-container">
                 <form id="formRegistro">
                     <div class="registrarse-input-main">
-                        <p style="font-size: 48px; font-weight: lighter; font-stretch: 14%; margin: auto; padding: 10px;">Agent Name:</p><input type="NombreUsuario" id="nombre" placeholder="Nombre de usuario">
-                        
+                        <p
+                            style="font-size: 48px; font-weight: lighter; font-stretch: 14%; margin: auto; padding: 10px;">
+                            Agent Name:</p><input type="text" required minlength="4" maxlength="8" id="nombre"
+                            placeholder="Nombre de usuario">
+
                     </div>
 
                     <div class="registrarse-second-column">
                         <div class="registrarse-input" style="transform: rotate(-1.5deg);">
-                            <p>Secret code:</p><input type="contraseña" id="contrasena" placeholder="Contraseña">
-                            
+                            <p>Secret code:</p><input type="password" required minlength="4" maxlength="8" id="contrasena" placeholder="Contraseña">
+
                         </div>
                         <div class="registrarse-input" style="transform: rotate(1.5deg);">
-                            <p>Confirm code:</p><input type="contraseña" id="contrasena"
+                            <p>Confirm code:</p><input type="password" id="confirmarContrasena"
                                 placeholder="Confirme contraseña">
-                                
+
                         </div>
                     </div>
                     <div class="registrarse-third-column">
-                        <div class="registrarse-input"style="transform: rotate(1deg);">
-                            <p>Agent contact:</p><input type="e-mail" id="email" placeholder="tumail@gmail.com">
-                            
+                        <div class="registrarse-input" style="transform: rotate(1deg);">
+                            <p>Agent contact:</p><input type="email" required id="email" placeholder="tumail@gmail.com">
+
                         </div>
-                        <div class="registrarse-input"style="transform: rotate(-1deg);">
-                            <p>Activo desde:</p><input type="fechaNacimiento" id="fechaNacimiento"
-                                placeholder="00/00/0000">
-                                
+                        <div class="registrarse-input" style="transform: rotate(-1deg);">
+                            <p>Activo desde:</p><input type="date" required id="fechaNacimiento" placeholder="00/00/0000">
+
                         </div>
                     </div>
-                    <div class="registrarse-boton-container"><button type="submit" id="crearCuenta" class="registrarse-boton">Crear cuenta</button></div>
+                    <div class="registrarse-boton-container"><button type="submit" id="crearCuenta"
+                            class="registrarse-boton">Crear cuenta</button></div>
                 </form>
             </div>
         </section>
