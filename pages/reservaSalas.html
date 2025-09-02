@@ -91,12 +91,12 @@
         <!-- este es el lado der -->
         <div class="derechaReservaContainer">
           <div class="flexcentrado">
-            
+
             <h3 style="letter-spacing: 6px; font-size: 48px; font-weight: 100; margin: auto;">Reserva tu sala</h3>
-            
+
             <!-- Reserva con api Calendario de reservas -->
             <div id="calendar" class="Calendar"></div>
-            
+
             <!-- Formulario completo de reservas -->
             <form class="formReserva">
               <!-- Selección de sala -->
@@ -153,14 +153,7 @@
 
           </div>
 
-          <!-- Formulario confirmar tu reserva -->
-          <button  type="submit" id="confirmarReserva">
-            <p>Confirmar</p>
-          </button>
-          <button  type="submit" id="confirmarReserva">
-            <p>Cancelar</p>
-          </button>
-       
+
           <div class="boton-container">
             <button class="reservaSalaBotones" type="submit">
               <p>Reservar</p>
@@ -176,7 +169,75 @@
         </div>
       </div>
     </section>
+
+    <!-- Formulario confirmar tu reserva , al terminar form mover de lugar dentro del section principal------------------------------------------------------->
+
+
+
+    <div class="boletaContainer">
+      <div class="boletaTitleContainer">
+        <div>
+          <h3 style="margin: 22px 0 8px 0 ">Tu Reserva</h3>
+          <span class="raya"></span>
+        </div>
+        <div>
+          <button class="btn-hamburguesa" aria-label="Cerrar modal">
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+      <div class="datosReserva">
+        <div class="salaelegida">
+          <h3>Sala</h3>
+        </div>
+        <div class="fechayhora">
+          <h3>Fecha y hora</h3>
+        </div>
+        <div class="nombrereserva">
+          <h3>Detective en jefe</h3>
+        </div>
+        <div class="emailreserva">
+          <h3>Email</h3>
+        </div>
+        <div class="equipo">
+          <h3>Equipo</h3>
+        </div>
+        <div class="comentariosReserva">
+          <h3>Comentarios</h3>
+        </div>
+      </div>
+      <span class="raya"></span>
+      <div class="presupuestoContainer">
+        <div class="textopresupuesto">
+          <h3>TOTAL</h3>
+          <p>Descuento x persona <br>Seña <br> Total a pagar en caja
+          </p>
+        </div>
+        <div class="preciospresupuesto">
+          <h3>$90000</h3>
+          <p>-12000 <br>-15000 <br>-15000</p>
+        </div>
+      </div>
+      <span class="raya"></span>
+      <!--estos alternan, primero los botones, despues se muestra el mensaje-->
+      <div class="botonesReserva">
+        <div class="rayitaNegra"><button class="reservaSalaBotonesBoleta" type="submit" id="confirmarReserva">
+            <p>Confirmar</p>
+          </button><span class="rayitaBotonNegra"></span></div>
+        <div class="rayitaNegra"><button class="reservaSalaBotonesBoleta" type="submit" id="cancelarReserva">
+            <p>Cancelar</p>
+          </button><span class="rayitaBotonNegra"></span></div>
+      </div>
+      <div class="mensajereserva">
+        <h3>Gracias!</h3>
+        <p style=" font-size: 12px; font-weight: bolder;">Te esperamos 15 m antes que la hora de tu reserva.</p>
+      </div>
+    </div>
+
+
   </main>
+
   <footer>
     <div class="footer-container">
       <div class="footer-container-nav">

@@ -842,21 +842,24 @@ h2 {
   right: 3%;
   z-index: 1;
 }
+
 .calltoactionInvisible {
-visibility: hidden;
-transform: translateY(0);
-border-radius: 50% 50% 0 0;
+  visibility: hidden;
+  transform: translateY(0);
+  border-radius: 50% 50% 0 0;
 }
+
 .calltoactionVisible {
-visibility: visible;
-/* posición final */
- }
+  visibility: visible;
+  /* posición final */
+}
 
 .calltoactionMove {
   transform: translateY(100px);
   transition: transform 0.8s ease, opacity 0.8s ease;
   border-radius: 0 0 0 0;
 }
+
 .calltoactionStyle {
   position: relative;
   display: inline-block;
@@ -942,16 +945,20 @@ visibility: visible;
 
 /* estilizar calendario */
 [data-vc-theme=dark].vc {
-    --tw-bg-opacity: 1;
-    background-color: #545454 !important;
-    color: #fff;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+  --tw-bg-opacity: 1;
+  background-color: #545454 !important;
+  color: #fff;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
 }
-[data-vc-theme=dark] .vc-header__content, [data-vc-theme=dark] .vc-month, [data-vc-theme=dark] .vc-year {
+
+[data-vc-theme=dark] .vc-header__content,
+[data-vc-theme=dark] .vc-month,
+[data-vc-theme=dark] .vc-year {
   color: #fff;
   font-family: "JetBrains Mono";
   font-weight: lighter;
 }
+
 [data-vc-theme=dark] .vc-date[data-vc-date-today] .vc-date__btn {
   --tw-bg-opacity: 1;
   background-color: #272727;
@@ -959,18 +966,22 @@ visibility: visible;
   font-family: "JetBrains Mono";
   font-weight: lighter;
 }
-[data-vc-theme=dark] .vc-date[data-vc-date-holiday] .vc-date__btn, [data-vc-theme=dark] .vc-date[data-vc-date-weekend] .vc-date__btn {
+
+[data-vc-theme=dark] .vc-date[data-vc-date-holiday] .vc-date__btn,
+[data-vc-theme=dark] .vc-date[data-vc-date-weekend] .vc-date__btn {
   color: whitesmoke;
   font-family: "JetBrains Mono";
-  
+
 }
+
 [data-vc-theme=dark] .vc-date[data-vc-date-selected] .vc-date__btn {
   --tw-bg-opacity: 1;
   background-color: #0C0C0C;
   color: #fff;
   font-family: "JetBrains Mono";
- 
+
 }
+
 [data-vc-theme=dark] .vc-date__btn {
   --tw-bg-opacity: 1;
   background-color: transparent;
@@ -978,23 +989,163 @@ visibility: visible;
   font-family: "JetBrains Mono";
   font-weight: lighter;
 }
+
 [data-vc-theme=dark] .vc-week__day[data-vc-week-day-off] {
   color: whitesmoke;
   font-family: "JetBrains Mono";
-  
+
 }
-[data-vc-theme=dark] .vc-date[data-vc-date-holiday][data-vc-date-month=next] .vc-date__btn, [data-vc-theme=dark] .vc-date[data-vc-date-holiday][data-vc-date-month=prev] .vc-date__btn, [data-vc-theme=dark] .vc-date[data-vc-date-weekend][data-vc-date-month=next] .vc-date__btn, [data-vc-theme=dark] .vc-date[data-vc-date-weekend][data-vc-date-month=prev] .vc-date__btn {
+
+[data-vc-theme=dark] .vc-date[data-vc-date-holiday][data-vc-date-month=next] .vc-date__btn,
+[data-vc-theme=dark] .vc-date[data-vc-date-holiday][data-vc-date-month=prev] .vc-date__btn,
+[data-vc-theme=dark] .vc-date[data-vc-date-weekend][data-vc-date-month=next] .vc-date__btn,
+[data-vc-theme=dark] .vc-date[data-vc-date-weekend][data-vc-date-month=prev] .vc-date__btn {
   --tw-bg-opacity: 1;
-  background-color:#272727;
+  background-color: #272727;
   color: #475569;
   font-family: "JetBrains Mono";
-  
+
 }
+
 [data-vc-theme=dark] .vc-week__day {
   color: #fff;
   font-family: "JetBrains Mono";
   font-weight: lighter;
 }
+
+
+/* boleta para confirmar datos de reserva*/
+.boletaContainer {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 500px;
+  height: 800px;
+  gap: 10px;
+  background-color: #F1F1F1;
+  margin: auto;
+}
+
+.boletaTitleContainer {
+  display: flex;
+  flex-direction: row;
+  font-family: "JetBrains Mono";
+  justify-content: flex-end;
+  align-items: flex-start;
+  text-align: center;
+  font-size: 22px;
+}
+
+.presupuestoContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  font-family: "JetBrains Mono";
+  font-size: 12px;
+  gap: 50%;
+}
+.preciospresupuesto {
+  text-align: right;
+
+}
+.datosReserva h3 {
+  font-family: "JetBrains Mono";
+  font-size: 18px;
+  text-align: left;
+}
+
+.raya {
+  display: inline-block;
+  width: 275px;
+  height: 1px;
+  background-color: #000;
+  vertical-align: middle;
+}
+
+.btn-hamburguesa {
+  position: relative;
+  width: 30px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.btn-hamburguesa span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  border-radius: 3px;
+  background: #000;
+  /* color negro */
+  transition: transform 0.3s ease, top 0.3s ease, opacity 0.3s ease;
+}
+
+.btn-hamburguesa span:first-child {
+  top: 6px;
+  /* primera raya */
+}
+
+.btn-hamburguesa span:last-child {
+  top: 16px;
+  /* segunda raya */
+}
+
+/* Hover → cruz */
+.btn-hamburguesa:hover span:first-child {
+  top: 11px;
+  transform: rotate(45deg);
+}
+
+.btn-hamburguesa:hover span:last-child {
+  top: 11px;
+  transform: rotate(-45deg);
+}
+
+.reservaSalaBotonesBoleta {
+  font-family: "JetBrains Mono";
+  color: black;
+  background: none;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.botonesReserva {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.mensajereserva {
+  font-family: "JetBrains Mono";
+  color: black;
+  text-align: center;
+}
+
+.rayitaBotonNegra {
+  opacity: 0;
+  width: 0;
+  height: 2px;
+  background-color: black;
+  margin: 0 auto;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.rayitaNegra:hover .rayitaBotonNegra {
+  opacity: 1;
+  width: 130px;
+}
+
 /* FIN seccion sala ------------------------------------------*/
 
 /* seccion SALA SECRETA ------------------------------------------*/
