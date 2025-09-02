@@ -137,19 +137,6 @@ function deslizarCalltoAction() {
 //api vainilla calendar para reservas de salas ---------------------------------------------------
 
 
-
-// dateMin: new Date(2025, 7, 27),
-// dateMax: new Date(2038, 11, 31),
-// displayDateMin: new Date(2025, 7, 27),
-//  displayDateMax: new Date(2038, 11, 31),
-//displayDisabledDates: false,
-//timeMinHour: 13,
-//timeMaxHour: 22,
-// disableDates: [],
-// locale: 'es-AR',
-
-
-
 function reservarSalaCalendario() {
   const calendarioReserva = document.getElementById("calendar");
   if (!calendarioReserva) {
@@ -157,15 +144,29 @@ function reservarSalaCalendario() {
   }
 
   // Verificar que la librería esté cargada
-    if (!window.VanillaCalendarPro) {
-        console.error('VanillaCalendarPro no está cargado');
-        return;
-    }
+  if (!window.VanillaCalendarPro) {
+    console.error('VanillaCalendarPro no está cargado');
+    return;
+  }
 
   // Destructure the Calendar constructor
   const { Calendar } = window.VanillaCalendarPro;
+
+  const options = {
+    type: 'default',
+    locale: 'es-AR',
+    disableDatesPast: true,
+    displayDisabledDates: false,
+    timeMinHour: 13,
+    timeMaxHour: 22,
+    dateMin: new Date(2025, 7, 27),
+    dateMax: new Date(2038, 11, 31),
+    displayDateMin: new Date(2025, 7, 27),
+    displayDateMax: new Date(2038, 11, 31),
+  };
+
   // Create a calendar instance and initialize it.
-  const calendar = new Calendar('#calendar');
+  const calendar = new Calendar('#calendar', options);
   calendar.init();
 }
 

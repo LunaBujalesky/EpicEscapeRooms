@@ -6,8 +6,9 @@ let usuarioActual;
 // Llamado a funciones-------------------------------------------------------......................................... /* -->
 registrarUsuario();
 VerificarDatos();
-
-
+SalasDisponibles(salas);
+redireccionLogin();
+saludarUsuario(nombre, momentoDelDía);
 
 
 
@@ -59,34 +60,38 @@ function registrarUsuario() {
 function VerificarDatos() {
 
     const formLogin = document.getElementById("formLogin");
-    console.log("si vemos esto, se esta ejecutando - parte 1");
+
     if (!formLogin) { return }
 
     formLogin.addEventListener("submit", function (event) {
-        console.log("si vemos esto, se esta ejecutando - parte 2");
+
 
         event.preventDefault(); // Evita que recargue la página
 
-        email = document.getElementById("email").value; 
+        email = document.getElementById("email").value;
         contrasena = document.getElementById("contrasena").value;
 
         //chequear que el mail esté registrado en el array
         usuarioActual = usuarios.find((usuario) => usuario.email == email);
 
-        //console.log("SE ENCONTRO AL USUARIO " + usuarioActual);
-        // console.log("email: " + email);
-        // if (usuarioActual == undefined) {
-        //     console.log(usuarioActual + " usuario no encontrado");
-        // }
+        if (!usuarioActual) {
+            alert("El email no está registrado.");
+            return;
+        }
+        //chequear que la contraseña coincida con la del array
+        if (usuarioActual.contrasena !== contrasena) {
+            alert("Contraseña incorrecta.");
+            return;
+        }
 
-        // if (usuarioActual.contrasena == contrasena) {
+        //Redirije si todo conside:
+        if (usuarioActual.contrasena === contrasena) {
+            // Guardar su nombre para saludarlo en su perfil
+            localStorage.setItem("nombreUsuario", usuarioActual.nombre);
+            window.open("perfil.html", "_self");
+        }
 
-        //     redireccionLogin()
-        // } //llamo funcion
-        // else {
-        //     alert("Contraseña incorrectos");
-        // }
-        window.open("perfil.html", "_self");
+
     })
 };
 
@@ -110,9 +115,18 @@ function redireccionLogin() {
     }
 }
 
-// Funcion para Saludar al usuario segun el momento del dia con condicional switch /* -->
+// Funcion para Saludar al usuario segun el momento del dia con condicional switch 
+// En proceso de construcción
+// if lo usamos para verificar si hay un nombre registrado. 
+// switch lo usamos para decidir el saludo según la hora del día. /* -->
 function saludarUsuario(nombre, momentoDelDía) {
     let saludo = "";
+    //obtener nombre del storage
+    const nombre = localStorage.getItem("nombreUsuario");
+
+    if (nombre) {
+        saludarUsuario(nombre);
+    }
 
     switch (momentoDelDía) {
         case "mañana":
@@ -133,7 +147,7 @@ function saludarUsuario(nombre, momentoDelDía) {
 }
 // FIN  Funcion  Saludar/* ...................................-->
 
-// fin FUNCIONES PARA INGRESAR SESIÓN...................................-->
+// fin FUNCIONES PARA Usuarios...................................-->
 
 // Array salas como objetos------------------------------------------------------- 
 let salas = [
@@ -235,50 +249,14 @@ function SalasDisponibles(salas) {
 
 const disponibles = SalasDisponibles(salas);
 
-/* FuNción para mostrar las salas disponibles  con consola
 
-function mostrarSalasDisponibles() {
-
-    // Array para reservas de salas-------------------------------------------------------
-
-    const Sala = ["Amanecer de Blair", "Escapando de Latinoamerica", "Operación: ¡Contradefensa de la invasión Gnómica en el Jardín!", "Kiki Delivery Crisis", "Dios ha muerto... y no dejó instrucciones"];
-
-    // Ciclo for of para mostrar las salas disponibles
-
-
-    const salas = [
-        { nombre: "Amanecer de Blair", disponible: true },
-        { nombre: "Escapando de Latinoamerica", disponible: false },
-        { nombre: "Operación: ¡Contradefensa de la invasión Gnómica en el Jardín!", disponible: true },
-        { nombre: "Kiki Delivery Crisis", disponible: false },
-        { nombre: "Dios ha muerto... y no dejó instrucciones", disponible: true },
-
-    ];
-
-    console.log("Salas disponibles:");
-    alert(`selecciona una sala para reservar: ${Sala}`);
-
-    // Ciclo for of
-    for (const sala of salas) {
-        if (sala.disponible) {
-            console.log(`- ${sala.nombre}`);
-            alert(`La sala: ${sala.nombre} se encuentra disponible, deseas reservarla?`);
-        }
-        else {
-
-            alert(`Lo sentimos, la sala ${sala.nombre} se encuentra no disponible`);
-        }
-    }
-
+function reservarSala ()
+{
+    
 }
-FIN  Funcion  Salas disponibles /*
 
 
-
-
-
-
-
+/*Notas uso JSON
 
 /* Recuperar datos de localStorage
 const nombre = localStorage.getItem("nombre");
@@ -288,7 +266,7 @@ const contraseña = localStorage.getItem("contraseña"); */
 /* remover datos de localStorage
 localStorage.removeItem("nombre"); */
 
-/*Notas uso JSON
+/*
 
 // Convertir el objeto a JSON y guardarlo
 const usuarioJSON = JSON.stringify(usuario);
