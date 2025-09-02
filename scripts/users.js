@@ -6,11 +6,10 @@ let usuarioActual;
 // Llamado a funciones-------------------------------------------------------......................................... /* -->
 registrarUsuario();
 VerificarDatos();
-SalasDisponibles(salas);
 redireccionLogin();
 saludarUsuario(nombre, momentoDelDía);
 
-
+// FIN Llamado a funciones-------------------------------------------------------......................................... /* -->
 
 // Funcion crear Usuario por html y dom
 function registrarUsuario() {
@@ -35,17 +34,27 @@ function registrarUsuario() {
             fechaNacimiento: fechaNacimiento,
         };
 
+        // chequear longitud de la contraseña/* -->
+        if (contrasena.length < 4) {
+            alert("Contraseña inválida. Por favor, genere una nueva.");
+            return registrarUsuario();
+        }
+
+        //chequear que el mail esté registrado en el array
+        usuarioActual = usuarios.find((usuario) => usuario.email == email);
+
+        if (usuarioActual) {
+            alert("Ese mail ya fue registrado");
+            return;
+        }
+
         usuarios.push(usuario);
 
         // Guardar nuevo objeto en el array ...................................-->
         //localStorage.setItem(usuario);
         localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
-        // chequear longitud de la contraseña/* -->
-        if (contrasena.length < 4) {
-            alert("Contraseña inválida. Por favor, genere una nueva.");
-            return registrarUsuario();
-        }
+
         window.open("logIn.html", "_self");
     })
 };
@@ -146,115 +155,6 @@ function saludarUsuario(nombre, momentoDelDía) {
 
 }
 // FIN  Funcion  Saludar/* ...................................-->
-
-// fin FUNCIONES PARA Usuarios...................................-->
-
-// Array salas como objetos------------------------------------------------------- 
-let salas = [
-    {
-        sala: "Amanecer de Blair",
-        cantidadParticipantesMinima: "6",
-        diaDisponible: [
-            { 14: true },
-            { 15: true },
-            { 16: true }
-        ],
-
-        horariosDisponibles: [
-            { 1500: true },
-            { 1600: true },
-            { 1700: true }
-        ],
-        aplicarDescuentoCumpleano: false,
-    },
-    {
-        sala: "Escapando de Latinoamerica",
-        cantidadParticipantesMinima: "2",
-        diaDisponible: [
-            { 14: true },
-            { 15: true },
-            { 16: true }
-        ],
-
-        horariosDisponibles: [
-            { 1500: true },
-            { 1600: true },
-            { 1700: true }
-        ],
-        aplicarDescuentoCumpleano: false,
-    },
-    {
-        sala: "Operación: ¡Contradefensa de la invasión Gnómica en el Jardín!",
-        cantidadParticipantesMinima: "3",
-        diaDisponible: [
-            { 14: true },
-            { 15: true },
-            { 16: true }
-        ],
-
-        horariosDisponibles: [
-            { 1500: true },
-            { 1600: true },
-            { 1700: true }
-        ],
-        aplicarDescuentoCumpleano: false,
-    },
-    {
-        sala: "Kiki Delivery Crisis",
-        cantidadParticipantesMinima: "2",
-        diaDisponible: [
-            { 14: true },
-            { 15: true },
-            { 16: true }
-        ],
-
-        horariosDisponibles: [
-            { 1500: true },
-            { 1600: true },
-            { 1700: true }
-        ],
-        aplicarDescuentoCumpleano: false,
-    },
-    {
-        sala: "Dios ha muerto... y no dejó instrucciones",
-        cantidadParticipantesMinima: "2",
-        diaDisponible: [
-            { 14: true },
-            { 15: true },
-            { 16: true }
-        ],
-
-        horariosDisponibles: [
-            { 1500: true },
-            { 1600: true },
-            { 1700: true }
-        ],
-        aplicarDescuentoCumpleano: false,
-    },
-
-]
-
-// 2 funcion superior------------------------------------------------------- 
-function SalasDisponibles(salas) {
-    return salas.filter(sala => {
-        // filtrar dia
-        const diaDisponible = sala.diaDisponible.every(dia => Object.values(dia)[0] === true);
-        // filtrar horario
-        const horariosDisponibles = sala.horariosDisponibles.every(horario => Object.values(horario)[0] === true);
-
-        // La sala es disponible si cumple ambas condiciones
-        return diaDisponible && horariosDisponibles;
-    });
-}
-
-const disponibles = SalasDisponibles(salas);
-
-
-function reservarSala ()
-{
-    
-}
-
 
 /*Notas uso JSON
 

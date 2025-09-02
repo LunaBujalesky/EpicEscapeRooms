@@ -155,6 +155,8 @@ function reservarSalaCalendario() {
   const options = {
     type: 'default',
     locale: 'es-AR',
+    selector: '#fecha', // Input donde se guardará la fecha seleccionada
+    
     disableDatesPast: true,
     displayDisabledDates: false,
     timeMinHour: 13,
@@ -163,6 +165,49 @@ function reservarSalaCalendario() {
     dateMax: new Date(2038, 11, 31),
     displayDateMin: new Date(2025, 7, 27),
     displayDateMax: new Date(2038, 11, 31),
+     
+      input: true,
+      actions: {
+        changeToInput(e, self) {
+          if (!self.HTMLInputElement) return;
+          if (self.selectedDates[0]) {
+            self.HTMLInputElement.value = self.selectedDates[0];
+          } else {
+            self.HTMLInputElement.value = '';
+          }
+        },
+        initCalendar(self) {
+          const btnEl = self.HTMLElement.querySelector("#btn-close");
+          if (!btnEl) return;
+          btnEl.addEventListener("click", self.hide);
+        },
+      },
+      DOMTemplates: {
+        default: `
+          <div class="vanilla-calendar-header">
+            <#ArrowPrev />
+            <div class="vanilla-calendar-header__content">
+              <#Month />
+              <#Year />
+            </div>
+            <#ArrowNext />
+          </div>
+          <div class="vanilla-calendar-wrapper">
+            <#WeekNumbers />
+            <div class="vanilla-calendar-content">
+              <#Week />
+              <#Days />
+            </div>
+          </div>
+          <#ControlTime />
+          <button id="btn-close" type="button">Close</button>
+        `,
+      },
+      settings: {
+        selection: {
+          time: true, // or 12
+        },
+      },
   };
 
   // Create a calendar instance and initialize it.

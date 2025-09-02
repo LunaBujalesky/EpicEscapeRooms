@@ -1,0 +1,187 @@
+
+
+// Llamado a funciones-------------------------------------------------------......................................... /* -->
+
+SalasDisponibles(salas);
+reservarSala();
+// FIN Llamado a funciones-------------------------------------------------------......................................... /* -->
+
+
+// fin FUNCIONES PARA pérfiles de Usuarios...................................-->
+
+
+
+
+//Funciones para salas
+
+// Array salas como objetos------------------------------------------------------- 
+let salas = [
+    {
+        idSala: 1,
+        sala: "Amanecer de Blair",
+        cantidadParticipantesMinima: 3,
+        participantesMax: 8,
+        horarios: [
+            "13:00", "14:00", "15:00", "16:00", "17:00",
+            "18:00", "19:00", "20:00", "21:00", "22:00"
+        ],
+        aplicarDescuentoCumpleano: false,
+    },
+    {
+        idSala: 2,
+        sala: "Escapando de Latinoamerica",
+        cantidadParticipantesMinima: 2,
+        participantesMax: 8,
+        horarios: [
+            "13:00", "14:00", "15:00", "16:00", "17:00",
+            "18:00", "19:00", "20:00", "21:00", "22:00"
+        ],
+        aplicarDescuentoCumpleano: false,
+    },
+    {
+        idSala: 3,
+        sala: "Operación: ¡Contradefensa de la invasión Gnómica en el Jardín!",
+        cantidadParticipantesMinima: 3,
+        participantesMax: 8,
+        horarios: [
+            "13:00", "14:00", "15:00", "16:00", "17:00",
+            "18:00", "19:00", "20:00", "21:00", "22:00"
+        ],
+        aplicarDescuentoCumpleano: false,
+    },
+    {
+        idSala: 4,
+        sala: "Kiki Delivery Crisis",
+        cantidadParticipantesMinima: 2,
+        participantesMax: 8,
+        horarios: [
+            "13:00", "14:00", "15:00", "16:00", "17:00",
+            "18:00", "19:00", "20:00", "21:00", "22:00"
+        ],
+        aplicarDescuentoCumpleano: false,
+    },
+    {
+        idSala: 5,
+        sala: "Dios ha muerto... y no dejó instrucciones",
+        cantidadParticipantesMinima: 2,
+        participantesMax: 8,
+        horarios: [
+            "13:00", "14:00", "15:00", "16:00", "17:00",
+            "18:00", "19:00", "20:00", "21:00", "22:00"
+        ],
+        aplicarDescuentoCumpleano: false,
+    },
+
+]
+
+//array de reservas de salas, guardar reservas pasadas en el localstorage
+let reservas = [
+    {
+
+    },
+
+    {
+        idSala: 2,
+        fecha: "2025-09-15",
+        hora: "18:00",
+        nombre: "Luna",
+        email: "lunabujalesky@gmail.com",
+        participantes: 4
+    }
+];
+
+function reservarSala() {
+    //ubicar donde se activa la funcion, osea, en el formulario de reservas del html
+    const formReserva = document.querySelector(".formReserva")
+
+    //return para prevenir errores en otras paginas de la web
+    if (!formReserva) {
+        return
+    }
+    //evento para que se detone al enviar confirmación del formulario
+    formReserva.addEventListener("submit", () => {
+
+        //tomar datos de los array
+        let salas = JSON.parse(localStorage.getItem("salas"));
+        let reservas = JSON.parse(localStorage.getItem("reservas"));
+
+        //tomar datos del formulario
+        let idSala = document.getElementById("sala").value.trim();
+        let fechaReserva = document.getElementById("fechaReserva").value.trim();
+        let horario = document.getElementById("horario").value.trim();
+        let participantes = document.getElementById("participantes").value.trim();
+        let emailReserva = document.getElementById("emailReserva").value.trim();
+
+        //chequear que la cantidad de participantes coincida en su min y max por sala
+        participantes = Number(participantes);
+
+        const salaSeleccionada = salas.find(sala => sala.idSala === idSala);
+
+        if (participantes < salaSeleccionada.cantidadParticipantesMinima) {
+            alert(`La cantidad mínima de participantes para esta sala es ${salaSeleccionada.cantidadParticipantesMinima}.`);
+            return;
+        }
+
+        //la maxima es igual para todas las salas
+        if (participantes > 8) {
+            alert(`La cantidad máxima de participantes es 8.`);
+            return;
+        }
+
+        //chequear que la fecha no esté ocupada:
+
+        //declaramos como variable para reutilizar despues
+        const salaOcupada = reservasguardadas.find(reserva =>
+            reserva.idSala == idSala && reserva.fecha == fechaReserva && reserva.hora == horario
+        );
+
+        //condicional que impida que se reserve dos veces la misma sala con los mismos datos
+        if (salaOcupada !== undefined) {
+            alert("Esa fecha y horario ya están ocupados para esta sala. Por favor selecciona otra.");
+            return; // detiene la función para que no se guarde la reserva
+        }
+
+
+        //mandar al array que almacena las reservas los datos de la nueva reserva 
+        let reservaNueva = {
+            idSala: idSala,
+            fecha: fechaReserva,
+            hora: horario,
+            participantes: participantes,
+            email: emailReserva,
+        };
+
+
+        //si la confirmo, entonces aqui debajo pongo que envie los datos al array de reservas en el localstorage 
+        alert("desea confirmar la reserva?");
+
+        //primero el push al array, luego lo almaceno
+        reservas.push(reservaNueva);
+        localStorage.setItem("reservas", JSON.stringify(reservasguardadas));
+
+        //al final de esta funcion, debería agregar "la boleta" que confirma los datos de la reserva
+        alert("Reserva confirmada!");
+       
+        // Limpiar formulario
+        formReserva.reset();
+    });
+
+
+}
+// 2 funcion superior------------------------------------------------------- 
+function SalasDisponibles(salas) {
+    return salas.filter(sala => {
+        // filtrar dia
+        const diaDisponible = sala.diaDisponible.every(dia => Object.values(dia)[0] === true);
+        // filtrar horario
+        const horariosDisponibles = sala.horariosDisponibles.every(horario => Object.values(horario)[0] === true);
+
+        // La sala es disponible si cumple ambas condiciones
+        return diaDisponible && horariosDisponibles;
+    });
+}
+
+const disponibles = SalasDisponibles(salas);
+
+
+

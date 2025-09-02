@@ -917,7 +917,7 @@ visibility: visible;
   font-size: 32px;
   font-weight: lighter;
   letter-spacing: 3px;
-  cursor: po;
+  cursor: pointer;
 }
 
 .boton-container {
