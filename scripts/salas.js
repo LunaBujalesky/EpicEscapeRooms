@@ -168,6 +168,7 @@ function reservarSala() {
 
 
 }
+
 // 2 funcion superior------------------------------------------------------- 
 function SalasDisponibles(salas) {
     return salas.filter(sala => {

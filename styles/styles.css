@@ -940,6 +940,61 @@ visibility: visible;
   width: 130px;
 }
 
+/* estilizar calendario */
+[data-vc-theme=dark].vc {
+    --tw-bg-opacity: 1;
+    background-color: #545454 !important;
+    color: #fff;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+[data-vc-theme=dark] .vc-header__content, [data-vc-theme=dark] .vc-month, [data-vc-theme=dark] .vc-year {
+  color: #fff;
+  font-family: "JetBrains Mono";
+  font-weight: lighter;
+}
+[data-vc-theme=dark] .vc-date[data-vc-date-today] .vc-date__btn {
+  --tw-bg-opacity: 1;
+  background-color: #272727;
+  color: whitesmoke;
+  font-family: "JetBrains Mono";
+  font-weight: lighter;
+}
+[data-vc-theme=dark] .vc-date[data-vc-date-holiday] .vc-date__btn, [data-vc-theme=dark] .vc-date[data-vc-date-weekend] .vc-date__btn {
+  color: whitesmoke;
+  font-family: "JetBrains Mono";
+  
+}
+[data-vc-theme=dark] .vc-date[data-vc-date-selected] .vc-date__btn {
+  --tw-bg-opacity: 1;
+  background-color: #0C0C0C;
+  color: #fff;
+  font-family: "JetBrains Mono";
+ 
+}
+[data-vc-theme=dark] .vc-date__btn {
+  --tw-bg-opacity: 1;
+  background-color: transparent;
+  color: whitesmoke;
+  font-family: "JetBrains Mono";
+  font-weight: lighter;
+}
+[data-vc-theme=dark] .vc-week__day[data-vc-week-day-off] {
+  color: whitesmoke;
+  font-family: "JetBrains Mono";
+  
+}
+[data-vc-theme=dark] .vc-date[data-vc-date-holiday][data-vc-date-month=next] .vc-date__btn, [data-vc-theme=dark] .vc-date[data-vc-date-holiday][data-vc-date-month=prev] .vc-date__btn, [data-vc-theme=dark] .vc-date[data-vc-date-weekend][data-vc-date-month=next] .vc-date__btn, [data-vc-theme=dark] .vc-date[data-vc-date-weekend][data-vc-date-month=prev] .vc-date__btn {
+  --tw-bg-opacity: 1;
+  background-color:#272727;
+  color: #475569;
+  font-family: "JetBrains Mono";
+  
+}
+[data-vc-theme=dark] .vc-week__day {
+  color: #fff;
+  font-family: "JetBrains Mono";
+  font-weight: lighter;
+}
 /* FIN seccion sala ------------------------------------------*/
 
 /* seccion SALA SECRETA ------------------------------------------*/
