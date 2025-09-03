@@ -222,10 +222,36 @@ function reservarSalaCalendario() {
   calendar.init();
 }
 
+function scrollEscaleraIndex() {
+  let ultimaPosicion = window.scrollY;
+  window.addEventListener("scroll", () => {
+    const escalera = document.querySelector(".escalera-container");
+    const posicion = escalera.getBoundingClientRect().top;
+    const altoPantalla = window.innerHeight;
+    let nuevaPosicion = window.scrollY;
+
+    if (nuevaPosicion > ultimaPosicion) {
+      // Scroll hacia ABAJO
+      if (posicion < altoPantalla - 100) {
+        escalera.classList.add("escalera-activa"); // se arma
+      }
+    } else {
+      // Scroll hacia ARRIBA
+      if (posicion > 0 && posicion < altoPantalla) {
+        escalera.classList.remove("escalera-activa"); // se desarma
+      }
+    }
+
+    ultimaPosicion = nuevaPosicion; // actualizar posición
+
+  });
+}
+
 //ejecución de funciones -------------------------------------------------------------------------
-EventoBarraBusqueda();
-EventoBotonEscalera();
 cargarParticulasIndex();
+EventoBotonEscalera();
+scrollEscaleraIndex();
+EventoBarraBusqueda();
 cargarParticulasSalaSecreta();
 spawnearMapa();
 cambiarCardInicio();

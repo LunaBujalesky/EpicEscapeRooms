@@ -112,6 +112,8 @@ esto está puesto para ocupar un h1
   border: 0;
 }
 
+
+
 /* --------------------------------------------------*/
 .header-container {
   align-items: center;
@@ -270,6 +272,108 @@ h2 {
   text-align: center;
 }
 
+/* animación de la escalera -------------------------------*/
+.escalera-grande {
+  width: 1082px;
+  height: 628px;
+  background-color: black;
+  border-radius: 52px;
+  color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+.escalera-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Palos verticales */
+.palo-izquierdo,
+.palo-derecho {
+  width: 34px;
+  height: 300px;
+  background: white;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 1s ease-out, opacity 1s ease-out;
+}
+
+.palo-izquierdo {
+  left: -37px;
+}
+
+.palo-derecho {
+  right: -37px;
+}
+
+
+.escalera-activa .palo-izquierdo,
+.escalera-activa .palo-derecho {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.peldaño {
+  width: 160px;
+  height: 18px;
+  background: white;
+  margin: 40px 0;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+  border-radius: 0px;
+}
+
+/* Peldaños activos (armado) */
+.escalera-activa .peldaño {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* --- Armado: peldaños aparecen de arriba a abajo --- */
+.escalera-activa .peldaño:nth-of-type(2) {
+  transition-delay: 0.2s;
+}
+
+.escalera-activa .peldaño:nth-of-type(3) {
+  transition-delay: 0.4s;
+}
+
+.escalera-activa .peldaño:nth-of-type(4) {
+  transition-delay: 0.6s;
+}
+
+/* --- Desarmado: peldaños se van de abajo a arriba --- */
+.escalera-container:not(.escalera-activa) .peldaño:nth-of-type(4) {
+  transition-delay: 0.2s;
+}
+
+.escalera-container:not(.escalera-activa) .peldaño:nth-of-type(3) {
+  transition-delay: 0.4s;
+}
+
+.escalera-container:not(.escalera-activa) .peldaño:nth-of-type(2) {
+  transition-delay: 0.6s;
+}
+
+/* --- Palos se van últimos, un poco después de los peldaños --- */
+.escalera-container:not(.escalera-activa) .palo-izquierdo,
+.escalera-container:not(.escalera-activa) .palo-derecho {
+  transition-delay: 1s;
+  /* esperan a que los peldaños se oculten */
+}
+
+/* FIN animación de la escalera -------------------------------*/
 .pasos-reserva {
   width: 1082px;
   height: 1327px;
@@ -1045,12 +1149,14 @@ h2 {
   align-items: center;
   font-family: "JetBrains Mono";
   font-size: 12px;
-  gap: 50%;
+  gap: 30%;
 }
+
 .preciospresupuesto {
   text-align: right;
 
 }
+
 .datosReserva h3 {
   font-family: "JetBrains Mono";
   font-size: 18px;
