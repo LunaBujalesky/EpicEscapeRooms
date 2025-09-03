@@ -1656,6 +1656,18 @@ h2 {
 
 /* sección perfil logeado */
 
+.card-perfil {
+  background: whitesmoke;
+  width: 200px;
+  height: 223px;
+}
+
+.card-perfil-dentro {
+  background: #ececec;
+  width: 160px;
+  height: 155px;
+  margin: 20px auto;
+}
 .perfil-container {
   display: flex;
   flex-direction: row;

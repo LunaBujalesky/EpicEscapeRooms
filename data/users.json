@@ -1,0 +1,17 @@
+
+[
+    {
+      "nombre": "Luna",
+      "email": "lunitabruja@gmail.com",
+      "contrasena": "1234",
+      "fechaNacimiento": "1997-10-10"
+    },
+    {
+      "nombre": "Pipo",
+      "email": "pipo@gmail.com",
+      "contrasena": "abcd",
+      "fechaNacimiento": "2025-12-20"
+    }
+  ]
+  
+                                  

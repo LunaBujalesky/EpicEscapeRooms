@@ -99,7 +99,10 @@ function reservarSala() {
 
 
     //evento para que se detone al enviar confirmación del formulario
-    formReserva.addEventListener("submit", () => {
+    formReserva.addEventListener("submit", (event) => {
+        event.preventDefault();
+        //otra manera de tomar datos:
+        //formData= new FormData (event.target);
         //tomar datos del formulario
         let idSala = document.getElementById("sala").value.trim();
         let fechaReserva = document.getElementById("fechaReserva").value.trim();
