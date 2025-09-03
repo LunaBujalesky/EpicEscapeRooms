@@ -2,22 +2,27 @@ let email;
 let contrasena;
 let usuarioActual;
 
-
-// Llamado a funciones-------------------------------------------------------......................................... /* -->
-registrarUsuario();
-VerificarDatos();
-redireccionLogin();
-saludarUsuario(nombre, momentoDelDía);
-
-// FIN Llamado a funciones-------------------------------------------------------......................................... /* -->
-
+let usuarios = [
+    {
+      nombre: "Luna",
+      email: "lunitabruja@gmail.com",
+      contrasena: "1234",
+      fechaNacimiento: "1997-10-10"
+    },
+    {
+      nombre: "Pipo",
+      email: "pipo@gmail.com",
+      contrasena: "abcd",
+      fechaNacimiento: "2025-12-20"
+    }
+  ];
 // Funcion crear Usuario por html y dom
 function registrarUsuario() {
     const formRegistro = document.getElementById("formRegistro")
     if (!formRegistro) {
         return
     }
-    formRegistro.addEventListener("submit", function (event) {
+    formRegistro.addEventListener("input", function (event) {
         event.preventDefault(); // Evita que recargue la página
 
         let usuarios = JSON.parse(localStorage.getItem("usuarios"));
@@ -106,35 +111,39 @@ function VerificarDatos() {
 
 
 // Manejo del DOM: redirección de paginas menú en base a si inició sesión...................................-->
-let menuLogin = document.getElementById("redireccionporLogin")
-let menuSalaSecreta = document.getElementById("redireccionSalaSecreta")
+
 
 function redireccionLogin() {
-
+    let menuLogin = document.getElementById("redireccionporLogin")
+    let menuSalaSecreta = document.getElementById("redireccionSalaSecreta")
+    if (!menuLogin || !menuSalaSecreta) {return}
     //usuario ingresado
     if (usuarioActual) {
-        menuLogin.href = href = "pages/perfil.html";
-        menuSalaSecreta = href = "pages/salaabierta.html";
+        menuLogin.href =  "pages/perfil.html";
+        menuSalaSecreta.href = "pages/salaabierta.html";
     }
 
     //por default, usuario POR ingresar 
     else {
-        menuLogin.href = href = "pages/logIn.html";
-        menuSalaSecreta = href = "pages/salaSecreta.html";
+        menuLogin.href =  "pages/logIn.html";
+        menuSalaSecreta.href = "pages/salaSecreta.html";
     }
-}
+} 
+
 
 // Funcion para Saludar al usuario segun el momento del dia con condicional switch 
 // En proceso de construcción
 // if lo usamos para verificar si hay un nombre registrado. 
 // switch lo usamos para decidir el saludo según la hora del día. /* -->
-function saludarUsuario(nombre, momentoDelDía) {
+const _nombre = localStorage.getItem("nombre");
+function saludarUsuario(_nombre, momentoDelDía) {
     let saludo = "";
+   
     //obtener nombre del storage
-    const nombre = localStorage.getItem("nombreUsuario");
+   // const _nombre = localStorage.getItem("nombre");
 
-    if (nombre) {
-        saludarUsuario(nombre);
+    if (!_nombre) {
+        return
     }
 
     switch (momentoDelDía) {
@@ -151,9 +160,10 @@ function saludarUsuario(nombre, momentoDelDía) {
             saludo = "Hola";
     }
 
-    alert(`¡Hola, ${nombre}! qué bueno verte otra vez :D`);
+    alert(`¡Hola, ${_nombre}! qué bueno verte otra vez :D`);
 
 }
+
 // FIN  Funcion  Saludar/* ...................................-->
 
 /*Notas uso JSON

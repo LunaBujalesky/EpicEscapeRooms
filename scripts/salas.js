@@ -1,17 +1,5 @@
 
 
-// Llamado a funciones-------------------------------------------------------......................................... /* -->
-
-SalasDisponibles(salas);
-reservarSala();
-// FIN Llamado a funciones-------------------------------------------------------......................................... /* -->
-
-
-// fin FUNCIONES PARA pérfiles de Usuarios...................................-->
-
-
-
-
 //Funciones para salas
 
 // Array salas como objetos------------------------------------------------------- 
@@ -128,7 +116,7 @@ function reservarSala() {
             return;
         }
 
-        //chequear que la fecha no esté ocupada:
+        //chequear que la fecha no esté ocupada: ------------------------------------------------
 
         //declaramos como variable para reutilizar despues
         const salaOcupada = reservasguardadas.find(reserva =>
@@ -170,19 +158,27 @@ function reservarSala() {
 }
 
 // 2 funcion superior------------------------------------------------------- 
-function SalasDisponibles(salas) {
-    return salas.filter(sala => {
-        // filtrar dia
-        const diaDisponible = sala.diaDisponible.every(dia => Object.values(dia)[0] === true);
+//function SalasDisponibles(salas) {
+//    return salas.filter(sala => {
+//        // filtrar dia
+ //       const diaDisponible = sala.diaDisponible.every(dia => Object.values(dia)[0] === true);
         // filtrar horario
-        const horariosDisponibles = sala.horariosDisponibles.every(horario => Object.values(horario)[0] === true);
+//        const horariosDisponibles = sala.horariosDisponibles.every(horario => Object.values(horario)[0] === true);
 
         // La sala es disponible si cumple ambas condiciones
-        return diaDisponible && horariosDisponibles;
-    });
-}
+ //       return diaDisponible && horariosDisponibles;
+//    });
+//}
 
-const disponibles = SalasDisponibles(salas);
+//const disponibles = SalasDisponibles(salas);
 
 
+
+
+
+// Llamado a funciones-------------------------------------------------------......................................... /* -->
+
+//SalasDisponibles();
+reservarSala();
+// FIN Llamado a funciones-------------------------------------------------------......................................... /* -->
 

@@ -229,7 +229,7 @@ function scrollEscaleraIndex() {
     const posicion = escalera.getBoundingClientRect().top;
     const altoPantalla = window.innerHeight;
     let nuevaPosicion = window.scrollY;
-
+    if (!escalera) { return }
     if (nuevaPosicion > ultimaPosicion) {
       // Scroll hacia ABAJO
       if (posicion < altoPantalla - 100) {
