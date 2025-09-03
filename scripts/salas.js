@@ -62,6 +62,8 @@ let salas = [
 
 ]
 
+localStorage.setItem("salas", JSON.stringify(salas));
+
 //array de reservas de salas, guardar reservas pasadas en el localstorage
 let reservas = [
     {
@@ -78,6 +80,8 @@ let reservas = [
     }
 ];
 
+localStorage.setItem("reservas", JSON.stringify(reservas));
+
 function reservarSala() {
     //ubicar donde se activa la funcion, osea, en el formulario de reservas del html
     const formReserva = document.querySelector(".formReserva")
@@ -86,19 +90,23 @@ function reservarSala() {
     if (!formReserva) {
         return
     }
+    //tomar datos de los array
+    let salas = JSON.parse(localStorage.getItem("salas"));
+    let reservas = JSON.parse(localStorage.getItem("reservas"));
+
+    console.log(reservas + "estos son los reservas")
+    console.log(salas + "si detecto las salas")
+
+
     //evento para que se detone al enviar confirmación del formulario
     formReserva.addEventListener("submit", () => {
-
-        //tomar datos de los array
-        let salas = JSON.parse(localStorage.getItem("salas"));
-        let reservas = JSON.parse(localStorage.getItem("reservas"));
-
         //tomar datos del formulario
         let idSala = document.getElementById("sala").value.trim();
         let fechaReserva = document.getElementById("fechaReserva").value.trim();
         let horario = document.getElementById("horario").value.trim();
         let participantes = document.getElementById("participantes").value.trim();
         let emailReserva = document.getElementById("emailReserva").value.trim();
+
 
         //chequear que la cantidad de participantes coincida en su min y max por sala
         participantes = Number(participantes);
@@ -119,7 +127,7 @@ function reservarSala() {
         //chequear que la fecha no esté ocupada: ------------------------------------------------
 
         //declaramos como variable para reutilizar despues
-        const salaOcupada = reservasguardadas.find(reserva =>
+        const salaOcupada = reservas.find(reserva =>
             reserva.idSala == idSala && reserva.fecha == fechaReserva && reserva.hora == horario
         );
 
@@ -149,7 +157,7 @@ function reservarSala() {
 
         //al final de esta funcion, debería agregar "la boleta" que confirma los datos de la reserva
         alert("Reserva confirmada!");
-       
+
         // Limpiar formulario
         formReserva.reset();
     });
@@ -161,12 +169,12 @@ function reservarSala() {
 //function SalasDisponibles(salas) {
 //    return salas.filter(sala => {
 //        // filtrar dia
- //       const diaDisponible = sala.diaDisponible.every(dia => Object.values(dia)[0] === true);
-        // filtrar horario
+//       const diaDisponible = sala.diaDisponible.every(dia => Object.values(dia)[0] === true);
+// filtrar horario
 //        const horariosDisponibles = sala.horariosDisponibles.every(horario => Object.values(horario)[0] === true);
 
-        // La sala es disponible si cumple ambas condiciones
- //       return diaDisponible && horariosDisponibles;
+// La sala es disponible si cumple ambas condiciones
+//       return diaDisponible && horariosDisponibles;
 //    });
 //}
 

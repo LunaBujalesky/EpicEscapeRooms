@@ -22,7 +22,7 @@ function registrarUsuario() {
     if (!formRegistro) {
         return
     }
-    formRegistro.addEventListener("input", function (event) {
+    formRegistro.addEventListener("submit", function (event) {
         event.preventDefault(); // Evita que recargue la página
 
         let usuarios = JSON.parse(localStorage.getItem("usuarios"));

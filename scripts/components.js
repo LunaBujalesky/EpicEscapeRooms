@@ -221,15 +221,17 @@ function reservarSalaCalendario() {
   const calendar = new Calendar('#calendar', options);
   calendar.init();
 }
-
+  // profe esto si lo hice en parte con chat, lo ocupe en consultas para animar la escalera
 function scrollEscaleraIndex() {
   let ultimaPosicion = window.scrollY;
   window.addEventListener("scroll", () => {
+
     const escalera = document.querySelector(".escalera-container");
+    if (!escalera) { return }
     const posicion = escalera.getBoundingClientRect().top;
     const altoPantalla = window.innerHeight;
     let nuevaPosicion = window.scrollY;
-    if (!escalera) { return }
+
     if (nuevaPosicion > ultimaPosicion) {
       // Scroll hacia ABAJO
       if (posicion < altoPantalla - 100) {
