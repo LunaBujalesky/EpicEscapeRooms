@@ -86,20 +86,20 @@
                 <div class="first-column-perfil">
 
                     <div class="first-column-perfil-top">
-                        <div class="card-perfil">
+                        <div class="card-perfil firstcardperfil">
                             <div class="card-perfil-dentro"><!--<img src="../assets/sala1.jpg" alt="">--></div>
                         </div>
                         <div class="perfil-board-texto">
-                            <p>Operación: ¡Contradefensa de la invasión Gnómica en el Jardín!</p>
+                            <p style="font-size: 18px; margin: 0px;">Operación: ¡Contradefensa <br>de la invasión<br> Gnómica  en el Jardín!</p>
                         </div>
                     </div>
 
                     <div class="first-column-perfil-bottom">
-                        <div class="card-perfil">
+                        <div class="card-perfil secondcardperfil">
                             <div class="card-perfil-dentro"><!--<img src="../assets/sala1.jpg" alt="">--></div>
                         </div>
                         <div class="perfil-board-texto">
-                            <p>Kiki Delivery <br>
+                            <p style="margin: 0; transform: rotate(2deg) translateY(-25px) translateX(30px);">Kiki Delivery 
                                 crisis</p>
                         </div>
                     </div>
@@ -113,33 +113,41 @@
                     </div>
                     <!--info perfil, donde esta la foto, -->
                     <div class="info-perfil-container">
-                        <div class="profile-photo"><img src="../assets/profilefondo.svg" alt=""></div>
+                        <div class="profile-photo" ><img src="../assets/profilefondo.svg" alt=""></div>
                         <div class="info-usuario">
                             <div>
 
                                 <div>
                                     <div class="profile-photo"></div>
                                 </div>
-                                <div id="saludoUsuario">Bienvenido de regreso, "name"</div>
+                                <div id="saludoUsuario" style="font-family: JetBrains Mono;  color: black; font-size: 16px; text-align: center;">Bienvenido de regreso, <br> Detective</div>
                             </div>
                             <div>
                                 <div>
-                                    <p class="perfil-board-texto">Insignias</p>
+                                    <p class="perfil-bags-texto">Insignias</p>
                                 </div>
                                 <div>
-                                    <p class="perfil-board-texto">Reservas Activas</p>
+                                    <p class="perfil-bags-texto">Reservas Activas</p>
                                 </div>
                             </div>
-                            <div>
+                            <div class="info-usuario-terceracolumna">
                                 <div class="id-usuario"></div>
                                 <div class="estadisticas-usuario">
-                                    <p class="perfil-board-texto">Mejor Puntuación
-                                        Amanecer de Blair:
-                                        35:00
-                                        Casos Resueltos2/5Casos inconclusos2/4</p>
+                                    <p class="estadisticas-usuario-texto">Mejor Puntuación <br>
+                                        Amanecer de Blair:<br>
+                                        35:00 <br>
+                                        Casos Resueltos:<br>
+                                        2/5<br>
+                                        Casos inconclusos:<br>
+                                        2/4</p>
                                 </div>
-                                <div><button>
+                                <div><button class="perfil-button">
                                         <p>reintentar?</p>
+                                        <svg viewBox="0 0 120 25" xmlns="http://www.w3.org/2000/svg" class="tachon">
+                                            <path d="M1.5 14.5001C10.08 12.6851 18.66 10.8701 39.9925 8.69758C61.325 6.52508 95.15 4.05008 111.997 2.69258C128.845 1.33508 127.69 1.17008 114.637 3.89008C101.585 6.61008 76.67 12.2201 63.2575 15.3576C49.845 18.4951 48.69 18.9901 47.8475 19.4101C47.005 19.8301 46.51 20.1601 47.245 20.4951C47.98 20.8301 49.96 21.1601 54.8575 21.0001C59.755 20.8401 67.51 20.1801 72.66 19.5926C80.12 18.5101 86.295 17.8351 92.4575 17.5026C94.825 17.3351 95.65 17.1701 96.5 17.0001"
+                                                  stroke="black" stroke-width="2" stroke-linecap="round"
+                                                  fill="none"/>
+                                          </svg>
                                     </button></div>
                             </div>
                         </div>
@@ -149,14 +157,15 @@
                             <p>Dios ha muerto... y no dejó
                                 instrucciones</p>
                         </div>
+                        <div class="card-perfil">
+                            <div class="card-perfil-dentro"></div>
+                        </div>
                         <div>
                             <div class="perfil-board-texto">
                                 <p>Escapando de
                                     Latinoamerica</p>
                             </div>
-                            <div class="card-perfil">
-                                <div class="card-perfil-dentro"></div>
-                            </div>
+                           
                             <img src="../assets/flechaDibujado.svg" alt="">
                         </div>
                     </div>
@@ -179,11 +188,12 @@
 
                     </div>
         </section>
+        <div class="card-perfil salaSecretaCard">
+            <div class="card-perfil-salaSecretaCard"></div>
+            <img  src="../assets/salaBloqueadaFoto.png" alt="">
     </main>
-    <!--carta sala secreta-->
-    <!--<div class="card-perfil">
-        <div class="card-perfil-dentro"><img src="../assets/sala1.jpg" alt=""></div>
-    </div>-->
+    
+    
     <footer>
         <div class="footer-container">
             <div class="footer-container-nav">

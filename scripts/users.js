@@ -135,34 +135,38 @@ function redireccionLogin() {
 // En proceso de construcción
 // if lo usamos para verificar si hay un nombre registrado. 
 // switch lo usamos para decidir el saludo según la hora del día. /* -->
-const _nombre = localStorage.getItem("nombre");
-function saludarUsuario(_nombre, momentoDelDía) {
-    let saludo = "";
-   
-    //obtener nombre del storage
-   // const _nombre = localStorage.getItem("nombre");
+function obtenerMomentoDelDia() {
+    const hora = new Date().getHours();
+  
+    if (hora >= 6 && hora < 12) return "mañana";
+    if (hora >= 12 && hora < 20) return "tarde";
+    return "noche";
+  }
+  
 
-    if (!_nombre) {
-        return
+function saludarUsuario() {
+    const nombre = localStorage.getItem("nombre");
+    if (!nombre) return; 
+  
+    const momentoDelDia = obtenerMomentoDelDia();
+  
+    let saludo;
+    switch (momentoDelDia) {
+      case "mañana":
+        saludo = "Buenos días";
+        break;
+      case "tarde":
+        saludo = "Buenas tardes";
+        break;
+      case "noche":
+        saludo = "Buenas noches";
+        break;
+      default:
+        saludo = "Hola";
     }
-
-    switch (momentoDelDía) {
-        case "mañana":
-            saludo = "Buenos días";
-            break;
-        case "tarde":
-            saludo = "Buenas tardes";
-            break;
-        case "noche":
-            saludo = "Buenas noches";
-            break;
-        default:
-            saludo = "Hola";
-    }
-
-    alert(`¡Hola, ${_nombre}! qué bueno verte otra vez :D`);
-
-}
+  
+    saludoUsuario.textContent = `${saludo}, ${nombre}! Qué bueno verte otra vez :) `;
+  }
 
 // FIN  Funcion  Saludar/* ...................................-->
 

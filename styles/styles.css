@@ -1222,7 +1222,7 @@ h2 {
   cursor: pointer;
   text-decoration: none;
   font-size: 20px;
-  cursor: pointer;
+
 }
 
 .botonesReserva {
@@ -1724,6 +1724,7 @@ h2 {
 .profile-photo {
   position: relative;
   z-index: 36;
+  transform: translateX(-72px) ;
 }
 
 .info-usuario {
@@ -1731,17 +1732,102 @@ h2 {
   z-index: 70;
 }
 
-.card-logIn {
+.card-perfil {
   background: whitesmoke;
-  width: 200px;
-  height: 223px;
+  width: 180px;
+  height: 200px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.card-logIn-dentro {
+.card-perfil-dentro {
   background: #ececec;
-  width: 160px;
-  height: 155px;
+  width: 140px;
+  height: 140px;
   margin: 20px auto;
 }
+.firstcardperfil{
 
+  transform: rotate(2deg) translateX(-72px) translateY(8px);
+}
+
+.secondcardperfil {
+  transform: rotate(1deg) translateX(40px) translateY(-42px);
+}
+.info-usuario {
+  position: absolute;
+  z-index: 120;
+   top: 42%;     
+   display: flex;
+   flex-direction: row;
+   transform: translateX(-79px);
+}
+.info-perfil-container {
+  display: flex;
+  flex-direction: column;
+}
+.info-usuario-terceracolumna {
+  display: flex;
+  flex-direction: column;
+
+
+}
+.perfil-bags-texto {
+  color:whitesmoke;
+  font-family: "JetBrains Mono";
+  background-color: #000;
+  transform: rotate(-2deg)  translateX(-30px)  translateY(-120px);
+}
+.estadisticas-usuario-texto {
+  color: #000;
+  font-family: "JetBrains Mono";
+  font-size: 16px; 
+  text-align: right;
+}
+.estadisticas-usuario {
+  width: 270px;
+  height: 170px;
+  transform: translateX(-33px) translateY(-166px);
+}
+.perfil-button {
+  font-family: "JetBrains Mono";
+  color: black;
+  background: none;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 20px;
+  transform: rotate(-5deg)  translateX(75px)  translateY(-120px);
+}
+
+.tachon {
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  transform: translateY(-26px);
+}
+
+.tachon path {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  transition: stroke-dashoffset 1s ease;
+}
+
+.perfil-button:hover .tachon path {
+  stroke-dashoffset: 0;
+}
+
+.salaSecretaCard {
+  margin: 3%  auto 6% 35%;
+  transform: rotate(12deg);
+}
+.card-perfil-salaSecretaCard
+{
+  background: #242424;
+  width: 140px;
+  height: 140px;
+  margin: 20px auto;
+}
 /* FIN sección perfil logeado */

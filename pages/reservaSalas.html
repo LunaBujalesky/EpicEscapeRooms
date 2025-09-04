@@ -111,26 +111,28 @@
               </select>
 
               <!-- Contenedor para Vanilla Calendar -->
-              <label for="fecha">Fecha:</label>
-              <input type="text" id="fecha" placeholder="Selecciona la fecha" readonly required>
+              <label for="date">Fecha:</label>
+              <input type="date" id="fecha" placeholder="Selecciona la fecha"  required>
 
               <!-- Selección de horario -->
-              <label for="horario">Hora:</label>
-              <select id="horario" required>
-                <option value="">Selecciona una hora...</option>
+              <label for="hora">Elige un horario:</label>
+              <select id="horario" name="hora" required>
+                <option value="" disabled selected>Selecciona un horario</option>
+                <option value="15:00">15:00</option>
+                <option value="16:00">16:00</option>
+                <option value="17:00">17:00</option>
+                <option value="18:00">18:00</option>
               </select>
-
               <!-- Selección de participantes -->
               <label for="participantes">Cantidad de inspectores:</label>
               <select id="participantes" required>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
+                <option value="1">2</option>
+                <option value="2">3</option>
+                <option value="3">4</option>
+                <option value="4">5</option>
+                <option value="5">6</option>
+                <option value="6">7</option>
+                <option value="7">8</option>
               </select>
 
               <!-- Datos del usuario -->

@@ -96,7 +96,19 @@ function reservarSala() {
 
     console.log(reservas + "estos son los reservas")
     console.log(salas + "si detecto las salas")
-
+    console.log(salas[0].sala + "")
+   
+    //escuchar cambio al seleccionar sala
+    let idSala = document.getElementById("sala");
+    console.log (idSala + "che que onda");
+    if (!idSala) {return}
+    
+    //change escucha a los cambios de los input seleccionados por su id
+    idSala.addEventListener("change", (e) => {
+        console.log("El usuario eligió:", idSala.value);
+        console.log("El usuario quiere:", e.target.value);
+        console.log (e)
+      });
 
     //evento para que se detone al enviar confirmación del formulario
     formReserva.addEventListener("submit", (event) => {
@@ -104,8 +116,8 @@ function reservarSala() {
         //otra manera de tomar datos:
         //formData= new FormData (event.target);
         //tomar datos del formulario
-        let idSala = document.getElementById("sala").value.trim();
-        let fechaReserva = document.getElementById("fechaReserva").value.trim();
+       
+        let fechaReserva = document.getElementById("fecha").value.trim();
         let horario = document.getElementById("horario").value.trim();
         let participantes = document.getElementById("participantes").value.trim();
         let emailReserva = document.getElementById("emailReserva").value.trim();
@@ -121,11 +133,6 @@ function reservarSala() {
             return;
         }
 
-        //la maxima es igual para todas las salas
-        if (participantes > 8) {
-            alert(`La cantidad máxima de participantes es 8.`);
-            return;
-        }
 
         //chequear que la fecha no esté ocupada: ------------------------------------------------
 
