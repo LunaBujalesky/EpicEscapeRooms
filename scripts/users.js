@@ -16,6 +16,23 @@ let usuarios = [
     fechaNacimiento: "2025-12-20"
   }
 ];
+
+//funcion async y manejo de error para cuando no tiene datos cargados en el storage
+function CargarUsuarios() {
+  //Si ya se cargo la base de datos, no hacer nada
+  if (localStorage.getItem("usuarios")) {
+    console.log("Usuarios ya cargados en localStorage");
+    return;
+  }
+
+  fetch("../data/users.json").then(respuesta => respuesta.json())
+    .then(data => {
+      usuarios = data;
+      localStorage.setItem("usuarios", JSON.stringify(usuarios));
+    })
+    .catch(err => console.error("Error al leer JSON:", err));
+}
+
 // Funcion crear Usuario por html y dom
 function registrarUsuario() {
   const formRegistro = document.getElementById("formRegistro")
@@ -26,7 +43,7 @@ function registrarUsuario() {
     event.preventDefault(); // Evita que recargue la página
 
     let usuarios = JSON.parse(localStorage.getItem("usuarios"));
-
+    console.log(usuarios + "estan registrados")
     let nombre = document.getElementById("nombre").value.trim();
     let email = document.getElementById("email").value.trim();
     let contrasena = document.getElementById("contrasena").value.trim();
@@ -38,16 +55,16 @@ function registrarUsuario() {
       contrasena: contrasena,
       fechaNacimiento: fechaNacimiento,
     };
-
+    console.log(usuario + "se esta registrando")
     // chequear longitud de la contraseña/* -->
     if (contrasena.length < 4) {
       alert("Contraseña inválida. Por favor, genere una nueva.");
-      return registrarUsuario();
+      return;
     }
 
     //chequear que el mail esté registrado en el array
     usuarioActual = usuarios.find((usuario) => usuario.email == email);
-
+    console.log(usuarioActual + email + "se encontro")
     if (usuarioActual) {
       alert("Ese mail ya fue registrado");
       return;
@@ -55,15 +72,32 @@ function registrarUsuario() {
 
     usuarios.push(usuario);
 
+    console.log("📋 Lista de usuarios registrados:");
+    for (var i = 0; i < usuarios.length; i++) {
+      console.log(
+        (i + 1) + " → Nombre: " + usuarios[i].nombre +
+        ", Email: " + usuarios[i].email +
+        ", Fecha: " + usuarios[i].fechaNacimiento +
+        ", contraseña: " + usuarios[i].contrasena
+      );
+    }
+
     // Guardar nuevo objeto en el array ...................................-->
-    //localStorage.setItem(usuario);
+
     localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
+    // Verificar que se guardó correctamente antes de redirigir
+    let usuariosGuardados = JSON.parse(localStorage.getItem("usuarios")) || [];
+    let confirmado = usuariosGuardados.find(usuario => usuario.email === email);
 
-    window.open("logIn.html", "_self");
-  })
-};
-
+    if (confirmado) {
+      alert("Usuario registrado correctamente");
+      window.location.href = "logIn.html"; // Redirige sólo si se guardó
+    } else {
+      alert("Error al registrar usuario. Intente nuevamente.");
+    }
+  });
+}
 
 
 // FUNCIONES PARA INGRESAR SESIÓN...................................-->
@@ -149,7 +183,7 @@ function obtenerMomentoDelDia() {
 
 function saludarUsuario() {
   const nombre = localStorage.getItem("nombre");
-  const saludoUsuario = document.getElementById ("saludoUsuario")
+  const saludoUsuario = document.getElementById("saludoUsuario")
   if (!saludoUsuario) return;
 
   const momentoDelDia = obtenerMomentoDelDia();
