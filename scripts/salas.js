@@ -67,7 +67,7 @@ localStorage.setItem("salas", JSON.stringify(salas));
 //array de reservas de salas, guardar reservas pasadas en el localstorage
 let reservas = [
     {
-        idSala: 2,
+        sala: "Dios ha muerto... y no dejó instrucciones",
         fecha: "2025-09-15",
         hora: "18:00",
         nombre: "Luna",
@@ -109,10 +109,9 @@ function reservarSala() {
     //evento para que se detone al enviar confirmación del formulario
     formReserva.addEventListener("submit", (event) => {
         event.preventDefault();
-        //otra manera de tomar datos:
-        //formData= new FormData (event.target);
-        //tomar datos del formulario
 
+        //tomar datos del formulario
+        let nombreSala = Sala.value;
         let fechaReserva = document.getElementById("fecha").value.trim();
         let horario = document.getElementById("horario").value.trim();
         let participantes = document.getElementById("participantes").value.trim();
@@ -122,9 +121,9 @@ function reservarSala() {
         //chequear que la cantidad de participantes coincida en su min y max por sala
         participantes = Number(participantes);
         console.log(salas)
-       
-        const salaSeleccionada = salas.find(sala => sala.idSala === Number(Sala.value));
-        
+        console.log(Sala.value)
+        const salaSeleccionada = salas.find(sala => sala.sala === Sala.value);
+
         console.log(salaSeleccionada)
 
         if (participantes < salaSeleccionada.cantidadParticipantesMinima) {
@@ -132,16 +131,12 @@ function reservarSala() {
             return;
         }
 
-        if (!salaSeleccionada) {
-            alert("No se encontró la sala seleccionada.");
-            return;
-        }
 
         //chequear que la fecha no esté ocupada: ------------------------------------------------
 
         //declaramos como variable para reutilizar despues
         const salaOcupada = reservas.find(reserva =>
-            reserva.Sala == Sala && reserva.fecha == fechaReserva && reserva.hora == horario
+            reserva.sala === nombreSala && reserva.fecha === fechaReserva && reserva.hora === horario
         );
         console.log(reservas)
         //condicional que impida que se reserve dos veces la misma sala con los mismos datos
@@ -153,7 +148,7 @@ function reservarSala() {
 
         //mandar al array que almacena las reservas los datos de la nueva reserva 
         let reservaNueva = {
-            idSala: idSala,
+            sala: nombreSala,
             fecha: fechaReserva,
             hora: horario,
             participantes: participantes,
@@ -178,6 +173,8 @@ function reservarSala() {
 
 }
 
+
+//confirmar o cancelar la reserva 
 // 2 funcion superior----Para meter despues "elije tu sala por el día/hora que quieras venir:"--------------------------------------------------- 
 //function SalasDisponibles(salas) {
 //    return salas.filter(sala => {
