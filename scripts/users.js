@@ -88,11 +88,9 @@ function VerificarDatos() {
     console.log(email + "che que onda");
 
 
-
     //chequear que el mail esté registrado en el array
     usuarioActual = usuarios.find((usuario) => usuario.email == email);
 
-    localStorage.setItem("nombreUsuario", usuarioActual.nombre);
 
     if (!usuarioActual) {
       alert("El email no está registrado.");
@@ -111,8 +109,6 @@ function VerificarDatos() {
       localStorage.setItem("nombreUsuario", usuarioActual.nombre);
       window.location.href = "perfil.html";
     }
-
-
   })
 };
 
@@ -153,7 +149,8 @@ function obtenerMomentoDelDia() {
 
 function saludarUsuario() {
   const nombre = localStorage.getItem("nombre");
-  if (!nombre) return;
+  const saludoUsuario = document.getElementById ("saludoUsuario")
+  if (!saludoUsuario) return;
 
   const momentoDelDia = obtenerMomentoDelDia();
 
@@ -199,4 +196,7 @@ console.log(localStorage.getItem("nombre"));
 
 const datosGuardados = JSON.parse(localStorage.getItem("usuario"));
 console.log(datosGuardados.nombre); // Acceder al nombre */
-
+VerificarDatos();
+registrarUsuario();
+obtenerMomentoDelDia();
+saludarUsuario();
