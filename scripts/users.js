@@ -1,21 +1,4 @@
-let email;
-let contrasena;
-let usuarioActual;
 
-let usuarios = [
-  {
-    nombre: "Luna",
-    email: "lunitabruja@gmail.com",
-    contrasena: "1234",
-    fechaNacimiento: "1997-10-10"
-  },
-  {
-    nombre: "Pipo",
-    email: "pipo@gmail.com",
-    contrasena: "abcd",
-    fechaNacimiento: "2025-12-20"
-  }
-];
 CargarUsuarios()
 //funcion async y manejo de error para cuando no tiene datos cargados en el storage
 function CargarUsuarios() {

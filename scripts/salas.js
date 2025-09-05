@@ -139,7 +139,7 @@ function reservarSala() {
             Swal.fire({
                 title: "Lo sentimos :c!",
                 text: "Parece que esa sala está ocupada. Puedes probar en otro día u horario",
-                imageUrl: "img/sad-cat.png",
+                imageUrl: "/assets/sad-cat.png",
                 imageWidth: 400,
                 imageHeight: 200,
                 imageAlt: "sad cat :c"
