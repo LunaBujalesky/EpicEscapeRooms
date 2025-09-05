@@ -171,7 +171,7 @@ function redireccionLogin() {
 
   //por default, usuario POR ingresar 
   else {
-    menuLogin.href = "./logIn.html";
+    menuLogin.href = "/pages/logIn.html";
     // menuSalaSecreta.href = "/pages/salaabierta.html";
   }
 
