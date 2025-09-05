@@ -243,6 +243,41 @@ function cerrarSesion() {
   });
 }
 
+//funcion para precargar datos y obviar registro para la correccion
+
+function precargarLogin() {
+  
+  const emailPrueba = "profesor@ejemplo.com";
+  const contrasenaPrueba = "1234";
+  const emailInput = document.getElementById("email");
+  const contrasenaInput = document.getElementById("contrasena");
+
+  if (!emailInput || !contrasenaInput) return;
+
+  emailInput.value = emailPrueba;
+  contrasenaInput.value = contrasenaPrueba;
+
+  let usuarios = JSON.parse(localStorage.getItem("usuarios"));
+
+  if (!usuarios.some(user => user.email === emailPrueba)) {
+    usuarios.push({
+      nombre: "Profesor Ejemplo",
+      email: emailPrueba,
+      contrasena: contrasenaPrueba,
+      fechaNacimiento: "1970-01-01"
+    });
+    localStorage.setItem("usuarios", JSON.stringify(usuarios));
+  }
+
+  emailInput.onfocus = function() {
+    this.value = "";
+  };
+  contrasenaInput.onfocus = function() {
+    this.value = "";
+  };
+
+}
+
 
 
 
@@ -276,3 +311,4 @@ obtenerMomentoDelDia();
 saludarUsuario();
 redireccionLogin();
 cerrarSesion();
+precargarLogin();
