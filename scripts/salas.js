@@ -127,7 +127,7 @@ function reservarSala() {
         console.log(salaSeleccionada)
 
         if (participantes < salaSeleccionada.cantidadParticipantesMinima) {
-            alert(`La cantidad mínima de participantes para esta sala es ${salaSeleccionada.cantidadParticipantesMinima}.`);
+            Swal.fire(`La cantidad mínima de participantes para esta sala es ${salaSeleccionada.cantidadParticipantesMinima}.`);
             return;
         }
 
@@ -141,7 +141,14 @@ function reservarSala() {
         console.log(reservas)
         //condicional que impida que se reserve dos veces la misma sala con los mismos datos
         if (salaOcupada !== undefined) {
-            alert("Esa fecha y horario ya están ocupados para esta sala. Por favor selecciona otra.");
+            Swal.fire({
+                title: "Lo sentimos :c!",
+                text: "Parece que esa sala está ocupada. Puedes probar en otro día u horario",
+                imageUrl: "img/sad-cat.png",
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: "sad cat :c"
+            });
             return; // detiene la función para que no se guarde la reserva
         }
 
@@ -156,6 +163,7 @@ function reservarSala() {
         };
 
 
+        //confirmar o cancelar la reserva 
         //si la confirmo, entonces aqui debajo pongo que envie los datos al array de reservas en el localstorage 
         alert("desea confirmar la reserva?");
 
@@ -174,7 +182,9 @@ function reservarSala() {
 }
 
 
-//confirmar o cancelar la reserva 
+
+
+
 // 2 funcion superior----Para meter despues "elije tu sala por el día/hora que quieras venir:"--------------------------------------------------- 
 //function SalasDisponibles(salas) {
 //    return salas.filter(sala => {

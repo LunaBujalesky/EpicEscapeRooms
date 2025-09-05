@@ -59,7 +59,12 @@ function registrarUsuario() {
     console.log(usuario + "se esta registrando")
     // chequear longitud de la contraseña/* -->
     if (contrasena.length < 4) {
-      alert("Contraseña inválida. Por favor, genere una nueva.");
+      Swal.fire({
+        icon: "error",
+        title: "Ey...",
+        text: "Parece que tu contraseña le faltan un par de caracteres...",
+        footer: '<a href="#">Por favor, genera una de más de 4 digitos</a>'
+      });
       return;
     }
 
@@ -67,7 +72,12 @@ function registrarUsuario() {
     usuarioActual = usuarios.find((usuario) => usuario.email == email);
     console.log(usuarioActual + email + "se encontro")
     if (usuarioActual) {
-      alert("Ese mail ya fue registrado");
+      Swal.fire({
+        icon: "error",
+        title: "Ohno..",
+        text: "Parece que este mail ya fue registrado.",
+        footer: '<a href="#">O quizás deberías chequear como lo escribiste?</a>'
+      });
       return;
     }
 
@@ -90,12 +100,37 @@ function registrarUsuario() {
     // Verificar que se guardó correctamente antes de redirigir
     let usuariosGuardados = JSON.parse(localStorage.getItem("usuarios")) || [];
     let confirmado = usuariosGuardados.find(usuario => usuario.email === email);
-
+    
     if (confirmado) {
-      alert("Usuario registrado correctamente");
-      window.location.href = "logIn.html"; // Redirige sólo si se guardó
+      let timerInterval;
+      Swal.fire({
+        title: "¡Felicidades, ya eres oficialmente un detective!",
+        html: "Serás redirigido a tu oficina en <b></b> ms.",
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading();
+          const timer = Swal.getPopup().querySelector("b");
+          timerInterval = setInterval(() => {
+            timer.textContent = `${Swal.getTimerLeft()}`;
+          }, 100);
+        },
+        willClose: () => {
+          clearInterval(timerInterval);
+        }
+      }).then((result) => {
+        if (result.dismiss === Swal.DismissReason.timer) {
+          // Redirige después del timer
+          window.location.href = "logIn.html";
+        }
+      });
     } else {
-      alert("Error al registrar usuario. Intente nuevamente.");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Espias intervienen nuestra señal!",
+        footer: '<a href="#">Intenta nuevamente</a>'
+      });
     }
   });
 }
@@ -130,13 +165,23 @@ function VerificarDatos() {
 
 
     if (!usuarioActual) {
-      alert("El email no está registrado.");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Este mail no ha sido registrado aún",
+        footer: '<a href="registrarse.html">¿Quieres registrarte?</a>'
+      });
       return;
     }
 
     //chequear que la contraseña coincida con la del array
     if (usuarioActual.contrasena !== contrasena) {
-      alert("Contraseña incorrecta.");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Contraseña incorrecta",
+        footer: '<a href="#">¿Olvidaste tu contraseña?</a>'
+      });
       return;
     }
 
@@ -223,26 +268,57 @@ function cerrarSesion() {
 
   if (!botoncerrarsesion) { return }
 
+  const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: "btn btn-success",
+      cancelButton: "btn btn-danger"
+    },
+    buttonsStyling: false
+  });
+
   botoncerrarsesion.addEventListener("click", () => {
-    //reemplazar despues con un pop up con timer
-    alert("¡Esperamos verte de nuevo!");
+   
+    swalWithBootstrapButtons.fire({
+      title: "¿Cerrar sesión?",
+      text: "¡Esperamos verte de nuevo!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Sí, cerrar sesión",
+      cancelButtonText: "No, quedarme",
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        
+        // remover usuario del localStorage
+        localStorage.removeItem("nombreUsuario");
 
-    const nombreUsuario = localStorage.getItem("nombreUsuario");
+        // revertir funciones y redirigir
+        redireccionLogin();
 
-    console.log(nombreUsuario + "encontrado")
-    // remover la variable de inicio de sesión
-    localStorage.removeItem("nombreUsuario");
+       
+        swalWithBootstrapButtons.fire({
+          title: "Sesión cerrada",
+          text: "Has cerrado sesión correctamente.",
+          icon: "success",
+          timer: 2000,
+          showConfirmButton: false
+        }).then(() => {
+          
+          window.location.href = "../index.html";
+        });
 
-    // revertir la funcion de redirigir paginas del menu 
-    redireccionLogin()
-
-
-    // Retirar al usuario del perfil , osea, llevarlo a otra parte tras cerrar sesión
-    window.location.href = "../index.html";
-
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        swalWithBootstrapButtons.fire({
+          title: "Acción cancelada",
+          text: "Sigues conectado :)",
+          icon: "info",
+          timer: 1500,
+          showConfirmButton: false
+        });
+      }
+    });
   });
 }
-
 //funcion para precargar datos y obviar registro para la correccion
 
 function precargarLogin() {
