@@ -16,7 +16,7 @@ let usuarios = [
     fechaNacimiento: "2025-12-20"
   }
 ];
- CargarUsuarios()
+CargarUsuarios()
 //funcion async y manejo de error para cuando no tiene datos cargados en el storage
 function CargarUsuarios() {
   //Si ya se cargo la base de datos, no hacer nada
@@ -28,6 +28,7 @@ function CargarUsuarios() {
   fetch("../data/users.json").then(respuesta => respuesta.json())
     .then(data => {
       usuarios = data;
+      console.log("carga usuario exitosa")
       localStorage.setItem("usuarios", JSON.stringify(usuarios));
     })
     .catch(err => console.error("Error al leer JSON:", err));
@@ -121,9 +122,11 @@ function VerificarDatos() {
     console.log(contrasena + "che que onda");
     console.log(email + "che que onda");
 
+    // Leer usuarios guardados en localStorage
+    const usuarios = JSON.parse(localStorage.getItem("usuarios"));
 
     //chequear que el mail esté registrado en el array
-    usuarioActual = usuarios.find((usuario) => usuario.email == email);
+    usuarioActual = usuarios.find((usuario) => usuario.email === email);
 
 
     if (!usuarioActual) {
