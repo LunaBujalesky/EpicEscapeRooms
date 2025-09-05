@@ -146,11 +146,6 @@ function reservarSalaCalendario() {
     return;
   }
 
-  // Verificar que la librería esté cargada
-  if (!window.VanillaCalendarPro) {
-    console.error('VanillaCalendarPro no está cargado');
-    return;
-  }
 
   // Destructure the Calendar constructor
   const { Calendar } = window.VanillaCalendarPro;

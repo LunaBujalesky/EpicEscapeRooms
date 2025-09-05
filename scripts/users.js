@@ -21,14 +21,14 @@ CargarUsuarios()
 function CargarUsuarios() {
   //Si ya se cargo la base de datos, no hacer nada
   if (localStorage.getItem("usuarios")) {
-    console.log("Usuarios ya cargados en localStorage");
+    
     return;
   }
 
   fetch("../data/users.json").then(respuesta => respuesta.json())
     .then(data => {
       usuarios = data;
-      console.log("carga usuario exitosa")
+      
       localStorage.setItem("usuarios", JSON.stringify(usuarios));
     })
     .catch(err => console.error("Error al leer JSON:", err));
@@ -44,7 +44,7 @@ function registrarUsuario() {
     event.preventDefault(); // Evita que recargue la página
 
     let usuarios = JSON.parse(localStorage.getItem("usuarios"));
-    console.log(usuarios + "estan registrados")
+
     let nombre = document.getElementById("nombre").value.trim();
     let email = document.getElementById("email").value.trim();
     let contrasena = document.getElementById("contrasena").value.trim();
@@ -56,7 +56,7 @@ function registrarUsuario() {
       contrasena: contrasena,
       fechaNacimiento: fechaNacimiento,
     };
-    console.log(usuario + "se esta registrando")
+
     // chequear longitud de la contraseña/* -->
     if (contrasena.length < 4) {
       Swal.fire({
@@ -70,7 +70,7 @@ function registrarUsuario() {
 
     //chequear que el mail esté registrado en el array
     usuarioActual = usuarios.find((usuario) => usuario.email == email);
-    console.log(usuarioActual + email + "se encontro")
+
     if (usuarioActual) {
       Swal.fire({
         icon: "error",
@@ -83,15 +83,7 @@ function registrarUsuario() {
 
     usuarios.push(usuario);
 
-    console.log("📋 Lista de usuarios registrados:");
-    for (var i = 0; i < usuarios.length; i++) {
-      console.log(
-        (i + 1) + " → Nombre: " + usuarios[i].nombre +
-        ", Email: " + usuarios[i].email +
-        ", Fecha: " + usuarios[i].fechaNacimiento +
-        ", contraseña: " + usuarios[i].contrasena
-      );
-    }
+  
 
     // Guardar nuevo objeto en el array ...................................-->
 
@@ -153,9 +145,6 @@ function VerificarDatos() {
 
     email = document.getElementById("email").value.trim();
     contrasena = document.getElementById("contrasena").value.trim();
-
-    console.log(contrasena + "che que onda");
-    console.log(email + "che que onda");
 
     // Leer usuarios guardados en localStorage
     const usuarios = JSON.parse(localStorage.getItem("usuarios"));

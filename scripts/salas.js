@@ -90,13 +90,10 @@ function reservarSala() {
     let salas = JSON.parse(localStorage.getItem("salas"));
     let reservas = JSON.parse(localStorage.getItem("reservas"));
 
-    console.log(reservas + "estos son los reservas")
-    console.log(salas + "si detecto las salas")
-    console.log(salas[0].sala + "")
 
     //escuchar cambio al seleccionar sala
     let Sala = document.getElementById("sala");
-    console.log(Sala + "che que onda");
+
     if (!Sala) { return }
 
     //change escucha a los cambios de los input seleccionados por su id
@@ -120,11 +117,9 @@ function reservarSala() {
 
         //chequear que la cantidad de participantes coincida en su min y max por sala
         participantes = Number(participantes);
-        console.log(salas)
-        console.log(Sala.value)
+
         const salaSeleccionada = salas.find(sala => sala.sala === Sala.value);
 
-        console.log(salaSeleccionada)
 
         if (participantes < salaSeleccionada.cantidadParticipantesMinima) {
             Swal.fire(`La cantidad mínima de participantes para esta sala es ${salaSeleccionada.cantidadParticipantesMinima}.`);
@@ -138,7 +133,7 @@ function reservarSala() {
         const salaOcupada = reservas.find(reserva =>
             reserva.sala === nombreSala && reserva.fecha === fechaReserva && reserva.hora === horario
         );
-        console.log(reservas)
+
         //condicional que impida que se reserve dos veces la misma sala con los mismos datos
         if (salaOcupada !== undefined) {
             Swal.fire({
