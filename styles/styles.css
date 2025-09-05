@@ -1727,10 +1727,6 @@ h2 {
   transform: translateX(-72px) ;
 }
 
-.info-usuario {
-  position: absolute;
-  z-index: 70;
-}
 
 .card-perfil {
   background: whitesmoke;
@@ -1756,7 +1752,7 @@ h2 {
 .info-usuario {
   position: absolute;
   z-index: 120;
-   top: 42%;     
+   top: 36%;     
    display: flex;
    flex-direction: row;
    transform: translateX(-79px);
@@ -1786,7 +1782,7 @@ h2 {
 .estadisticas-usuario {
   width: 270px;
   height: 170px;
-  transform: translateX(-33px) translateY(-166px);
+  transform: translateX(-48px) translateY(-238px);
 }
 .perfil-button {
   font-family: "JetBrains Mono";
@@ -1797,9 +1793,22 @@ h2 {
   cursor: pointer;
   text-decoration: none;
   font-size: 20px;
-  transform: rotate(-5deg)  translateX(75px)  translateY(-120px);
+  transform: rotate(-5deg)  translateX(75px)  translateY(-200px);
 }
-
+.logout-button {
+  font-family: "JetBrains Mono";
+  color: black;
+  background: none;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 20px;
+  transform: rotate(-5deg)  translateX(75px)  translateY(-230px);
+}
+.logout-button:hover .tachon path {
+  stroke-dashoffset: 0;
+}
 .tachon {
   position: absolute;
   bottom: -5px;
@@ -1829,5 +1838,15 @@ h2 {
   width: 140px;
   height: 140px;
   margin: 20px auto;
+}
+
+.saludoUstyle {
+  font-family: JetBrains Mono;  
+  color: black; 
+  font-size: 16px;
+   text-align: center;
+   width: 200px;
+   height: fit-content;
+   margin: auto 20px auto;
 }
 /* FIN sección perfil logeado */

@@ -64,12 +64,12 @@
                         <ul class="header-nav-container">
                             <li><a href="../index.html">Inicio</a></li>
                             <li><a href="./reservaSalas.html">Salas</a></li>
-                            <li><a id=”redireccionSalaSecreta” href="./salaSecreta.html"><img
+                            <li><a id="redireccionSalaSecreta" href="./salaSecreta.html"><img
                                         src="../assets/candadoCerrado.png" alt="icono candado cerrado"></a>
                             </li>
                             <!--<li><a href="pages/salaSecreta.html"><img src="../assets/candadoAbierto.png" alt="icono candado abierto"></a></li>-->
                             <li><a href="./contacto.html">Contacto</a></li>
-                            <li><a id=”redireccionporLogin” href="./logIn.html"> <img
+                            <li><a id="redireccionporLogin" href="./logIn.html"> <img
                                         src="../assets/defaultAvatarMenu.png" alt="avatar de perfil">Perfil</a>
                             </li>
                         </ul>
@@ -120,7 +120,7 @@
                                 <div>
                                     <div class="profile-photo"></div>
                                 </div>
-                                <div id="saludoUsuario" style="font-family: JetBrains Mono;  color: black; font-size: 16px; text-align: center;">Bienvenido de regreso, <br> Detective</div>
+                                <div id="saludoUsuario" class="saludoUstyle">Bienvenido de regreso, <br> Detective</div>
                             </div>
                             <div>
                                 <div>
@@ -132,6 +132,14 @@
                             </div>
                             <div class="info-usuario-terceracolumna">
                                 <div class="id-usuario"></div>
+                                <div><button class="logout-button" id="logout-button">
+                                    <p>Cerrar sesión</p>
+                                    <svg viewBox="0 0 120 25" xmlns="http://www.w3.org/2000/svg" class="tachon">
+                                        <path d="M1.5 14.5001C10.08 12.6851 18.66 10.8701 39.9925 8.69758C61.325 6.52508 95.15 4.05008 111.997 2.69258C128.845 1.33508 127.69 1.17008 114.637 3.89008C101.585 6.61008 76.67 12.2201 63.2575 15.3576C49.845 18.4951 48.69 18.9901 47.8475 19.4101C47.005 19.8301 46.51 20.1601 47.245 20.4951C47.98 20.8301 49.96 21.1601 54.8575 21.0001C59.755 20.8401 67.51 20.1801 72.66 19.5926C80.12 18.5101 86.295 17.8351 92.4575 17.5026C94.825 17.3351 95.65 17.1701 96.5 17.0001"
+                                              stroke="black" stroke-width="2" stroke-linecap="round"
+                                              fill="none"/>
+                                      </svg>
+                                </button></div>
                                 <div class="estadisticas-usuario">
                                     <p class="estadisticas-usuario-texto">Mejor Puntuación <br>
                                         Amanecer de Blair:<br>
@@ -190,7 +198,7 @@
         </section>
         <div class="card-perfil salaSecretaCard">
             <div class="card-perfil-salaSecretaCard"></div>
-            <img  src="../assets/salaBloqueadaFoto.png" alt="">
+            <img src="../assets/salaBloqueadaFoto.png" alt="">
     </main>
     
     

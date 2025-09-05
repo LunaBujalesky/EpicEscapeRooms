@@ -155,25 +155,31 @@ function VerificarDatos() {
 
 function redireccionLogin() {
   let menuLogin = document.getElementById("redireccionporLogin")
-  let menuSalaSecreta = document.getElementById("redireccionSalaSecreta")
-  if (!menuLogin || !menuSalaSecreta) { return }
+  //let menuSalaSecreta = document.getElementById("redireccionSalaSecreta")
+
+  if (!menuLogin) { return }
+
+  const usuarioLogeado = localStorage.getItem("nombreUsuario");
+
+  //sala secreta redireccion comentada porque falta implementar dicho sistema
+
   //usuario ingresado
-  if (usuarioActual) {
-    menuLogin.href = "pages/perfil.html";
-    menuSalaSecreta.href = "pages/salaabierta.html";
+  if (usuarioLogeado) {
+    menuLogin.href = "/pages/perfil.html";
+    //menuSalaSecreta.href = "/pages/salaabierta.html";
   }
 
   //por default, usuario POR ingresar 
   else {
-    menuLogin.href = "pages/logIn.html";
-    menuSalaSecreta.href = "pages/salaSecreta.html";
+    menuLogin.href = "./logIn.html";
+    // menuSalaSecreta.href = "/pages/salaabierta.html";
   }
+
 }
 
 
 // Funcion para Saludar al usuario segun el momento del dia con condicional switch 
-// En proceso de construcción
-// if lo usamos para verificar si hay un nombre registrado. 
+
 // switch lo usamos para decidir el saludo según la hora del día. /* -->
 function obtenerMomentoDelDia() {
   const hora = new Date().getHours();
@@ -183,9 +189,9 @@ function obtenerMomentoDelDia() {
   return "noche";
 }
 
-
+//reutilizo la variable de nombre usuario que genere en la funcion de log in
 function saludarUsuario() {
-  const nombre = localStorage.getItem("nombre");
+  const nombre = localStorage.getItem("nombreUsuario");
   const saludoUsuario = document.getElementById("saludoUsuario")
   if (!saludoUsuario) return;
 
@@ -211,7 +217,36 @@ function saludarUsuario() {
 
 // FIN  Funcion  Saludar/* ...................................-->
 
-/*Notas uso JSON
+function cerrarSesion() {
+
+  const botoncerrarsesion = document.getElementById("logout-button");
+
+  if (!botoncerrarsesion) { return }
+
+  botoncerrarsesion.addEventListener("click", () => {
+    //reemplazar despues con un pop up con timer
+    alert("¡Esperamos verte de nuevo!");
+
+    const nombreUsuario = localStorage.getItem("nombreUsuario");
+
+    console.log(nombreUsuario + "encontrado")
+    // remover la variable de inicio de sesión
+    localStorage.removeItem("nombreUsuario");
+
+    // revertir la funcion de redirigir paginas del menu 
+    redireccionLogin()
+
+
+    // Retirar al usuario del perfil , osea, llevarlo a otra parte tras cerrar sesión
+    window.location.href = "../index.html";
+
+  });
+}
+
+
+
+
+/*Notas uso  de la clase JSON
 
 /* Recuperar datos de localStorage
 const nombre = localStorage.getItem("nombre");
@@ -233,7 +268,11 @@ console.log(localStorage.getItem("nombre"));
 
 const datosGuardados = JSON.parse(localStorage.getItem("usuario"));
 console.log(datosGuardados.nombre); // Acceder al nombre */
+
+
 VerificarDatos();
 registrarUsuario();
 obtenerMomentoDelDia();
 saludarUsuario();
+redireccionLogin();
+cerrarSesion();
