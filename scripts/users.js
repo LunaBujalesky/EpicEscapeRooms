@@ -16,7 +16,7 @@ let usuarios = [
     fechaNacimiento: "2025-12-20"
   }
 ];
-
+ CargarUsuarios()
 //funcion async y manejo de error para cuando no tiene datos cargados en el storage
 function CargarUsuarios() {
   //Si ya se cargo la base de datos, no hacer nada
