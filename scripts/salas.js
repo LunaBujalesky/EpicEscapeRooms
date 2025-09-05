@@ -67,10 +67,6 @@ localStorage.setItem("salas", JSON.stringify(salas));
 //array de reservas de salas, guardar reservas pasadas en el localstorage
 let reservas = [
     {
-
-    },
-
-    {
         idSala: 2,
         fecha: "2025-09-15",
         hora: "18:00",
@@ -97,18 +93,18 @@ function reservarSala() {
     console.log(reservas + "estos son los reservas")
     console.log(salas + "si detecto las salas")
     console.log(salas[0].sala + "")
-   
+
     //escuchar cambio al seleccionar sala
-    let idSala = document.getElementById("sala");
-    console.log (idSala + "che que onda");
-    if (!idSala) {return}
-    
+    let Sala = document.getElementById("sala");
+    console.log(Sala + "che que onda");
+    if (!Sala) { return }
+
     //change escucha a los cambios de los input seleccionados por su id
-    idSala.addEventListener("change", (e) => {
-        console.log("El usuario eligió:", idSala.value);
+    Sala.addEventListener("change", (e) => {
+        console.log("El usuario eligió:", Sala.value);
         console.log("El usuario quiere:", e.target.value);
-        console.log (e)
-      });
+        console.log(e)
+    });
 
     //evento para que se detone al enviar confirmación del formulario
     formReserva.addEventListener("submit", (event) => {
@@ -116,7 +112,7 @@ function reservarSala() {
         //otra manera de tomar datos:
         //formData= new FormData (event.target);
         //tomar datos del formulario
-       
+
         let fechaReserva = document.getElementById("fecha").value.trim();
         let horario = document.getElementById("horario").value.trim();
         let participantes = document.getElementById("participantes").value.trim();
@@ -125,22 +121,29 @@ function reservarSala() {
 
         //chequear que la cantidad de participantes coincida en su min y max por sala
         participantes = Number(participantes);
-
-        const salaSeleccionada = salas.find(sala => sala.idSala === idSala);
+        console.log(salas)
+       
+        const salaSeleccionada = salas.find(sala => sala.idSala === Number(Sala.value));
+        
+        console.log(salaSeleccionada)
 
         if (participantes < salaSeleccionada.cantidadParticipantesMinima) {
             alert(`La cantidad mínima de participantes para esta sala es ${salaSeleccionada.cantidadParticipantesMinima}.`);
             return;
         }
 
+        if (!salaSeleccionada) {
+            alert("No se encontró la sala seleccionada.");
+            return;
+        }
 
         //chequear que la fecha no esté ocupada: ------------------------------------------------
 
         //declaramos como variable para reutilizar despues
         const salaOcupada = reservas.find(reserva =>
-            reserva.idSala == idSala && reserva.fecha == fechaReserva && reserva.hora == horario
+            reserva.Sala == Sala && reserva.fecha == fechaReserva && reserva.hora == horario
         );
-
+        console.log(reservas)
         //condicional que impida que se reserve dos veces la misma sala con los mismos datos
         if (salaOcupada !== undefined) {
             alert("Esa fecha y horario ya están ocupados para esta sala. Por favor selecciona otra.");
@@ -163,7 +166,7 @@ function reservarSala() {
 
         //primero el push al array, luego lo almaceno
         reservas.push(reservaNueva);
-        localStorage.setItem("reservas", JSON.stringify(reservasguardadas));
+        localStorage.setItem("reservas", JSON.stringify(reservas));
 
         //al final de esta funcion, debería agregar "la boleta" que confirma los datos de la reserva
         alert("Reserva confirmada!");
@@ -175,7 +178,7 @@ function reservarSala() {
 
 }
 
-// 2 funcion superior------------------------------------------------------- 
+// 2 funcion superior----Para meter despues "elije tu sala por el día/hora que quieras venir:"--------------------------------------------------- 
 //function SalasDisponibles(salas) {
 //    return salas.filter(sala => {
 //        // filtrar dia
@@ -188,7 +191,7 @@ function reservarSala() {
 //    });
 //}
 
-//const disponibles = SalasDisponibles(salas);
+
 
 
 
