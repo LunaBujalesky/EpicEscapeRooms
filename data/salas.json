@@ -1,77 +1,91 @@
-
 [
   {
+    "idSala": 1,
     "sala": "Amanecer de Blair",
-    "cantidadParticipantesMinima": "6",
-    "diaDisponible": [
-      { "14": true },
-      { "15": true },
-      { "16": true }
-    ],
-    "horariosDisponibles": [
-      { "1500": true },
-      { "1600": true },
-      { "1700": true }
+    "cantidadParticipantesMinima": 3,
+    "horarios": [
+      "13:00",
+      "14:00",
+      "15:00",
+      "16:00",
+      "17:00",
+      "18:00",
+      "19:00",
+      "20:00",
+      "21:00",
+      "22:00"
     ],
     "aplicarDescuentoCumpleano": false
   },
   {
+    "idSala": 2,
     "sala": "Escapando de Latinoamerica",
-    "cantidadParticipantesMinima": "2",
-    "diaDisponible": [
-      { "14": true },
-      { "15": true },
-      { "16": true }
-    ],
-    "horariosDisponibles": [
-      { "1500": true },
-      { "1600": true },
-      { "1700": true }
+    "cantidadParticipantesMinima": 2,
+    "horarios": [
+      "13:00",
+      "14:00",
+      "15:00",
+      "16:00",
+      "17:00",
+      "18:00",
+      "19:00",
+      "20:00",
+      "21:00",
+      "22:00"
     ],
     "aplicarDescuentoCumpleano": false
   },
   {
+    "idSala": 3,
     "sala": "Operación: ¡Contradefensa de la invasión Gnómica en el Jardín!",
-    "cantidadParticipantesMinima": "3",
-    "diaDisponible": [
-      { "14": true },
-      { "15": true },
-      { "16": true }
-    ],
-    "horariosDisponibles": [
-      { "1500": true },
-      { "1600": true },
-      { "1700": true }
+    "cantidadParticipantesMinima": 3,
+    "horarios": [
+      "13:00",
+      "14:00",
+      "15:00",
+      "16:00",
+      "17:00",
+      "18:00",
+      "19:00",
+      "20:00",
+      "21:00",
+      "22:00"
     ],
     "aplicarDescuentoCumpleano": false
   },
   {
+    "idSala": 4,
     "sala": "Kiki Delivery Crisis",
-    "cantidadParticipantesMinima": "2",
-    "diaDisponible": [
-      { "14": true },
-      { "15": true },
-      { "16": true }
-    ],
-    "horariosDisponibles": [
-      { "1500": true },
-      { "1600": true },
-      { "1700": true }
+    "cantidadParticipantesMinima": 2,
+    "horarios": [
+      "13:00",
+      "14:00",
+      "15:00",
+      "16:00",
+      "17:00",
+      "18:00",
+      "19:00",
+      "20:00",
+      "21:00",
+      "22:00"
     ],
     "aplicarDescuentoCumpleano": false
   },
   {
+    "idSala": 5,
     "sala": "Dios ha muerto... y no dejó instrucciones",
-    "cantidadParticipantesMinima": "2",
-    "diaDisponible": [
-      { "14": true },
-      { "15": true },
-      { "16": true }
-    ],
-    "horariosDisponibles": [
-      { "1500": true },
-      { "1600": true },
-      { "1700": true }
+    "cantidadParticipantesMinima": 2,
+    "horarios": [
+      "13:00",
+      "14:00",
+      "15:00",
+      "16:00",
+      "17:00",
+      "18:00",
+      "19:00",
+      "20:00",
+      "21:00",
+      "22:00"
     ],
     "aplicarDescuentoCumpleano": false
   }

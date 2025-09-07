@@ -4,7 +4,7 @@ para fidelización y compromiso del usuario.
 
 
 🔧 Funcionalidades
-Reserva de turnos (salas para jugar)
+Reserva de turnos (salas para jugar presenciales).
 Minijuegos con premios desbloqueables.
 Enganment del usuario.
 Página de perfil con tu progreso en nuestras sucursales.
@@ -18,8 +18,7 @@ GitHub Pages (hosting)
 Particles Api para animación interactiva (en local)
 
 ✨Curiosidades
-
-Si exploras bien el sitio, encontrarás una sorpresa O-O 
+Si exploras bien el sitio, encontrarás una sorpresa.
 
 🚧 Estado del proyecto
 🟡Frontend en desarrollo.
@@ -30,7 +29,8 @@ Podés navegar las secciones desde el menú principal.
 En perfil, crea tu usuario, aquí verás tu progreso en nuestras salas.
 En la pagina salas, reserva tu turno para venir a jugar.
 En la página del candado, desbloquearás una sala especial.
-En la página contacto, puedes ponerte en contacto con nosotros para sugerirnos mejoras o pedir solución a tus problemas (en el sitio, los otros a terapia, anda).
+En la página contacto, puedes ponerte en contacto con nosotros para sugerirnos mejoras o problemas con la reserva.
+
 🎨 Wireframe
 Puedes ver el diseño Ux/Ui en figma: https://www.figma.com/design/R9hLdx2jKBYKnS21gdzAv6/Sitios-web-proyectos-Luna?node-id=2-2
 
@@ -42,7 +42,7 @@ Puedes ver el diseño Ux/Ui en figma: https://www.figma.com/design/R9hLdx2jKBYKn
 
 👩‍💻 Autora
 Luna Bujalesky
-Proyecto final para Curso de Javascript.
+
 
 🧪 Instalación
 Cloná el repositorio:

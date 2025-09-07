@@ -850,7 +850,7 @@ h2 {
 
 .fondo-botton button:hover {
   transform: translateY(30px);
-  transition 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
   cursor: pointer;
 }
 

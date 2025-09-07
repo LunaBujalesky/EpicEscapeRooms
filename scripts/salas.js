@@ -1,107 +1,39 @@
+//funcion async y manejo de error para cuando no tiene datos cargados en el storage
+async function cargarSalas() {
+    //Si ya se cargo la base de datos, no hacer nada
+    if (localStorage.getItem("salas")) return;
 
-
-//Funciones para salas
-
-// Array salas como objetos------------------------------------------------------- 
-let salas = [
-    {
-        idSala: 1,
-        sala: "Amanecer de Blair",
-        cantidadParticipantesMinima: 3,
-        participantesMax: 8,
-        horarios: [
-            "13:00", "14:00", "15:00", "16:00", "17:00",
-            "18:00", "19:00", "20:00", "21:00", "22:00"
-        ],
-        aplicarDescuentoCumpleano: false,
-    },
-    {
-        idSala: 2,
-        sala: "Escapando de Latinoamerica",
-        cantidadParticipantesMinima: 2,
-        participantesMax: 8,
-        horarios: [
-            "13:00", "14:00", "15:00", "16:00", "17:00",
-            "18:00", "19:00", "20:00", "21:00", "22:00"
-        ],
-        aplicarDescuentoCumpleano: false,
-    },
-    {
-        idSala: 3,
-        sala: "Operación: ¡Contradefensa de la invasión Gnómica en el Jardín!",
-        cantidadParticipantesMinima: 3,
-        participantesMax: 8,
-        horarios: [
-            "13:00", "14:00", "15:00", "16:00", "17:00",
-            "18:00", "19:00", "20:00", "21:00", "22:00"
-        ],
-        aplicarDescuentoCumpleano: false,
-    },
-    {
-        idSala: 4,
-        sala: "Kiki Delivery Crisis",
-        cantidadParticipantesMinima: 2,
-        participantesMax: 8,
-        horarios: [
-            "13:00", "14:00", "15:00", "16:00", "17:00",
-            "18:00", "19:00", "20:00", "21:00", "22:00"
-        ],
-        aplicarDescuentoCumpleano: false,
-    },
-    {
-        idSala: 5,
-        sala: "Dios ha muerto... y no dejó instrucciones",
-        cantidadParticipantesMinima: 2,
-        participantesMax: 8,
-        horarios: [
-            "13:00", "14:00", "15:00", "16:00", "17:00",
-            "18:00", "19:00", "20:00", "21:00", "22:00"
-        ],
-        aplicarDescuentoCumpleano: false,
-    },
-
-]
-
-localStorage.setItem("salas", JSON.stringify(salas));
-
-//array de reservas de salas, guardar reservas pasadas en el localstorage
-let reservas = [
-    {
-        sala: "Dios ha muerto... y no dejó instrucciones",
-        fecha: "2025-09-15",
-        hora: "18:00",
-        nombre: "Luna",
-        email: "lunabujalesky@gmail.com",
-        participantes: 4
+    try {
+        const respuesta = await fetch("../data/salas.json");
+        const salas = await respuesta.json();
+        localStorage.setItem("salas", JSON.stringify(salas));
+    } catch (err) {
+        console.error("Error al leer JSON:", err);
     }
-];
+}
 
-localStorage.setItem("reservas", JSON.stringify(reservas));
+async function cargarReservas() {
+    if (localStorage.getItem("reservas")) return;
+    try {
+        const respuesta = await fetch("../data/reservas.json");
+        const reservas = await respuesta.json();
+        localStorage.setItem("reservas", JSON.stringify(reservas));
+    } catch (err) {
+        console.error("Error al leer JSON:", err);
+    }
+}
 
 function reservarSala() {
     //ubicar donde se activa la funcion, osea, en el formulario de reservas del html
-    const formReserva = document.querySelector(".formReserva")
+    const formReserva = document.querySelector(".formReserva");
+    if (!formReserva) return;
 
-    //return para prevenir errores en otras paginas de la web
-    if (!formReserva) {
-        return
-    }
-    //tomar datos de los array
+    let Sala = document.getElementById("sala");
+    if (!Sala) return;
+
+    //tomar datos del localStorage
     let salas = JSON.parse(localStorage.getItem("salas"));
     let reservas = JSON.parse(localStorage.getItem("reservas"));
-
-
-    //escuchar cambio al seleccionar sala
-    let Sala = document.getElementById("sala");
-
-    if (!Sala) { return }
-
-    //change escucha a los cambios de los input seleccionados por su id
-    Sala.addEventListener("change", (e) => {
-        console.log("El usuario eligió:", Sala.value);
-        console.log("El usuario quiere:", e.target.value);
-        console.log(e)
-    });
 
     //evento para que se detone al enviar confirmación del formulario
     formReserva.addEventListener("submit", (event) => {
@@ -114,41 +46,18 @@ function reservarSala() {
         let participantes = document.getElementById("participantes").value.trim();
         let emailReserva = document.getElementById("emailReserva").value.trim();
 
-
-        //chequear que la cantidad de participantes coincida en su min y max por sala
-        participantes = Number(participantes);
-
-        const salaSeleccionada = salas.find(sala => sala.sala === Sala.value);
-
-
-        if (participantes < salaSeleccionada.cantidadParticipantesMinima) {
-            Swal.fire(`La cantidad mínima de participantes para esta sala es ${salaSeleccionada.cantidadParticipantesMinima}.`);
+        //buscar la sala elegida en el array y verifica el minimo de jugadores
+        const salaSeleccionada = salas.find((_sala) => _sala.sala === nombreSala);
+        if (!comprobarMinJugadores(participantes, salaSeleccionada)) {
             return;
         }
 
-
-        //chequear que la fecha no esté ocupada: ------------------------------------------------
-
-        //declaramos como variable para reutilizar despues
-        const salaOcupada = reservas.find(reserva =>
-            reserva.sala === nombreSala && reserva.fecha === fechaReserva && reserva.hora === horario
-        );
-
-        //condicional que impida que se reserve dos veces la misma sala con los mismos datos
-        if (salaOcupada !== undefined) {
-            Swal.fire({
-                title: "Lo sentimos :c!",
-                text: "Parece que esa sala está ocupada. Puedes probar en otro día u horario",
-                imageUrl: "/assets/sad-cat.png",
-                imageWidth: 400,
-                imageHeight: 200,
-                imageAlt: "sad cat :c"
-            });
-            return; // detiene la función para que no se guarde la reserva
+        //chequear que la fecha no esté ocupada
+        if (!comprobarReservaLibre(reservas, nombreSala, fechaReserva, horario)) {
+            return;
         }
 
-
-        //mandar al array que almacena las reservas los datos de la nueva reserva 
+        //mandar al array que almacena las reservas los datos de la nueva reserva
         let reservaNueva = {
             sala: nombreSala,
             fecha: fechaReserva,
@@ -157,30 +66,104 @@ function reservarSala() {
             email: emailReserva,
         };
 
+        //confirmar o cancelar la reserva
+        //si la confirmo, entonces aqui debajo pongo que envie los datos al array de reservas en el localstorage
 
-        //confirmar o cancelar la reserva 
-        //si la confirmo, entonces aqui debajo pongo que envie los datos al array de reservas en el localstorage 
-        alert("desea confirmar la reserva?");
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: "btn btn-success",
+                cancelButton: "btn btn-danger"
+            },
+            buttonsStyling: false
+        });
+        swalWithBootstrapButtons.fire({
+            title: "desea confirmar la reserva?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Si, confirmar!",
+            cancelButtonText: "No, la quiero cancelar",
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                swalWithBootstrapButtons.fire({
+                    title: "Reserva confirmada!",
+                    text: "Te estaremos esperando :)",
+                    icon: "success"
+                });
+            } else if (
+
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire({
+                    title: "Reserva cancelada!",
+                    text: "Esperamos que pudas venir en otra ocasion :(",
+                    icon: "error"
+                });
+            }
+        });
 
         //primero el push al array, luego lo almaceno
         reservas.push(reservaNueva);
         localStorage.setItem("reservas", JSON.stringify(reservas));
 
-        //al final de esta funcion, debería agregar "la boleta" que confirma los datos de la reserva
-        alert("Reserva confirmada!");
+        //al final de esta funcion, agregare "la boleta" que confirma los datos de la reserva
 
         // Limpiar formulario
         formReserva.reset();
     });
+}
 
 
+//Funciones usadas dentro de "reservarSala"
+function comprobarMinJugadores(_participantes, _salaSeleccionada) {
+    _participantes = Number(_participantes);
+    if (_participantes < _salaSeleccionada.cantidadParticipantesMinima) {
+        Swal.fire(
+            `La cantidad mínima de participantes para esta sala es ${_salaSeleccionada.cantidadParticipantesMinima}.`
+        );
+        return false;
+    }
+    return true;
+}
+
+function comprobarReservaLibre(_reservas, _sala, _fecha, _horario) {
+    const salaOcupada = _reservas.find((reserva) =>
+        reserva.sala === _sala &&
+        reserva.fecha === _fecha &&
+        reserva.hora === _horario
+    );
+    if (salaOcupada === undefined) {
+        return true;
+    } else {
+        mostrarMensajeReservaOcupada();
+        return false;
+    }
+}
+
+function mostrarMensajeReservaOcupada() {
+    Swal.fire({
+        title: "Lo sentimos :c!",
+        text: "Parece que esa sala está ocupada. Puedes probar en otro día u horario",
+        imageUrl: "/assets/sad-cat.png",
+        imageWidth: 400,
+        imageHeight: 200,
+        imageAlt: "sad cat :c",
+    });
 }
 
 
 
 
 
-// 2 funcion superior----Para meter despues "elije tu sala por el día/hora que quieras venir:"--------------------------------------------------- 
+// Llamado a funciones-------------------------------------------------------......................................... /* -->
+async function init() {
+    await cargarSalas();
+    await cargarReservas();
+    reservarSala();
+}
+init();
+
+// 2 funcion superior----Para meter despues "elije tu sala por el día/hora que quieras venir:"---------------------------------------------------
 //function SalasDisponibles(salas) {
 //    return salas.filter(sala => {
 //        // filtrar dia
@@ -192,16 +175,3 @@ function reservarSala() {
 //       return diaDisponible && horariosDisponibles;
 //    });
 //}
-
-
-
-
-
-
-
-// Llamado a funciones-------------------------------------------------------......................................... /* -->
-
-//SalasDisponibles();
-reservarSala();
-// FIN Llamado a funciones-------------------------------------------------------......................................... /* -->
-

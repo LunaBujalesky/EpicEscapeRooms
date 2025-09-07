@@ -1,21 +1,21 @@
 
-CargarUsuarios()
+
 //funcion async y manejo de error para cuando no tiene datos cargados en el storage
-function CargarUsuarios() {
-  //Si ya se cargo la base de datos, no hacer nada
+async function CargarUsuarios() {
+  // Si ya se cargó la base de datos, no hacer nada
   if (localStorage.getItem("usuarios")) {
-    
     return;
   }
-
-  fetch("../data/users.json").then(respuesta => respuesta.json())
-    .then(data => {
-      usuarios = data;
-      
-      localStorage.setItem("usuarios", JSON.stringify(usuarios));
-    })
-    .catch(err => console.error("Error al leer JSON:", err));
+  try {
+    const respuesta = await fetch("../data/users.json");
+    const usuarios = await respuesta.json();
+    localStorage.setItem("usuarios", JSON.stringify(usuarios));
+  } catch (err) {
+    console.error("Error al leer JSON:", err);
+  }
 }
+
+
 
 // Funcion crear Usuario por html y dom
 function registrarUsuario() {
@@ -66,7 +66,7 @@ function registrarUsuario() {
 
     usuarios.push(usuario);
 
-  
+
 
     // Guardar nuevo objeto en el array ...................................-->
 
@@ -75,7 +75,7 @@ function registrarUsuario() {
     // Verificar que se guardó correctamente antes de redirigir
     let usuariosGuardados = JSON.parse(localStorage.getItem("usuarios")) || [];
     let confirmado = usuariosGuardados.find(usuario => usuario.email === email);
-    
+
     if (confirmado) {
       let timerInterval;
       Swal.fire({
@@ -249,7 +249,7 @@ function cerrarSesion() {
   });
 
   botoncerrarsesion.addEventListener("click", () => {
-   
+
     swalWithBootstrapButtons.fire({
       title: "¿Cerrar sesión?",
       text: "¡Esperamos verte de nuevo!",
@@ -260,14 +260,14 @@ function cerrarSesion() {
       reverseButtons: true
     }).then((result) => {
       if (result.isConfirmed) {
-        
+
         // remover usuario del localStorage
         localStorage.removeItem("nombreUsuario");
 
         // revertir funciones y redirigir
         redireccionLogin();
 
-       
+
         swalWithBootstrapButtons.fire({
           title: "Sesión cerrada",
           text: "Has cerrado sesión correctamente.",
@@ -275,7 +275,7 @@ function cerrarSesion() {
           timer: 2000,
           showConfirmButton: false
         }).then(() => {
-          
+
           window.location.href = "../index.html";
         });
 
@@ -294,7 +294,7 @@ function cerrarSesion() {
 //funcion para precargar datos y obviar registro para la correccion
 
 function precargarLogin() {
-  
+
   const emailPrueba = "profesor@ejemplo.com";
   const contrasenaPrueba = "1234";
   const emailInput = document.getElementById("email");
@@ -317,10 +317,10 @@ function precargarLogin() {
     localStorage.setItem("usuarios", JSON.stringify(usuarios));
   }
 
-  emailInput.onfocus = function() {
+  emailInput.onfocus = function () {
     this.value = "";
   };
-  contrasenaInput.onfocus = function() {
+  contrasenaInput.onfocus = function () {
     this.value = "";
   };
 
@@ -353,10 +353,15 @@ const datosGuardados = JSON.parse(localStorage.getItem("usuario"));
 console.log(datosGuardados.nombre); // Acceder al nombre */
 
 
-VerificarDatos();
-registrarUsuario();
-obtenerMomentoDelDia();
-saludarUsuario();
-redireccionLogin();
-cerrarSesion();
-precargarLogin();
+async function init() {
+  await CargarUsuarios();
+  VerificarDatos();
+  registrarUsuario();
+  obtenerMomentoDelDia();
+  saludarUsuario();
+  redireccionLogin();
+  cerrarSesion();
+  precargarLogin();
+}
+
+init();
