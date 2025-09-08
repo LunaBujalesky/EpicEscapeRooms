@@ -152,7 +152,9 @@ function mostrarMensajeReservaOcupada() {
 }
 
 
-
+function mostrarReserva()  {
+    
+}
 
 
 // Llamado a funciones-------------------------------------------------------......................................... /* -->
