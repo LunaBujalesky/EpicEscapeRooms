@@ -5,6 +5,7 @@
         "hora": "18:00",
         "nombre": "Luna",
         "email": "lunabujalesky@gmail.com",
-        "participantes": 4
+        "participantes": 4,
+        "comentarios": "capaz se suma uno mas"
     }
 ]

@@ -41,10 +41,12 @@ function reservarSala() {
 
         //tomar datos del formulario
         let nombreSala = Sala.value;
+        let detectiveJefe = document.getElementById("nombre").value.trim();
         let fechaReserva = document.getElementById("fecha").value.trim();
         let horario = document.getElementById("horario").value.trim();
         let participantes = document.getElementById("participantes").value.trim();
         let emailReserva = document.getElementById("emailReserva").value.trim();
+        let comentarios = document.getElementById("comentarios").value.trim();
 
         //buscar la sala elegida en el array y verifica el minimo de jugadores
         const salaSeleccionada = salas.find((_sala) => _sala.sala === nombreSala);
@@ -60,10 +62,12 @@ function reservarSala() {
         //mandar al array que almacena las reservas los datos de la nueva reserva
         let reservaNueva = {
             sala: nombreSala,
+            nombre: detectiveJefe,
             fecha: fechaReserva,
             hora: horario,
             participantes: participantes,
             email: emailReserva,
+            comentarios: comentarios,
         };
 
         //confirmar o cancelar la reserva
@@ -107,7 +111,7 @@ function reservarSala() {
         localStorage.setItem("reservas", JSON.stringify(reservas));
 
         //al final de esta funcion, agregare "la boleta" que confirma los datos de la reserva
-
+        mostrarReserva(reservaNueva)
         // Limpiar formulario
         formReserva.reset();
     });
@@ -152,8 +156,27 @@ function mostrarMensajeReservaOcupada() {
 }
 
 
-function mostrarReserva()  {
-    
+function mostrarReserva(reservaNueva) {
+    //contenido de la reserva
+    const salaP = document.getElementById("salaElegida");
+    const fechaP = document.getElementById("fechaElegida");
+    const horaP = document.getElementById("horaElegida");
+    const nombreP = document.getElementById("nombreReserva");
+    const emailP = document.getElementById("emailReservaconfrm");
+    const equipoP = document.getElementById("equipoReserva");
+    const comentariosP = document.getElementById("comentariosReservahecha");
+    if (!salaP) { return }
+    if (!reservaNueva) { return }
+
+    // reemplazar texto con el de la reserva:
+    salaP.textContent = reservaNueva.sala;
+    fechaP.textContent = reservaNueva.fecha;
+    horaP.textContent = reservaNueva.hora;
+    nombreP.textContent = reservaNueva.nombre;
+    emailP.textContent = reservaNueva.email;
+    equipoP.textContent = reservaNueva.participantes;
+    comentariosP.textContent = reservaNueva.comentarios || "";
+
 }
 
 
@@ -177,3 +200,5 @@ init();
 //       return diaDisponible && horariosDisponibles;
 //    });
 //}
+
+mostrarReserva();
