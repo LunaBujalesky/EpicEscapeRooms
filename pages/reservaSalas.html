@@ -153,7 +153,7 @@
               <input type="text" id="comentarios">
 
 
-              <button type="submit" id="botonReserva">Reservar</button>
+              <button type="submit" id="botonReserva" class="botonReservar">Reservar</button>
             </form>
 
           </div>
@@ -181,7 +181,7 @@
 
 
 
-    <div class="boletaContainer">
+    <div class="boletaContainer boletaInvisible boletaCerrar">
       <div class="boletaTitleContainer">
         <div>
           <h3 style="margin: 22px 0 8px 0 ">Tu Reserva</h3>
@@ -236,10 +236,10 @@
       <span class="raya"></span>
       <!--estos alternan, primero los botones, despues se muestra el mensaje-->
       <div class="botonesReserva">
-        <div class="rayitaNegra"><button class="reservaSalaBotonesBoleta" type="submit" id="confirmarReserva">
+        <div class="rayitaNegra"><button class="reservaSalaBotonesBoleta botonConfirmar boletaCerrar" type="submit" id="confirmarReserva">
             <p>Confirmar</p>
           </button><span class="rayitaBotonNegra"></span></div>
-        <div class="rayitaNegra"><button class="reservaSalaBotonesBoleta" type="submit" id="cancelarReserva">
+        <div class="rayitaNegra"><button class="reservaSalaBotonesBoleta botonCancelar boletaCerrar" type="submit" id="cancelarReserva">
             <p>Cancelar</p>
           </button><span class="rayitaBotonNegra"></span></div>
       </div>

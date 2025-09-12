@@ -70,53 +70,76 @@ function reservarSala() {
             comentarios: comentarios,
         };
 
-        //confirmar o cancelar la reserva
-        //si la confirmo, entonces aqui debajo pongo que envie los datos al array de reservas en el localstorage
-
-        const swalWithBootstrapButtons = Swal.mixin({
-            customClass: {
-                confirmButton: "btn btn-success",
-                cancelButton: "btn btn-danger"
-            },
-            buttonsStyling: false
-        });
-        swalWithBootstrapButtons.fire({
-            title: "desea confirmar la reserva?",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonText: "Si, confirmar!",
-            cancelButtonText: "No, la quiero cancelar",
-            reverseButtons: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                swalWithBootstrapButtons.fire({
-                    title: "Reserva confirmada!",
-                    text: "Te estaremos esperando :)",
-                    icon: "success"
-                });
-            } else if (
-
-                result.dismiss === Swal.DismissReason.cancel
-            ) {
-                swalWithBootstrapButtons.fire({
-                    title: "Reserva cancelada!",
-                    text: "Esperamos que pudas venir en otra ocasion :(",
-                    icon: "error"
-                });
-            }
-        });
 
         //primero el push al array, luego lo almaceno
         reservas.push(reservaNueva);
         localStorage.setItem("reservas", JSON.stringify(reservas));
 
-        //al final de esta funcion, agregare "la boleta" que confirma los datos de la reserva
+
+        const boletaReserva = document.querySelector(".boletaContainer");
+
+
+        //Confirma los datos de la reserva
+
+        boletaReserva.classList.remove("boletaInvisible");
+        boletaReserva.classList.toggle("boletaVisible");
+
         mostrarReserva(reservaNueva)
+
+        botonesReservas()
+
+
+
         // Limpiar formulario
         formReserva.reset();
+
     });
 }
 
+const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+        confirmButton: "btn btn-success",
+        cancelButton: "btn btn-danger"
+    },
+    buttonsStyling: false
+});
+
+//Funcion para los botones que se muestran en la boleta luego de llenar formulario de reservas
+function botonesReservas() {
+
+    const boletaCerrar = document.querySelector(".boletaCerrar");
+    const botonCancelar = document.querySelector(".botonCancelar");
+    const botonConfirmar = document.querySelector(".botonConfirmar");
+
+    [botonConfirmar, botonCancelar].forEach(boton => {
+        if (!boton) {return};
+        boton.addEventListener("click", () => {
+
+            boletaCerrar.classList.remove("boletaInvisible");
+            boletaCerrar.classList.toggle("boletaVisible");
+
+
+            if (boton.id === "confirmarReserva") {
+                swalWithBootstrapButtons.fire({
+                    title: "Reserva confirmada!",
+                    text: "Te estaremos esperando :)",
+                    icon: "success"
+                });
+                boletaCerrar.classList.remove("boletaVisible");
+                boletaCerrar.classList.add("boletaInvisible");
+            } else if (boton.id === "cancelarReserva") {
+                // Falta borrar la reserva del array y del localStorage
+                swalWithBootstrapButtons.fire({
+                    title: "Reserva cancelada!",
+                    text: "Esperamos que pudas venir en otra ocasion :(",
+                    icon: "error"
+                });
+                boletaCerrar.classList.remove("boletaVisible");
+                boletaCerrar.classList.add("boletaInvisible");
+            }
+        });
+    });
+}
 
 //Funciones usadas dentro de "reservarSala"
 function comprobarMinJugadores(_participantes, _salaSeleccionada) {
@@ -202,3 +225,4 @@ init();
 //}
 
 mostrarReserva();
+botonesReservas();

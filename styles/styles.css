@@ -1129,6 +1129,10 @@ h2 {
   gap: 10px;
   background-color: #F1F1F1;
   margin: auto;
+  position: absolute;
+  top: 5%;
+  left: 41%;
+  z-index: 99;
 }
 
 .boletaTitleContainer {
@@ -1187,7 +1191,6 @@ h2 {
   height: 3px;
   border-radius: 3px;
   background: #000;
-  /* color negro */
   transition: transform 0.3s ease, top 0.3s ease, opacity 0.3s ease;
 }
 
@@ -1251,6 +1254,15 @@ h2 {
   width: 130px;
 }
 
+.boletaInvisible {
+visibility: hidden;
+opacity: 0;
+}
+
+.boletaVisible {
+visibility: visible;
+
+}
 /* FIN seccion sala ------------------------------------------*/
 
 /* seccion SALA SECRETA ------------------------------------------*/
